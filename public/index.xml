@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Recent Content on Dana Woodman </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://danawoodman.com/index.xml</link>
+    
+    
+    
+    <updated>Tue, 29 Apr 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Show whitespace characters in vim</title>
+      <link>http://danawoodman.com/blarg/vim-show-whitespace</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/vim-show-whitespace</guid>
+      <description>&lt;p&gt;I like to be able to see the whitespace characters in my editor, specifically I like to see when code is indented with tabs versus spaces:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://cl.ly/VGCh/Screen%20Shot%202014-04-29%20at%2012.08.19%20PM.png&#34; alt=&#34;whitespace screenshot&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Add the following to your &lt;code&gt;.vimrc&lt;/code&gt; to display a cute arrow unicode character for tabs in vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Show extra whitespace
+set listchars=tab:➪  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can change the arrow to any valid unicode character that your chosen font supports. Play around and find something you really like.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Run &#39;go fmt&#39; in vim on save</title>
+      <link>http://danawoodman.com/blarg/run-go-fmt-vim</link>
+      <pubDate>Fri, 25 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/run-go-fmt-vim</guid>
+      <description>&lt;p&gt;One of the really awesome things about Golang is the &lt;code&gt;go fmt&lt;/code&gt; command which forces your code to conform to a common formatting convention.&lt;/p&gt;
+
+&lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run ever time you save a go file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Run go-fmt on Go sournce code on save.
+autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Try this out next time you&amp;rsquo;re writing go and you&amp;rsquo;ll be happy you have it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Enable spellcheck for markdown files in vim</title>
+      <link>http://danawoodman.com/blarg/spellcheck-markdown-vim</link>
+      <pubDate>Fri, 18 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/spellcheck-markdown-vim</guid>
+      <description>&lt;p&gt;If you want to enable spellchecking for only certain file types, like markdown files, put the following line in your &lt;code&gt;.vimrc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Turn spellcheck on for markdown files.
+autocmd BufNewFile,BufRead *.md set spell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can apply this regex to match other extensions as well, go crazy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Implementing splat args in JavaScript</title>
+      <link>http://danawoodman.com/blarg/splat-args-javascript</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/splat-args-javascript</guid>
+      <description>&lt;p&gt;Typically in JavaScript you&amp;rsquo;ll define the arguments you expect in a function like so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello(message, adressee) {
+  // Do something exciting here...
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But what happens when you went to pass an &lt;strong&gt;arbitrary amount of arguments to a function&lt;/strong&gt;, or what is often termed &amp;ldquo;splat args&amp;rdquo; in other languages?&lt;/p&gt;
+
+&lt;p&gt;Well, JavaScript provides a special property called &lt;code&gt;arguments&lt;/code&gt; that is scoped to the function call. You can implement a form of splat args with JavaScript using the following approach:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello() {
+  // args is an array of arguments passed into the function.
+  var args = Array.prototype.slice.call(arguments, func.length);
+  // Do something exciting here...
+}
+
+// Now you can call sayHello with any number of arguments:
+sayHello(&#39;some text&#39;, 123, { my: &#39;object&#39; });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This short line takes the arguments list and calls &lt;code&gt;Array.slice&lt;/code&gt; to get all the extra arguments beyond the position arguments. &lt;code&gt;Function.length&lt;/code&gt; is the length of the arguments passed into the function so we&amp;rsquo;re able to get all arguments after the last position argument and put them into an array.&lt;/p&gt;
+
+&lt;p&gt;You can combine this with positional args as well and it will work as expected, getting any undeclared args.&lt;/p&gt;
+
+&lt;p&gt;Until the &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator&#34;&gt;spread operator&lt;/a&gt; and &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/rest_parameters?redirectlocale=en-US&amp;amp;redirectslug=Web/JavaScript/Reference/rest_parameters&#34;&gt;rest parameters&lt;/a&gt; is implemented in ECMAScript 6, we&amp;rsquo;ll have to stick with the above, slightly hacky approach.&lt;/p&gt;
+
+&lt;p&gt;However, when these two changes are universally implemented, we&amp;rsquo;ll be able to do the following instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello(...args) {
+  // args will now be available and will 
+  // contain an array of the arguments passed in.
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create a patch from a git commit</title>
+      <link>http://danawoodman.com/blarg/git-patch</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/git-patch</guid>
+      <description>&lt;p&gt;Sometimes you need to create a patch from a commit in your git repository. I&amp;rsquo;ve had to do this when moving some commits from an old repository over to a new one or for code review when a project isn&amp;rsquo;t using a code review tool like Pull Requests.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how you do it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git format-patch -1 &amp;lt;sha&amp;gt; # for a specific commit SHA
+git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;-1&lt;/code&gt; flag says to only create a patch from the last commit. If you passed in, say &lt;code&gt;-3&lt;/code&gt;, it would create a patch that contains the last 3 commits from &lt;code&gt;&amp;lt;sha&amp;gt;&lt;/code&gt; on back in the history.&lt;/p&gt;
+
+&lt;p&gt;Then to apply the patch, run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;patch -p1 file.patch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where &lt;code&gt;file.patch&lt;/code&gt; is the patch file created from the above command. This applies the patch with any sort of meta information like author, date, etc&amp;hellip; so it appears almost like it was cherry picked.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Interactively add content in git</title>
+      <link>http://danawoodman.com/blarg/iteractive-git-add</link>
+      <pubDate>Sun, 02 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/iteractive-git-add</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s often handy to add changes you&amp;rsquo;ve made to your local branch in git in a more interactive fashion. Sometimes the changes you have make more sense in multiple commits than one catch all commit.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s quite easy to do this in git and here&amp;rsquo;s how:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git add -p
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;-p&lt;/code&gt; flag say to add changes interactively, breaking cohesive changes up into chunks. Here&amp;rsquo;s roughly what it will look like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://cl.ly/VHFO/Screen%20Shot%202014-04-30%20at%209.00.31%20AM.png&#34; alt=&#34;interactive git add&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Now that you see your changes, you have a few options:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;a&lt;/code&gt; &amp;ndash; Add the given chunk.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;n&lt;/code&gt; &amp;ndash; Skip the given chunk (eg &amp;ldquo;next&amp;rdquo;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s&lt;/code&gt; &amp;ndash; Split the given chunk up into smaller chunks.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;q&lt;/code&gt; &amp;ndash; Stop adding chunks and exit out of &lt;code&gt;add&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;?&lt;/code&gt; &amp;ndash; See all the other available sub commands.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hope that&amp;rsquo;s helpful.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go packages are your friend</title>
+      <link>http://danawoodman.com/blarg/go-packages-are-your-friend</link>
+      <pubDate>Fri, 21 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/go-packages-are-your-friend</guid>
+      <description>&lt;p&gt;The approach I&amp;rsquo;ve been taking lately is to start my projects in the &lt;code&gt;main&lt;/code&gt; package and as I go &lt;em&gt;keep an eye for any emerging patterns&lt;/em&gt; or abstractions I can make.&lt;/p&gt;
+
+&lt;p&gt;Once I see something I feel can be pulled out of my code, I put it into a sub-directory in my project, give it a descriptive package name and then &lt;em&gt;import it into my main package&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If a package is specific to the project I&amp;rsquo;m working on and would have little value as an external library, I&amp;rsquo;ll keep it in the sub-directory. Otherwise, I will abstract out the package into it&amp;rsquo;s own repository and &lt;em&gt;think more seriously about the public interface&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Go makes creating new packages trivially easy: Just create a new folder &lt;code&gt;foo&lt;/code&gt;, move your &lt;code&gt;foo&lt;/code&gt; library over and change &lt;code&gt;package main&lt;/code&gt; to &lt;code&gt;package foo&lt;/code&gt;. I&amp;rsquo;d recommend taking advantage of that fact and abstract and encapsulate your code as much as possible using this convention.&lt;/p&gt;
+
+&lt;p&gt;This can be done in many other languages, but the fact that you can &lt;code&gt;go get&lt;/code&gt; any code within a folder on Github or Google Code makes it simple to share packages with other developers or to reuse code in future projects.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re coming from a Ruby background like myself where you&amp;rsquo;d have to create a new Ruby Gem each time, you can see how this encourages code reuse at a language level.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Use zero values to your advantage in go</title>
+      <link>http://danawoodman.com/blarg/go-zero-values</link>
+      <pubDate>Tue, 11 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/go-zero-values</guid>
+      <description>&lt;p&gt;In Go, when a value is initialized &lt;em&gt;without a initializer value it returns the &amp;ldquo;zero value&amp;rdquo; of that type&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In our contrived example below, when we initialize the &lt;code&gt;User&lt;/code&gt; struct without an initialization value, we get the zero value of the struct. So when we get the &lt;code&gt;Admin&lt;/code&gt; value, it returns the zero value for a boolean, which is &lt;code&gt;false&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;package main
+
+import &amp;quot;fmt&amp;quot;
+
+type User struct {
+    Name  string
+    Admin bool
+}
+
+func main() {
+    u := User{}
+    fmt.Println(u.Admin) #=&amp;gt; false
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We didn&amp;rsquo;t explicity set &lt;code&gt;Admin&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;; &lt;em&gt;Go did that for us&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following zero values are created for their respective types:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;bool: &lt;code&gt;false&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;string: &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;int: &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;float: &lt;code&gt;0.0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;pointers, functions, interfaces, slices, channels, and maps: &lt;code&gt;nil&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next time you&amp;rsquo;re working in go, think how you can use zero values to your advantage.&lt;/p&gt;
+
+&lt;p&gt;Learn more about &lt;a href=&#34;http://golang.org/ref/spec#The_zero_value&#34;&gt;zero values here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fall in love with go&#39;s for loop</title>
+      <link>http://danawoodman.com/blarg/go-forloop-love</link>
+      <pubDate>Sun, 02 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/go-forloop-love</guid>
+      <description>&lt;p&gt;The &lt;code&gt;for&lt;/code&gt; loop in Go is incredibly robust and fun to use. Here are a few examples of how to use &lt;code&gt;for&lt;/code&gt; loops for various use cases:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;# Infinite loop:
+for {
+    # Do stuff forever...
+}
+
+# &amp;quot;Traditional&amp;quot; index loop:
+for i := 0; i &amp;lt; 100; i++ {
+    # Do stuff 100 times...
+}
+
+# Range with key and value:
+for key, value := range arr {
+    # Do stuff on everything in arr 
+}
+
+# Range with just key:
+for key := range arr {
+    # Do stuff on everything in arr 
+}
+
+# Range with just value:
+for _, value := range arr {
+    # Do stuff on everything in arr
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Learn more about the &lt;a href=&#34;http://golang.org/doc/effective_go.html#for&#34;&gt;Go &lt;code&gt;for&lt;/code&gt; loop here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>http://danawoodman.com/about</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/about</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Software Development&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve worked with companies large and small; from &lt;em&gt;Google&lt;/em&gt; and &lt;em&gt;Comcast&lt;/em&gt;,
+to &amp;ldquo;mom-and-pop&amp;rdquo; shops and a lot in between. Every project presents unique challenges
+and opportunities to grow. &lt;em&gt;That&amp;rsquo;s what keeps me excited about
+writing software&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I primarily write web applications in Ruby on Rails but I also use Node.js,
+Golang and others if the need arises. I have years of experience in Ruby, Python,
+JavaScript, CSS/Sass and many other web technologies.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Other Things&lt;/h2&gt;
+
+&lt;p&gt;In my spare time I spend a lot of time in the outdoors hiking,
+camping, running and exploring.&lt;/p&gt;
+
+&lt;p&gt;I studied fine arts in college (painting and photography) and have a
+passion for creating things with my hands.&lt;/p&gt;
+
+&lt;p&gt;In early 2012, I started a project to create the &lt;em&gt;first arts and maker space in
+Sonoma County&lt;/em&gt; and am happy to say that it is alive and well.
+We regularly host classes, events and meetups and our membership is growing rapidly.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

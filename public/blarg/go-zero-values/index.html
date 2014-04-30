@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dana Woodman's home on the Internet">
+    <base href="http://danawoodman.com">
+    <title>Dana Woodman</title>
+    <link rel="canonical" href="http://danawoodman.com/blarg/go-zero-values">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body lang="en">
+    
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="logo">
+          <a href="/">
+            Dana Woodman
+            <a href="https://github.com/danawoodman" class="pull-right"><i class="fa fa-github"></i></a>
+          </a>
+        </h1>
+        <p class="lead">
+          I'm a  <a href="https://github.com/danawoodman">software developer</a>, 
+          <a href="http://chimeraarts.org">community builder</a> and 
+          entrepreneur.
+          I've been writing software for the web since 2002. 
+          I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
+      </div>
+  </div>
+</header>
+
+    <section class="page-content container">
+
+
+
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/go-zero-values">Use zero values to your advantage in go</a>
+  </h1>
+  <p class="article-date">
+    &#10026; February 11, 2014
+  </p>
+  <div role="content" class="article-content">
+    <p>In Go, when a value is initialized <em>without a initializer value it returns the &ldquo;zero value&rdquo; of that type</em>.</p>
+
+<p>In our contrived example below, when we initialize the <code>User</code> struct without an initialization value, we get the zero value of the struct. So when we get the <code>Admin</code> value, it returns the zero value for a boolean, which is <code>false</code>:</p>
+
+<pre><code class="go">package main
+
+import &quot;fmt&quot;
+
+type User struct {
+    Name  string
+    Admin bool
+}
+
+func main() {
+    u := User{}
+    fmt.Println(u.Admin) #=&gt; false
+}
+</code></pre>
+
+<p>We didn&rsquo;t explicity set <code>Admin</code> to <code>false</code>; <em>Go did that for us</em>.</p>
+
+<p>The following zero values are created for their respective types:</p>
+
+<ul>
+<li>bool: <code>false</code></li>
+<li>string: <code>&quot;&quot;</code></li>
+<li>int: <code>0</code></li>
+<li>float: <code>0.0</code></li>
+<li>pointers, functions, interfaces, slices, channels, and maps: <code>nil</code></li>
+</ul>
+
+<p>Next time you&rsquo;re working in go, think how you can use zero values to your advantage.</p>
+
+<p>Learn more about <a href="http://golang.org/ref/spec#The_zero_value">zero values here</a>.</p>
+
+  </div>
+</article>
+
+
+    </section>
+    <footer class="page-footer">
+      <div class="container">
+        <h2>Let's Chat!</h2>
+        <p>If you'd like to talk, you can email me at <a href="mailto:dana@danawoodman.com">dana@danawoodman.com</a></p>
+      </div>
+    </footer>
+
+    <script src="//use.typekit.net/dft6edg.js"  type="text/javascript"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-599674-37']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
+

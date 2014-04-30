@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dana Woodman's home on the Internet">
+    <base href="http://danawoodman.com">
+    <title>Dana Woodman</title>
+    <link rel="canonical" href="http://danawoodman.com/blarg/go-packages-are-your-friend">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body lang="en">
+    
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="logo">
+          <a href="/">
+            Dana Woodman
+            <a href="https://github.com/danawoodman" class="pull-right"><i class="fa fa-github"></i></a>
+          </a>
+        </h1>
+        <p class="lead">
+          I'm a  <a href="https://github.com/danawoodman">software developer</a>, 
+          <a href="http://chimeraarts.org">community builder</a> and 
+          entrepreneur.
+          I've been writing software for the web since 2002. 
+          I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
+      </div>
+  </div>
+</header>
+
+    <section class="page-content container">
+
+
+
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/go-packages-are-your-friend">Go packages are your friend</a>
+  </h1>
+  <p class="article-date">
+    &#10026; February 21, 2014
+  </p>
+  <div role="content" class="article-content">
+    <p>The approach I&rsquo;ve been taking lately is to start my projects in the <code>main</code> package and as I go <em>keep an eye for any emerging patterns</em> or abstractions I can make.</p>
+
+<p>Once I see something I feel can be pulled out of my code, I put it into a sub-directory in my project, give it a descriptive package name and then <em>import it into my main package</em>.</p>
+
+<p>If a package is specific to the project I&rsquo;m working on and would have little value as an external library, I&rsquo;ll keep it in the sub-directory. Otherwise, I will abstract out the package into it&rsquo;s own repository and <em>think more seriously about the public interface</em>.</p>
+
+<p>Go makes creating new packages trivially easy: Just create a new folder <code>foo</code>, move your <code>foo</code> library over and change <code>package main</code> to <code>package foo</code>. I&rsquo;d recommend taking advantage of that fact and abstract and encapsulate your code as much as possible using this convention.</p>
+
+<p>This can be done in many other languages, but the fact that you can <code>go get</code> any code within a folder on Github or Google Code makes it simple to share packages with other developers or to reuse code in future projects.</p>
+
+<p>If you&rsquo;re coming from a Ruby background like myself where you&rsquo;d have to create a new Ruby Gem each time, you can see how this encourages code reuse at a language level.</p>
+
+  </div>
+</article>
+
+
+    </section>
+    <footer class="page-footer">
+      <div class="container">
+        <h2>Let's Chat!</h2>
+        <p>If you'd like to talk, you can email me at <a href="mailto:dana@danawoodman.com">dana@danawoodman.com</a></p>
+      </div>
+    </footer>
+
+    <script src="//use.typekit.net/dft6edg.js"  type="text/javascript"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-599674-37']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
+

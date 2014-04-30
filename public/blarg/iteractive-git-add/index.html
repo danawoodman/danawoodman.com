@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dana Woodman's home on the Internet">
+    <base href="http://danawoodman.com">
+    <title>Dana Woodman</title>
+    <link rel="canonical" href="http://danawoodman.com/blarg/iteractive-git-add">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body lang="en">
+    
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="logo">
+          <a href="/">
+            Dana Woodman
+            <a href="https://github.com/danawoodman" class="pull-right"><i class="fa fa-github"></i></a>
+          </a>
+        </h1>
+        <p class="lead">
+          I'm a  <a href="https://github.com/danawoodman">software developer</a>, 
+          <a href="http://chimeraarts.org">community builder</a> and 
+          entrepreneur.
+          I've been writing software for the web since 2002. 
+          I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
+      </div>
+  </div>
+</header>
+
+    <section class="page-content container">
+
+
+
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/iteractive-git-add">Interactively add content in git</a>
+  </h1>
+  <p class="article-date">
+    &#10026; March 2, 2014
+  </p>
+  <div role="content" class="article-content">
+    <p>It&rsquo;s often handy to add changes you&rsquo;ve made to your local branch in git in a more interactive fashion. Sometimes the changes you have make more sense in multiple commits than one catch all commit.</p>
+
+<p>It&rsquo;s quite easy to do this in git and here&rsquo;s how:</p>
+
+<pre><code class="bash">git add -p
+</code></pre>
+
+<p>The <code>-p</code> flag say to add changes interactively, breaking cohesive changes up into chunks. Here&rsquo;s roughly what it will look like:</p>
+
+<p><img src="http://cl.ly/VHFO/Screen%20Shot%202014-04-30%20at%209.00.31%20AM.png" alt="interactive git add" />
+</p>
+
+<p>Now that you see your changes, you have a few options:</p>
+
+<ul>
+<li><code>a</code> &ndash; Add the given chunk.</li>
+<li><code>n</code> &ndash; Skip the given chunk (eg &ldquo;next&rdquo;).</li>
+<li><code>s</code> &ndash; Split the given chunk up into smaller chunks.</li>
+<li><code>q</code> &ndash; Stop adding chunks and exit out of <code>add</code>.</li>
+<li><code>?</code> &ndash; See all the other available sub commands.</li>
+</ul>
+
+<p>Hope that&rsquo;s helpful.</p>
+
+  </div>
+</article>
+
+
+    </section>
+    <footer class="page-footer">
+      <div class="container">
+        <h2>Let's Chat!</h2>
+        <p>If you'd like to talk, you can email me at <a href="mailto:dana@danawoodman.com">dana@danawoodman.com</a></p>
+      </div>
+    </footer>
+
+    <script src="//use.typekit.net/dft6edg.js"  type="text/javascript"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-599674-37']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
+

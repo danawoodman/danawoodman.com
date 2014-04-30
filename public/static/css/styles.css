@@ -1,0 +1,240 @@
+@-moz-keyframes spin {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+/*==================================================
+== HTML
+==================================================*/
+body {
+  background: #fefefe;
+  color: #666;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote,
+p,
+ul, 
+ol,
+pre {
+  line-height: 1.5;
+  margin: 0 0 1.5em 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "museo-slab", serif;
+}
+
+h2 {
+  border-bottom: 1px dashed #c6c5b4;
+  color: #444;
+  font-size: 1.45em;
+  margin: 1.75em 0 0.75em 0;
+  padding-bottom: 0.25em;
+}
+
+a {
+  color: #09b86e;
+}
+
+mark {
+  background: #fffad4;
+  color: #830900;
+  font-style: normal;
+  padding: 0.15em 0.35em;
+}
+
+blockquote {
+  border-left: 8px solid #efefef;
+  font-family: "museo-slab", serif;
+  font-size: 20px;
+  padding: 0.75em 1.5em;
+}
+  blockquote p {
+    line-height: 1.7;
+  }
+
+
+li {
+  margin-bottom: 0.3em;
+}
+
+
+/*==================================================
+== Headers
+==================================================*/
+
+.page-header {
+  font-size: 40px;
+  margin: 0.5em 0 1em 0;
+}
+
+.section-header {
+  color: #999;
+  font-size: 26px;
+  margin: 2em 0 1.5em 0;
+  padding-bottom: 0.75em;
+  text-align: center;
+}
+
+
+/*==================================================
+== Container
+==================================================*/
+
+.container {
+  max-width: 680px;
+  padding: 3em 1.5em;
+}
+
+
+/*==================================================
+== Logo
+==================================================*/
+
+.logo {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+
+/*==================================================
+== Avatar
+==================================================*/
+
+.avatar {
+  background: white;
+  border: 1px dashed #c6c5b4;
+  border-radius: 100em;
+  max-width: 100%;
+  padding: 8px;
+  width: auto;
+}
+.avatar.avatar-small {
+  height: 100px;
+  width: 100px;
+}
+  .avatar:hover {
+    -webkit-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
+       -moz-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
+        -ms-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
+         -o-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
+  }
+
+
+/*==================================================
+== Header
+==================================================*/
+
+.header {
+  background: #fffad4;
+  border-bottom: 1px dashed #c6c5b4;
+}
+  .header .container {
+    padding-bottom: 2em;
+    padding-top: 2em;
+  }
+  .header .lead {
+    color: #830900;
+    font-family: "museo-slab", serif;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+    .header .lead a {
+      color: #d71d00;
+    }
+
+
+/*==================================================
+== Link Bar 
+==================================================*/
+
+.link-bar {}
+  .link-bar a {
+    font-size: 30px;
+    padding: 0.25em;
+  }
+
+
+/*==================================================
+== Article Teaser
+==================================================*/
+
+.article-teaser {
+  border-bottom: 1px dashed #c6c5b4;
+  margin: 0 0 1em 0;
+  padding: 0 0 1em 0;
+}
+  .article-teaser-header {
+    font-size: 20px;
+    margin: 0; 
+  }
+  .article-teaser-date {
+    font-size: 13px;
+    margin: 4px 0 0 0;
+  }
+
+
+/*==================================================
+== Article Detail
+==================================================*/
+
+.article {
+  margin-bottom: 5em;
+}
+  .article-header {
+    border-bottom: 1px dashed #c6c5b4;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    padding-bottom: 0.5em;
+  }
+  .article-date {
+    color: #999;
+    font-size: 0.9em;
+  }
+  .article-content {}
+    .article-content img {
+      max-width: 100%;
+    }
+
+
+/*==================================================
+== Code Highlighting
+==================================================*/
+pre {
+  background: transparent;
+  border: 0 none;
+  padding: 0;
+}
+.hljs {
+  border-radius: 3px;
+  padding: 1.25em 1.75em;
+}
+
+
+/*==================================================
+== Breadcrumbs
+==================================================*/
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+}
+  .breadcrumb a {
+    color: #999;
+    font-size: 0.8em;
+  }

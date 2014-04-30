@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dana Woodman's home on the Internet">
+    <base href="http://danawoodman.com">
+    <title>Dana Woodman</title>
+    <link rel="canonical" href="http://danawoodman.com/blarg/run-go-fmt-vim">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body lang="en">
+    
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="logo">
+          <a href="/">
+            Dana Woodman
+            <a href="https://github.com/danawoodman" class="pull-right"><i class="fa fa-github"></i></a>
+          </a>
+        </h1>
+        <p class="lead">
+          I'm a  <a href="https://github.com/danawoodman">software developer</a>, 
+          <a href="http://chimeraarts.org">community builder</a> and 
+          entrepreneur.
+          I've been writing software for the web since 2002. 
+          I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
+      </div>
+  </div>
+</header>
+
+    <section class="page-content container">
+
+
+
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/run-go-fmt-vim">Run &#39;go fmt&#39; in vim on save</a>
+  </h1>
+  <p class="article-date">
+    &#10026; April 25, 2014
+  </p>
+  <div role="content" class="article-content">
+    <p>One of the really awesome things about Golang is the <code>go fmt</code> command which forces your code to conform to a common formatting convention.</p>
+
+<p>However, running a file through <code>go fmt</code> isn&rsquo;t automatic out of the gate, but if you use vim the following snippet will cause <code>go fmt</code> to be run ever time you save a go file.</p>
+
+<pre><code class="vim">&quot; Run go-fmt on Go sournce code on save.
+autocmd FileType go autocmd BufWritePre &lt;buffer&gt; Fmt
+</code></pre>
+
+<p>Try this out next time you&rsquo;re writing go and you&rsquo;ll be happy you have it.</p>
+
+  </div>
+</article>
+
+
+    </section>
+    <footer class="page-footer">
+      <div class="container">
+        <h2>Let's Chat!</h2>
+        <p>If you'd like to talk, you can email me at <a href="mailto:dana@danawoodman.com">dana@danawoodman.com</a></p>
+      </div>
+    </footer>
+
+    <script src="//use.typekit.net/dft6edg.js"  type="text/javascript"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-599674-37']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
+

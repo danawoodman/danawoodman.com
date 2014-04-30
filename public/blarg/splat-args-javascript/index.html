@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Dana Woodman's home on the Internet">
+    <base href="http://danawoodman.com">
+    <title>Dana Woodman</title>
+    <link rel="canonical" href="http://danawoodman.com/blarg/splat-args-javascript">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
+<link href="/static/css/styles.css" rel="stylesheet">
+
+  </head>
+  <body lang="en">
+    
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1 class="logo">
+          <a href="/">
+            Dana Woodman
+            <a href="https://github.com/danawoodman" class="pull-right"><i class="fa fa-github"></i></a>
+          </a>
+        </h1>
+        <p class="lead">
+          I'm a  <a href="https://github.com/danawoodman">software developer</a>, 
+          <a href="http://chimeraarts.org">community builder</a> and 
+          entrepreneur.
+          I've been writing software for the web since 2002. 
+          I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
+        </p>
+      </div>
+      <div class="col-sm-4">
+        <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
+      </div>
+  </div>
+</header>
+
+    <section class="page-content container">
+
+
+
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/splat-args-javascript">Implementing splat args in JavaScript</a>
+  </h1>
+  <p class="article-date">
+    &#10026; March 24, 2014
+  </p>
+  <div role="content" class="article-content">
+    <p>Typically in JavaScript you&rsquo;ll define the arguments you expect in a function like so:</p>
+
+<pre><code class="js">function sayHello(message, adressee) {
+  // Do something exciting here...
+}
+</code></pre>
+
+<p>But what happens when you went to pass an <strong>arbitrary amount of arguments to a function</strong>, or what is often termed &ldquo;splat args&rdquo; in other languages?</p>
+
+<p>Well, JavaScript provides a special property called <code>arguments</code> that is scoped to the function call. You can implement a form of splat args with JavaScript using the following approach:</p>
+
+<pre><code class="js">function sayHello() {
+  // args is an array of arguments passed into the function.
+  var args = Array.prototype.slice.call(arguments, func.length);
+  // Do something exciting here...
+}
+
+// Now you can call sayHello with any number of arguments:
+sayHello('some text', 123, { my: 'object' });
+</code></pre>
+
+<p>This short line takes the arguments list and calls <code>Array.slice</code> to get all the extra arguments beyond the position arguments. <code>Function.length</code> is the length of the arguments passed into the function so we&rsquo;re able to get all arguments after the last position argument and put them into an array.</p>
+
+<p>You can combine this with positional args as well and it will work as expected, getting any undeclared args.</p>
+
+<p>Until the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">spread operator</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/rest_parameters?redirectlocale=en-US&amp;redirectslug=Web/JavaScript/Reference/rest_parameters">rest parameters</a> is implemented in ECMAScript 6, we&rsquo;ll have to stick with the above, slightly hacky approach.</p>
+
+<p>However, when these two changes are universally implemented, we&rsquo;ll be able to do the following instead:</p>
+
+<pre><code class="js">function sayHello(...args) {
+  // args will now be available and will 
+  // contain an array of the arguments passed in.
+}
+</code></pre>
+
+  </div>
+</article>
+
+
+    </section>
+    <footer class="page-footer">
+      <div class="container">
+        <h2>Let's Chat!</h2>
+        <p>If you'd like to talk, you can email me at <a href="mailto:dana@danawoodman.com">dana@danawoodman.com</a></p>
+      </div>
+    </footer>
+
+    <script src="//use.typekit.net/dft6edg.js"  type="text/javascript"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-599674-37']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
+
