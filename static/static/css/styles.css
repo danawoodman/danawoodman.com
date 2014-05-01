@@ -71,6 +71,14 @@ li {
   margin-bottom: 0.3em;
 }
 
+kbd {
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
 
 /*==================================================
 == Headers
@@ -184,9 +192,17 @@ li {
     margin: 0; 
   }
   .article-teaser-date {
+    float: right;
     font-size: 13px;
     margin: 4px 0 0 0;
   }
+@media (max-width: 768px) {
+  .article-teaser-date {
+    display: block;
+    float: none;
+    padding-top: 0.25em;
+  }
+}
 
 
 /*==================================================

@@ -4,9 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Dana Woodman's home on the Internet">
-    <base href="http://danawoodman.com">
+    <base href="http://localhost:1313">
     <title>Dana Woodman</title>
-    <link rel="canonical" href="http://danawoodman.com/about">
+    <link rel="canonical" href="http://localhost:1313/blarg/vim-shortcut-reference">
     <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -19,7 +19,7 @@
 <header class="header">
   <div class="container">
     <div class="row">
-      <div class="col-xs-8">
+      <div class="col-sm-8">
         <h1 class="logo">
           <a href="/">
             Dana Woodman
@@ -34,7 +34,7 @@
           I hail from beautiful <a href="http://en.wikipedia.org/wiki/Sonoma_county">Sonoma County</a>. <a href="/about/">Learn more.</a>
         </p>
       </div>
-      <div class="col-xs-4">
+      <div class="col-sm-4">
         <a href="/"><img src="/static/img/dana-woodman.jpg" class="avatar"></a>
       </div>
   </div>
@@ -45,34 +45,35 @@
 
 
 <article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
   <h1 class="article-header">
-    <a href="http://danawoodman.com/about">About Me</a>
+    <a href="http://localhost:1313/blarg/vim-shortcut-reference">My vim shortcut reference</a>
   </h1>
+  <p class="article-date">
+    &#10026; May 1, 2014
+  </p>
   <div role="content" class="article-content">
     
 
-<h2 id="toc_0">Software Development</h2>
+<p>In the below examples, I&rsquo;ve mapped my <code>leader</code> key to <kbd>,</kbd>, like so:</p>
 
-<p>I&rsquo;ve worked with companies large and small; from <em>Google</em> and <em>Comcast</em>,
-to &ldquo;mom-and-pop&rdquo; shops and a lot in between. Every project presents unique challenges
-and opportunities to grow. <em>That&rsquo;s what keeps me excited about
-writing software</em>.</p>
+<pre><code class="vim">let mapleader = &quot;,&quot;
+let g:mapleader = &quot;,&quot;
+</code></pre>
 
-<p>I primarily write web applications in Ruby on Rails but I also use Node.js,
-Golang and others if the need arises. I have years of experience in Ruby, Python,
-JavaScript, CSS/Sass and many other web technologies.</p>
+<h2 id="toc_0">Navigation</h2>
 
-<h2 id="toc_1">Other Things</h2>
+<ul>
+<li><kbd>,</kbd> <kbd>s</kbd> <kbd>s</kbd> - Toggle spellcheck on/off.</li>
 
-<p>In my spare time I spend a lot of time in the outdoors hiking,
-camping, running and exploring.</p>
+<li><p><kbd>,</kbd> <kbd>C</kbd> - Refresh <a href="https://github.com/kien/ctrlp.vim">ctrlp</a> search cache.</p></li>
 
-<p>I studied fine arts in college (painting and photography) and have a
-passion for creating things with my hands.</p>
+<li><p><kbd>,</kbd> <kbd>w</kbd> - Save file.</p></li>
 
-<p>In early 2012, I started a project to create the <em>first arts and maker space in
-Sonoma County</em> and am happy to say that it is alive and well.
-We regularly host classes, events and meetups and our membership is growing rapidly.</p>
+<li><p><kbd>,</kbd> <kbd>q</kbd> - Save and close file.</p></li>
+</ul>
 
   </div>
 </article>

@@ -1,10 +1,10 @@
 <article class="article-teaser">
   <h3 class="article-teaser-header">
     <a href="{{ .Permalink }}">
-      <small class="article-teaser-date pull-right">
+      {{ .Title }}
+      <small class="article-teaser-date">
         &#10026; {{ .Date.Format "January 2, 2006" }}
       </small>
-      {{ .Title }}
     </a>
   </h3>
 </article>
