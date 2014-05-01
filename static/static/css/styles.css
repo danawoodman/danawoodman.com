@@ -104,7 +104,7 @@ kbd {
 
 .container {
   max-width: 680px;
-  padding: 3em 1.5em;
+  padding: 2em 1.5em;
 }
 
 
@@ -259,3 +259,13 @@ pre {
     color: #999;
     font-size: 0.8em;
   }
+
+
+/*==================================================
+== Headers
+==================================================*/
+
+.page-footer h2 {
+  margin-top: 0;
+}
+
