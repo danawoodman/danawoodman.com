@@ -13,24 +13,24 @@
 
 
 <meta property="og:site_name" content="Dana Woodman's Blarg">
-<meta property="og:title" content="About Me - Dana Woodman">
+<meta property="og:title" content="Deploying a go application on Heroku - Dana Woodman">
 <meta property="og:image" content="http://danawoodman.com/static/img/dana-woodman.jpg">
 <meta property="og:description" content="Another awesome article from Dana Woodman.">
-<meta property="og:url" content="http://danawoodman.com/about">
+<meta property="og:url" content="http://danawoodman.com/blarg/deploying-go-on-heroku">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2008-01-01">
-<meta property="article:modified_time" content="2008-01-01">
+<meta property="article:published_time" content="2013-12-09">
+<meta property="article:modified_time" content="2013-12-09">
 
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
+<meta name="twitter:title" content="Deploying a go application on Heroku">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="">
 
     <base href="http://danawoodman.com">
     <title>Dana Woodman</title>
-    <link rel="canonical" href="http://danawoodman.com/about">
+    <link rel="canonical" href="http://danawoodman.com/blarg/deploying-go-on-heroku">
     <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -64,34 +64,85 @@
 
 
 <article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
   <h1 class="article-header">
-    <a href="http://danawoodman.com/about">About Me</a>
+    <a href="http://danawoodman.com/blarg/deploying-go-on-heroku">Deploying a go application on Heroku</a>
   </h1>
+  <p class="article-date">
+    &#10026; December 9, 2013
+    by Dana Woodman
+  </p>
   <div role="content" class="article-content">
     
 
-<h2 id="toc_0">Software Development</h2>
+<iframe src="http://player.vimeo.com/video/93459202" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-<p>I&rsquo;ve worked with companies large and small; from <em>Google</em> and <em>Comcast</em>,
-to &ldquo;mom-and-pop&rdquo; shops and a lot in between. Every project presents unique challenges
-and opportunities to grow. <em>That&rsquo;s what keeps me excited about
-writing software</em>.</p>
+<p>View the <a href="https://github.com/sourcetank/1-deploying-go-on-heroku">source code for this video on Github</a></p>
 
-<p>I primarily write web applications in Ruby on Rails but I also use Node.js,
-Golang and others if the need arises. I have years of experience in Ruby, Python,
-JavaScript, CSS/Sass and many other web technologies.</p>
+<p>Here are the shell commands from the video:</p>
 
-<h2 id="toc_1">Other Things</h2>
+<pre><code class="bash">go run server.go
+PORT=5000 go run server.go
+git add .
+git commit -m &quot;initial app&quot;
+heroku create -b https://github.com/kr/heroku-buildpack-go.git
+git push heroku master
+</code></pre>
 
-<p>In my spare time I spend a lot of time in the outdoors hiking,
-camping, running and exploring.</p>
+<p>Here is the content of the <code>server.go</code> file:</p>
 
-<p>I studied fine arts in college (painting and photography) and have a
-passion for creating things with my hands.</p>
+<pre><code class="go">package main
 
-<p>In early 2012, I started a project to create the <em>first arts and maker space in
-Sonoma County</em> and am happy to say that it is alive and well.
-We regularly host classes, events and meetups and our membership is growing rapidly.</p>
+import (
+  &quot;fmt&quot;
+  &quot;net/http&quot;
+  &quot;os&quot;
+)
+
+func sayHello(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintln(w, &quot;Hello World!&quot;)
+}
+
+func getPort() string {
+  p := os.Getenv(&quot;PORT&quot;)
+  if p != &quot;&quot; {
+    return &quot;:&quot; + p
+  }
+  return &quot;:1234&quot;
+}
+
+func main() {
+  port := getPort()
+
+  http.HandleFunc(&quot;/&quot;, sayHello)
+
+  fmt.Println(&quot;Listening on port&quot;, port)
+  err := http.ListenAndServe(port, nil)
+  if err != nil {
+    panic(err)
+  }
+}
+</code></pre>
+
+<p>Here is the content of your <code>.godir</code> file:</p>
+
+<pre><code class="bash">myapp
+</code></pre>
+
+<p>And for your <code>Procfile</code>:</p>
+
+<pre><code class="bash">web: myapp
+</code></pre>
+
+<h2 id="toc_0">Reference</h2>
+
+<ul>
+<li><a href="https://github.com/kr/heroku-buildpack-go">Heroku Go BuildPack</a></li>
+<li><a href="http://golang.org/pkg/os/#Getenv"><code>os.Getenv</code> function reference)</a></li>
+<li><a href="https://github.com/DisposaBoy/GoSublime">GoSublime: SublimeText package for Go</a></li>
+</ul>
 
   </div>
 </article>

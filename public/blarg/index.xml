@@ -265,5 +265,82 @@ for _, value := range arr {
 </description>
     </item>
     
+    <item>
+      <title>Deploying a go application on Heroku</title>
+      <link>http://danawoodman.com/blarg/deploying-go-on-heroku</link>
+      <pubDate>Mon, 09 Dec 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/deploying-go-on-heroku</guid>
+      <description>
+
+&lt;iframe src=&#34;http://player.vimeo.com/video/93459202&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;View the &lt;a href=&#34;https://github.com/sourcetank/1-deploying-go-on-heroku&#34;&gt;source code for this video on Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are the shell commands from the video:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;go run server.go
+PORT=5000 go run server.go
+git add .
+git commit -m &amp;quot;initial app&amp;quot;
+heroku create -b https://github.com/kr/heroku-buildpack-go.git
+git push heroku master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the content of the &lt;code&gt;server.go&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;package main
+
+import (
+  &amp;quot;fmt&amp;quot;
+  &amp;quot;net/http&amp;quot;
+  &amp;quot;os&amp;quot;
+)
+
+func sayHello(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintln(w, &amp;quot;Hello World!&amp;quot;)
+}
+
+func getPort() string {
+  p := os.Getenv(&amp;quot;PORT&amp;quot;)
+  if p != &amp;quot;&amp;quot; {
+    return &amp;quot;:&amp;quot; + p
+  }
+  return &amp;quot;:1234&amp;quot;
+}
+
+func main() {
+  port := getPort()
+
+  http.HandleFunc(&amp;quot;/&amp;quot;, sayHello)
+
+  fmt.Println(&amp;quot;Listening on port&amp;quot;, port)
+  err := http.ListenAndServe(port, nil)
+  if err != nil {
+    panic(err)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the content of your &lt;code&gt;.godir&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;myapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And for your &lt;code&gt;Procfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;web: myapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/heroku-buildpack-go&#34;&gt;Heroku Go BuildPack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://golang.org/pkg/os/#Getenv&#34;&gt;&lt;code&gt;os.Getenv&lt;/code&gt; function reference)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/DisposaBoy/GoSublime&#34;&gt;GoSublime: SublimeText package for Go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

@@ -127,7 +127,34 @@ sayHello('some text', 123, { my: 'object' });
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+  hljs.initHighlightingOnLoad();
+  $(function() {
+
+    var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com'], object, embed"),
+        $fluidEl = $('.article');
+
+    $allVideos.each(function() {
+      $(this)
+        
+        .attr('data-aspectRatio', this.height / this.width)
+        .removeAttr('height')
+        .removeAttr('width');
+    });
+
+    $(window).resize(function() {
+      var newWidth = $fluidEl.width();
+      $allVideos.each(function() {
+
+        var $el = $(this);
+        $el
+          .width(newWidth)
+          .height(newWidth * $el.attr('data-aspectRatio'));
+      });
+    }).resize();
+  });
+</script>
+
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-599674-37']);
