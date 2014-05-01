@@ -138,7 +138,7 @@ kbd {
         -ms-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
          -o-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
   }
-@media (max-width: 768px) {
+@media (max-width: 568px) {
   .avatar {
     display: none;
   }
