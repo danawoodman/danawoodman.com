@@ -38,9 +38,9 @@ set listchars=tab:➪ 
       <guid>http://danawoodman.com/blarg/run-go-fmt-vim</guid>
       <description>&lt;p&gt;One of the really awesome things about Golang is the &lt;code&gt;go fmt&lt;/code&gt; command which forces your code to conform to a common formatting convention.&lt;/p&gt;
 
-&lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run ever time you save a go file.&lt;/p&gt;
+&lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run every time you save a go file.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Run go-fmt on Go sournce code on save.
+&lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Run go-fmt on Go source code on save.
 autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
 &lt;/code&gt;&lt;/pre&gt;
 

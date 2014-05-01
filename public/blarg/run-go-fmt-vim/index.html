@@ -52,9 +52,9 @@
   <div role="content" class="article-content">
     <p>One of the really awesome things about Golang is the <code>go fmt</code> command which forces your code to conform to a common formatting convention.</p>
 
-<p>However, running a file through <code>go fmt</code> isn&rsquo;t automatic out of the gate, but if you use vim the following snippet will cause <code>go fmt</code> to be run ever time you save a go file.</p>
+<p>However, running a file through <code>go fmt</code> isn&rsquo;t automatic out of the gate, but if you use vim the following snippet will cause <code>go fmt</code> to be run every time you save a go file.</p>
 
-<pre><code class="vim">&quot; Run go-fmt on Go sournce code on save.
+<pre><code class="vim">&quot; Run go-fmt on Go source code on save.
 autocmd FileType go autocmd BufWritePre &lt;buffer&gt; Fmt
 </code></pre>
 
