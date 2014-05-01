@@ -77,7 +77,7 @@
   <div role="content" class="article-content">
     <p>Typically in JavaScript you&rsquo;ll define the arguments you expect in a function like so:</p>
 
-<pre><code class="js">function sayHello(message, adressee) {
+<pre><code class="js">function sayHello(message, recipient) {
   // Do something exciting here...
 }
 </code></pre>
@@ -86,29 +86,31 @@
 
 <p>Well, JavaScript provides a special property called <code>arguments</code> that is scoped to the function call. You can implement a form of splat args with JavaScript using the following approach:</p>
 
-<pre><code class="js">function sayHello() {
+<pre><code class="js">function sayHello(message, recipient) {
   // args is an array of arguments passed into the function.
   var args = Array.prototype.slice.call(arguments, sayHello.length);
   // Do something exciting here...
 }
 
 // Now you can call sayHello with any number of arguments:
-sayHello('some text', 123, { my: 'object' });
+sayHello('Hello there!', 'John Smith', some, extra, args);
 </code></pre>
 
-<p>This short line takes the arguments list and calls <code>Array.slice</code> to get all the extra arguments beyond the position arguments. <code>Function.length</code> is the length of the arguments passed into the function so we&rsquo;re able to get all arguments after the last position argument and put them into an array.</p>
+<p>This short line takes the arguments list and calls <code>Array.slice</code> to get all the extra arguments beyond the position arguments.</p>
 
-<p>You can combine this with positional args as well and it will work as expected, getting any undeclared args.</p>
+<p><code>sayHello.length</code> is the length of the arguments passed into the function so we&rsquo;re able to get all arguments after the last positional argument and put them into an array.</p>
 
 <p>Until the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">spread operator</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/rest_parameters?redirectlocale=en-US&amp;redirectslug=Web/JavaScript/Reference/rest_parameters">rest parameters</a> is implemented in ECMAScript 6, we&rsquo;ll have to stick with the above, slightly hacky approach.</p>
 
 <p>However, when these two changes are universally implemented, we&rsquo;ll be able to do the following instead:</p>
 
-<pre><code class="js">function sayHello(...args) {
+<pre><code class="js">function sayHello(message, recipient, ...args) {
   // args will now be available and will 
   // contain an array of the arguments passed in.
 }
 </code></pre>
+
+<p>Or, as my friend <a href="https://github.com/squeegy">Alex</a> points out, you can always use <a href="http://coffeescript.org/">CoffeeScript</a>.</p>
 
   </div>
 </article>
