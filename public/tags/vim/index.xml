@@ -27,6 +27,8 @@ set list
 set listchars=tab:➪  
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;code&gt;list&lt;/code&gt; tells vim to show tabs and &lt;code&gt;listchars&lt;/code&gt; sets the characters to use when display tabs.&lt;/p&gt;
+
 &lt;p&gt;You can change the arrow to any valid unicode character that your chosen font supports. Play around and find something you really like.&lt;/p&gt;
 </description>
     </item>

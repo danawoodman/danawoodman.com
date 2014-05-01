@@ -15,4 +15,6 @@ set list
 set listchars=tab:➪  
 ```
 
+`list` tells vim to show tabs and `listchars` sets the characters to use when display tabs.
+
 You can change the arrow to any valid unicode character that your chosen font supports. Play around and find something you really like.

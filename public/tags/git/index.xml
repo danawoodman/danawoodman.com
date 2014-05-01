@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Git on Dana Woodman </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>http://danawoodman.com/tags/git/index.xml</link>
+    
+    
+    
+    <updated>Thu, 01 May 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Edit a commit message in git</title>
+      <link>http://danawoodman.com/blarg/edit-commit-message-git</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/edit-commit-message-git</guid>
+      <description>&lt;p&gt;To amend a commit at the &lt;code&gt;HEAD&lt;/code&gt; of the current branch, run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git commit --amend -m &amp;quot;Amended message here...&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To rebase a commit that isn&amp;rsquo;t at the &lt;code&gt;HEAD&lt;/code&gt; of the current branch, you&amp;rsquo;ll need to do an interactive rebase with the parent of the commit you want to update:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git rebase -i &amp;lt;PARENT_SHA&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So if your history was like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* ced26b3    HEAD, master Remove empty JavaScript files.
+* e7fa3ea    Poorly worded commit here...
+* 932d7b8    Update README
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;hellip;and you want to update the message &amp;ldquo;Poorly worded commit here&amp;hellip;&amp;rdquo;, you&amp;rsquo;d type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git rebase -i 932d7b8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now change the text in front of the commit you want to change to be &lt;code&gt;reword&lt;/code&gt; and you&amp;rsquo;ll be prompted to update the commit message:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;git&#34;&gt;reword e7fa3ea    Poorly worded commit here...
+pick   932d7b8    Update README
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can come in handy to when you committed something without relevant details like a case number or back story.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
