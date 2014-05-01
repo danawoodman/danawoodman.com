@@ -265,5 +265,38 @@ for _, value := range arr {
 </description>
     </item>
     
+    <item>
+      <title>About Me</title>
+      <link>http://danawoodman.com/about</link>
+      <pubDate>Tue, 01 Jan 2008 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/about</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Software Development&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve worked with companies large and small; from &lt;em&gt;Google&lt;/em&gt; and &lt;em&gt;Comcast&lt;/em&gt;,
+to &amp;ldquo;mom-and-pop&amp;rdquo; shops and a lot in between. Every project presents unique challenges
+and opportunities to grow. &lt;em&gt;That&amp;rsquo;s what keeps me excited about
+writing software&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I primarily write web applications in Ruby on Rails but I also use Node.js,
+Golang and others if the need arises. I have years of experience in Ruby, Python,
+JavaScript, CSS/Sass and many other web technologies.&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_1&#34;&gt;Other Things&lt;/h2&gt;
+
+&lt;p&gt;In my spare time I spend a lot of time in the outdoors hiking,
+camping, running and exploring.&lt;/p&gt;
+
+&lt;p&gt;I studied fine arts in college (painting and photography) and have a
+passion for creating things with my hands.&lt;/p&gt;
+
+&lt;p&gt;In early 2012, I started a project to create the &lt;em&gt;first arts and maker space in
+Sonoma County&lt;/em&gt; and am happy to say that it is alive and well.
+We regularly host classes, events and meetups and our membership is growing rapidly.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
