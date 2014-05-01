@@ -126,13 +126,11 @@ kbd {
   background: white;
   border: 1px dashed #c6c5b4;
   border-radius: 100em;
+  float: right;
+  margin-left: 1.5em;
   max-width: 100%;
   padding: 8px;
   width: auto;
-}
-.avatar.avatar-small {
-  height: 100px;
-  width: 100px;
 }
   .avatar:hover {
     -webkit-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
@@ -140,6 +138,11 @@ kbd {
         -ms-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
          -o-animation: spin 2s cubic-bezier(0.680, -0.550, 0.265, 1.550) infinite;
   }
+@media (max-width: 768px) {
+  .avatar {
+    display: none;
+  }
+}
 
 
 /*==================================================
@@ -184,6 +187,7 @@ kbd {
 
 .article-teaser {
   border-bottom: 1px dashed #c6c5b4;
+  clear: both;
   margin: 0 0 1em 0;
   padding: 0 0 1em 0;
 }
@@ -194,7 +198,8 @@ kbd {
   .article-teaser-date {
     float: right;
     font-size: 13px;
-    margin: 4px 0 0 0;
+    line-height: 1;
+    margin: 0.35em 0 0 0;
   }
 @media (max-width: 768px) {
   .article-teaser-date {
