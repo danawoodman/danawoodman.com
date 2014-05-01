@@ -1,6 +1,7 @@
 ---
 title: "Run 'go fmt' in vim on save"
 date: "2014-04-25"
+tags: ["go", "vim"]
 ---
 One of the really awesome things about Golang is the `go fmt` command which forces your code to conform to a common formatting convention. 
 

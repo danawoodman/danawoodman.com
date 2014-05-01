@@ -214,9 +214,7 @@ kbd {
 == Article Detail
 ==================================================*/
 
-.article {
-  margin-bottom: 5em;
-}
+.article {}
   .article-header {
     border-bottom: 1px dashed #c6c5b4;
     font-size: 40px;

@@ -1,6 +1,7 @@
 ---
 title: "Fall in love with go's for loop"
 date: "2014-02-02"
+tags: ["go"]
 ---
 The `for` loop in Go is incredibly robust and fun to use. Here are a few examples of how to use `for` loops for various use cases:
 

@@ -1,4 +1,6 @@
 ---
 title: "Dana Woodman"
 baseurl: 'http://danawoodman.com'
+indexes:
+  tag: "tags"
 ---

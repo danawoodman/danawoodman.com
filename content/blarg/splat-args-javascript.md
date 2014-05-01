@@ -1,6 +1,7 @@
 ---
 title: "Implementing splat args in JavaScript"
 date: "2014-03-24"
+tags: ["javascript"]
 ---
 
 Typically in JavaScript you'll define the arguments you expect in a function like so:

@@ -1,6 +1,7 @@
 ---
 title: "Show whitespace characters in vim"
 date: "2014-04-29"
+tags: ["vim"]
 ---
 I like to be able to see the whitespace characters in my editor, specifically I like to see when code is indented with tabs versus spaces:
 

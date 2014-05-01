@@ -1,6 +1,7 @@
 ---
 title: "Go packages are your friend"
 date: "2014-02-21"
+tags: ["go"]
 ---
 The approach I've been taking lately is to start my projects in the `main` package and as I go *keep an eye for any emerging patterns* or abstractions I can make. 
 
