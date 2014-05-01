@@ -19,7 +19,7 @@ Well, JavaScript provides a special property called `arguments` that is scoped t
 ```js
 function sayHello() {
   // args is an array of arguments passed into the function.
-  var args = Array.prototype.slice.call(arguments, func.length);
+  var args = Array.prototype.slice.call(arguments, sayHello.length);
   // Do something exciting here...
 }
 

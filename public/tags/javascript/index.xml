@@ -28,7 +28,7 @@
 
 &lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello() {
   // args is an array of arguments passed into the function.
-  var args = Array.prototype.slice.call(arguments, func.length);
+  var args = Array.prototype.slice.call(arguments, sayHello.length);
   // Do something exciting here...
 }
 
