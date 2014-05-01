@@ -11,6 +11,7 @@ Add the following to your `.vimrc` to display a cute arrow unicode character for
 
 ```vim
 " Show extra whitespace
+set list
 set listchars=tab:➪  
 ```
 

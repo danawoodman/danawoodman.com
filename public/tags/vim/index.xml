@@ -23,6 +23,7 @@
 &lt;p&gt;Add the following to your &lt;code&gt;.vimrc&lt;/code&gt; to display a cute arrow unicode character for tabs in vim:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Show extra whitespace
+set list
 set listchars=tab:➪  
 &lt;/code&gt;&lt;/pre&gt;
 
