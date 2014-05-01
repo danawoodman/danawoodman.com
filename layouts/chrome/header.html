@@ -1,9 +1,7 @@
 <!doctype html>
-<html>
+<html lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Dana Woodman's home on the Internet">
+    {{ template "chrome/meta.html" . }}
     <base href="{{ .Site.BaseUrl }}">
     <title>{{ .Site.Title }}</title>
     <link rel="canonical" href="{{ .Permalink }}">
