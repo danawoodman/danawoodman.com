@@ -16,7 +16,7 @@ The `-p` flag say to add changes interactively, breaking cohesive changes up int
 
 Now that you see your changes, you have a few options:
 
-- `a` -- Add the given chunk.
+- `y` -- Add the given chunk.
 - `n` -- Skip the given chunk (eg "next").
 - `s` -- Split the given chunk up into smaller chunks.
 - `q` -- Stop adding chunks and exit out of `add`.

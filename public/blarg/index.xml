@@ -118,7 +118,7 @@ autocmd BufNewFile,BufRead *.md set spell
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;But what happens when you went to pass an &lt;strong&gt;arbitrary amount of arguments to a function&lt;/strong&gt;, or what is often termed &amp;ldquo;splat args&amp;rdquo; in other languages?&lt;/p&gt;
+&lt;p&gt;But what happens when you want to pass an &lt;strong&gt;arbitrary amount of arguments to a function&lt;/strong&gt;, or what is often termed &amp;ldquo;splat args&amp;rdquo; in other languages?&lt;/p&gt;
 
 &lt;p&gt;Well, JavaScript provides a special property called &lt;code&gt;arguments&lt;/code&gt; that is scoped to the function call. You can implement a form of splat args with JavaScript using the following approach:&lt;/p&gt;
 
@@ -141,7 +141,7 @@ sayHello(&#39;Hello there!&#39;, &#39;John Smith&#39;, some, extra, args);
 &lt;p&gt;However, when these two changes are universally implemented, we&amp;rsquo;ll be able to do the following instead:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello(message, recipient, ...args) {
-  // args will now be available and will 
+  // args will now be available and will
   // contain an array of the arguments passed in.
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -177,10 +177,10 @@ git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
     
     <item>
       <title>Interactively add content in git</title>
-      <link>http://danawoodman.com/blarg/iteractive-git-add</link>
+      <link>http://danawoodman.com/blarg/interactive-git-add</link>
       <pubDate>Sun, 02 Mar 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/iteractive-git-add</guid>
+      <guid>http://danawoodman.com/blarg/interactive-git-add</guid>
       <description>&lt;p&gt;It&amp;rsquo;s often handy to add changes you&amp;rsquo;ve made to your local branch in git in a more interactive fashion. Sometimes the changes you have make more sense in multiple commits than one catch all commit.&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s quite easy to do this in git and here&amp;rsquo;s how:&lt;/p&gt;
@@ -196,7 +196,7 @@ git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
 &lt;p&gt;Now that you see your changes, you have a few options:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;a&lt;/code&gt; &amp;ndash; Add the given chunk.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;y&lt;/code&gt; &amp;ndash; Add the given chunk.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;n&lt;/code&gt; &amp;ndash; Skip the given chunk (eg &amp;ldquo;next&amp;rdquo;).&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;s&lt;/code&gt; &amp;ndash; Split the given chunk up into smaller chunks.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;q&lt;/code&gt; &amp;ndash; Stop adding chunks and exit out of &lt;code&gt;add&lt;/code&gt;.&lt;/li&gt;

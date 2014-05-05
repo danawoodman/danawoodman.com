@@ -22,7 +22,7 @@
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;But what happens when you went to pass an &lt;strong&gt;arbitrary amount of arguments to a function&lt;/strong&gt;, or what is often termed &amp;ldquo;splat args&amp;rdquo; in other languages?&lt;/p&gt;
+&lt;p&gt;But what happens when you want to pass an &lt;strong&gt;arbitrary amount of arguments to a function&lt;/strong&gt;, or what is often termed &amp;ldquo;splat args&amp;rdquo; in other languages?&lt;/p&gt;
 
 &lt;p&gt;Well, JavaScript provides a special property called &lt;code&gt;arguments&lt;/code&gt; that is scoped to the function call. You can implement a form of splat args with JavaScript using the following approach:&lt;/p&gt;
 
@@ -45,7 +45,7 @@ sayHello(&#39;Hello there!&#39;, &#39;John Smith&#39;, some, extra, args);
 &lt;p&gt;However, when these two changes are universally implemented, we&amp;rsquo;ll be able to do the following instead:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello(message, recipient, ...args) {
-  // args will now be available and will 
+  // args will now be available and will
   // contain an array of the arguments passed in.
 }
 &lt;/code&gt;&lt;/pre&gt;
