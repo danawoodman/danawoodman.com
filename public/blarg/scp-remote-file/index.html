@@ -13,10 +13,10 @@
 
 
 <meta property="og:site_name" content="Dana Woodman's Blarg">
-<meta property="og:title" content="404 Page not found - Dana Woodman">
+<meta property="og:title" content="Use scp to copy files to and from a remote machine - Dana Woodman">
 <meta property="og:image" content="http://danawoodman.com/static/img/dana-woodman.jpg">
 <meta property="og:description" content="Another awesome article from Dana Woodman.">
-<meta property="og:url" content="http://danawoodman.com/404">
+<meta property="og:url" content="http://danawoodman.com/blarg/scp-remote-file">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2014-05-04">
@@ -24,14 +24,14 @@
 
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Page not found">
+<meta name="twitter:title" content="Use scp to copy files to and from a remote machine">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="">
 
     <base href="http://danawoodman.com">
     <title>Dana Woodman</title>
-    <link rel="canonical" href="http://danawoodman.com/404">
-    <link href="http://danawoodman.com/index.xml" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
+    <link rel="canonical" href="http://danawoodman.com/blarg/scp-remote-file">
+    <link href="" rel="alternate" type="application/rss+xml" title="Dana Woodman" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 <link href="https://yandex.st/highlightjs/8.0/styles/default.min.css" rel="stylesheet">
@@ -63,24 +63,43 @@
 
 
 
-  <div class="top-section">
-    <div class="container">
-      <header class="page-head">
-        <h1 class="page-header">Page Not Found!</h1>
-      </header>
-    </div>
-  </div>
+<article class="article">
+  <ol class="breadcrumb">
+    <li><a href="/blarg/">&#8592; Back to the <em>Blarg!</em></a></li> 
+  </ol>
+  <h1 class="article-header">
+    <a href="http://danawoodman.com/blarg/scp-remote-file">Use scp to copy files to and from a remote machine</a>
+  </h1>
+  <p class="article-date">
+    &#10026; May 4, 2014
+    by Dana Woodman
+  </p>
+  <div role="content" class="article-content">
+    <p>A quick one today, use <code>scp</code> to copy files to and from a remote machine. <code>scp</code> uses SSH to securely transfer files from one computer to another. As long as you&rsquo;re able to SSH into a machine, you should be able to use <code>scp</code>.</p>
 
-  <div class="container">
-    <p class="lead">
-      <strong>Whoops!</strong> It looks like the page you are looking 
-      for can't be found, sorry about that!
-    </p>
-    <p>
-      If you think this is something I should know about, please 
-      <a href="/contact/">contact me</a>.
-    </p>
+<p>The general structure of <code>scp</code> is:</p>
+
+<pre><code class="bash">scp user@host:file user@host:file
+</code></pre>
+
+<p>If you&rsquo;re transferring to or from your local computer, you can just use a path instead.</p>
+
+<p>To copy a remote file to your local machine:</p>
+
+<pre><code class="bash">scp user@example.com:backup-2014-05-04.zip ~/backups/
+</code></pre>
+
+<p>Or, copy a local file to the remote machine:</p>
+
+<pre><code class="bash">scp ~/cats.jpg user@example.com:~/
+</code></pre>
+
+<p>You can specify and source and target directories that you have permissions to write or read from.</p>
+
+<p><code>scp</code> is a simple and useful tool that should be part of any developers toolkit.</p>
+
   </div>
+</article>
 
 
     </section>

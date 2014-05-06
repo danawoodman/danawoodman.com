@@ -7,7 +7,38 @@
     
     
     
-    <updated>Thu, 01 May 2014 00:00:00 UTC</updated>
+    <updated>Sun, 04 May 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Use scp to copy files to and from a remote machine</title>
+      <link>http://danawoodman.com/blarg/scp-remote-file</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/scp-remote-file</guid>
+      <description>&lt;p&gt;A quick one today, use &lt;code&gt;scp&lt;/code&gt; to copy files to and from a remote machine. &lt;code&gt;scp&lt;/code&gt; uses SSH to securely transfer files from one computer to another. As long as you&amp;rsquo;re able to SSH into a machine, you should be able to use &lt;code&gt;scp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The general structure of &lt;code&gt;scp&lt;/code&gt; is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;scp user@host:file user@host:file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you&amp;rsquo;re transferring to or from your local computer, you can just use a path instead.&lt;/p&gt;
+
+&lt;p&gt;To copy a remote file to your local machine:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;scp user@example.com:backup-2014-05-04.zip ~/backups/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or, copy a local file to the remote machine:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;scp ~/cats.jpg user@example.com:~/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can specify and source and target directories that you have permissions to write or read from.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;scp&lt;/code&gt; is a simple and useful tool that should be part of any developers toolkit.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Edit a commit message in git</title>
