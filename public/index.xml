@@ -7,7 +7,42 @@
     
     
     
-    <updated>Sun, 04 May 2014 00:00:00 UTC</updated>
+    <updated>Tue, 10 Jun 2014 00:00:00 UTC</updated>
+    
+    <item>
+      <title>Reasons to adopt code review in your team</title>
+      <link>http://danawoodman.com/blarg/code-review</link>
+      <pubDate>Tue, 10 Jun 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://danawoodman.com/blarg/code-review</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve worked with enough teams to know that code review should be an essential part of any software team&amp;rsquo;s worflow.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s far too easy for &lt;strong&gt;mistakes, inconsistent conventions and low quality code to be introduced to ignore the benefits of code review&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here are a few quick &lt;strong&gt;reasons why your team should be using code review&lt;/strong&gt; if you aren&amp;rsquo;t already:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Better transparency into the work being created.&lt;/strong&gt; When everyone sees the code added to a project, you increase the familiarity of all developers with the code base. The more familiarity each developer has, the faster they can make changes and reason about existing functionality.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gives team members a chance to agree on implementation before it&amp;rsquo;s too late.&lt;/strong&gt; It&amp;rsquo;s much easier to discuss implementation when the code is on a feature branch then after the fact when it&amp;rsquo;s in production. Use the code as a starting point for conversations about better paths of implementation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Enforces standards and conventions.&lt;/strong&gt; When everyone is on the same page about standards and conventions, your code base starts to appear to be written by a single person. This is a Good Thing &amp;trade;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gives new developers a chance to ensure they&amp;rsquo;re taking edge cases into account.&lt;/strong&gt; Allow new developers the benefit of the eyes of more senior engineers before committing code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Allow developers to learn from each other.&lt;/strong&gt; When developers see each others code, they tend to learn better ways to implement things. In my experience, even the most senior engineers have things to learn from their peers. The more learning you can facilitate, the better off your team is.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fixing bugs before they exist.&lt;/strong&gt; Many times in code review a potential bug is spotted before even making into the main line of development. Having other eyes on the code tends to suss out many bugs that the developer by themselves could not see.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As with everything, there are &lt;strong&gt;a few drawbacks to doing code review&lt;/strong&gt; in a team, specifically:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The slight slow down of having to wait for a peer to review code.&lt;/strong&gt; This can be mitigated &lt;em&gt;if the team agrees to do code review as their first step when working for the day&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The time it takes to do review.&lt;/strong&gt; In general, the drawback of development speed being slowed down is far outweighed by the improved quality of code and team collaboration as outlined above.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Team adoption.&lt;/strong&gt; Getting developers to adopt code review can sometimes be tricky. I&amp;rsquo;ve found the best way is for the benefits to be clear to everyone on the team. It is also helpful to not allow any code to be merged into the main branch unless it&amp;rsquo;s been reviewed by at least one developer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To my mind, these are acceptable drawbacks if creating quality software is your goal and I have yet to suffer because of implementing in a team.&lt;/p&gt;
+
+&lt;p&gt;If you are interested in implementing code review in your team, consider using tools like &lt;a href=&#34;https://github.com&#34;&gt;Github&lt;/a&gt;, &lt;a href=&#34;https://www.atlassian.com/software/stash&#34;&gt;Stash&lt;/a&gt; or &lt;a href=&#34;https://about.gitlab.com/&#34;&gt;GitLab&lt;/a&gt; to implement code review in your team. My personal favorite approach is to use Github Pull Requests to do collaborate review, but &lt;strong&gt;don&amp;rsquo;t let the tools get in you way towards adopting code review&lt;/strong&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Use scp to copy files to and from a remote machine</title>
@@ -446,6 +481,13 @@ passion for creating things with my hands.&lt;/p&gt;
 &lt;p&gt;In early 2012, I started a project to create the &lt;em&gt;first arts and maker space in
 Sonoma County&lt;/em&gt; and am happy to say that it is alive and well.
 We regularly host classes, events and meetups and our membership is growing rapidly.&lt;/p&gt;
+
+&lt;p&gt;You can hear a bit about Chimera below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://northbaystartup.com/podcast/9&#34;&gt;Episode #9 of the North Bay Startup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://northbaystartup.com/podcast/15&#34;&gt;Episode #15 of the North Bay Startup&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
