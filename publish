@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Make sure this script is run alongside the hugo content 
+# Make sure this script is run alongside the hugo content
 # even if run as an executable.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
@@ -13,7 +13,7 @@ hugo -s ./
 echo -e "\033[0;32mCommitting changes...\033[0m"
 
 # Add changes to git.
-git add --all .
+git add --all public/
 
 # Commit changes.
 msg="rebuilding site `date`"
