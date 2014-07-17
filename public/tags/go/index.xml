@@ -11,10 +11,10 @@
     
     <item>
       <title>Run &#39;go fmt&#39; in vim on save</title>
-      <link>http://danawoodman.com/blarg/run-go-fmt-vim</link>
+      <link>http://danawoodman.com/posts/run-go-fmt-vim</link>
       <pubDate>Fri, 25 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/run-go-fmt-vim</guid>
+      <guid>http://danawoodman.com/posts/run-go-fmt-vim</guid>
       <description>&lt;p&gt;One of the really awesome things about Golang is the &lt;code&gt;go fmt&lt;/code&gt; command which forces your code to conform to a common formatting convention.&lt;/p&gt;
 
 &lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run every time you save a go file.&lt;/p&gt;
@@ -29,10 +29,10 @@ autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
     
     <item>
       <title>Go packages are your friend</title>
-      <link>http://danawoodman.com/blarg/go-packages-are-your-friend</link>
+      <link>http://danawoodman.com/posts/go-packages-are-your-friend</link>
       <pubDate>Fri, 21 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-packages-are-your-friend</guid>
+      <guid>http://danawoodman.com/posts/go-packages-are-your-friend</guid>
       <description>&lt;p&gt;The approach I&amp;rsquo;ve been taking lately is to start my projects in the &lt;code&gt;main&lt;/code&gt; package and as I go &lt;em&gt;keep an eye for any emerging patterns&lt;/em&gt; or abstractions I can make.&lt;/p&gt;
 
 &lt;p&gt;Once I see something I feel can be pulled out of my code, I put it into a sub-directory in my project, give it a descriptive package name and then &lt;em&gt;import it into my main package&lt;/em&gt;.&lt;/p&gt;
@@ -49,10 +49,10 @@ autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
     
     <item>
       <title>Use zero values to your advantage in go</title>
-      <link>http://danawoodman.com/blarg/go-zero-values</link>
+      <link>http://danawoodman.com/posts/go-zero-values</link>
       <pubDate>Tue, 11 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-zero-values</guid>
+      <guid>http://danawoodman.com/posts/go-zero-values</guid>
       <description>&lt;p&gt;In Go, when a value is initialized &lt;em&gt;without a initializer value it returns the &amp;ldquo;zero value&amp;rdquo; of that type&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In our contrived example below, when we initialize the &lt;code&gt;User&lt;/code&gt; struct without an initialization value, we get the zero value of the struct. So when we get the &lt;code&gt;Admin&lt;/code&gt; value, it returns the zero value for a boolean, which is &lt;code&gt;false&lt;/code&gt;:&lt;/p&gt;
@@ -92,10 +92,10 @@ func main() {
     
     <item>
       <title>Fall in love with go&#39;s for loop</title>
-      <link>http://danawoodman.com/blarg/go-forloop-love</link>
+      <link>http://danawoodman.com/posts/go-forloop-love</link>
       <pubDate>Sun, 02 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-forloop-love</guid>
+      <guid>http://danawoodman.com/posts/go-forloop-love</guid>
       <description>&lt;p&gt;The &lt;code&gt;for&lt;/code&gt; loop in Go is incredibly robust and fun to use. Here are a few examples of how to use &lt;code&gt;for&lt;/code&gt; loops for various use cases:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;go&#34;&gt;# Infinite loop:

@@ -11,10 +11,10 @@
     
     <item>
       <title>Reasons to adopt code review in your team</title>
-      <link>http://danawoodman.com/blarg/code-review</link>
+      <link>http://danawoodman.com/posts/code-review</link>
       <pubDate>Tue, 10 Jun 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/code-review</guid>
+      <guid>http://danawoodman.com/posts/code-review</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve worked with enough teams to know that code review should be an essential part of any software team&amp;rsquo;s worflow.&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s far too easy for &lt;strong&gt;mistakes, inconsistent conventions and low quality code to be introduced to ignore the benefits of code review&lt;/strong&gt;.&lt;/p&gt;
@@ -46,10 +46,10 @@
     
     <item>
       <title>Use scp to copy files to and from a remote machine</title>
-      <link>http://danawoodman.com/blarg/scp-remote-file</link>
+      <link>http://danawoodman.com/posts/scp-remote-file</link>
       <pubDate>Sun, 04 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/scp-remote-file</guid>
+      <guid>http://danawoodman.com/posts/scp-remote-file</guid>
       <description>&lt;p&gt;A quick one today, use &lt;code&gt;scp&lt;/code&gt; to copy files to and from a remote machine. &lt;code&gt;scp&lt;/code&gt; uses SSH to securely transfer files from one computer to another. As long as you&amp;rsquo;re able to SSH into a machine, you should be able to use &lt;code&gt;scp&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;The general structure of &lt;code&gt;scp&lt;/code&gt; is:&lt;/p&gt;
@@ -77,10 +77,10 @@
     
     <item>
       <title>Edit a commit message in git</title>
-      <link>http://danawoodman.com/blarg/edit-commit-message-git</link>
+      <link>http://danawoodman.com/posts/edit-commit-message-git</link>
       <pubDate>Thu, 01 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/edit-commit-message-git</guid>
+      <guid>http://danawoodman.com/posts/edit-commit-message-git</guid>
       <description>&lt;p&gt;To amend a commit at the &lt;code&gt;HEAD&lt;/code&gt; of the current branch, run:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git commit --amend -m &amp;quot;Amended message here...&amp;quot;
@@ -115,10 +115,10 @@ pick   932d7b8    Update README
     
     <item>
       <title>Show whitespace characters in vim</title>
-      <link>http://danawoodman.com/blarg/vim-show-whitespace</link>
+      <link>http://danawoodman.com/posts/vim-show-whitespace</link>
       <pubDate>Tue, 29 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/vim-show-whitespace</guid>
+      <guid>http://danawoodman.com/posts/vim-show-whitespace</guid>
       <description>&lt;p&gt;I like to be able to see the whitespace characters in my editor, specifically I like to see when code is indented with tabs versus spaces:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://cl.ly/VGCh/Screen%20Shot%202014-04-29%20at%2012.08.19%20PM.png&#34; alt=&#34;whitespace screenshot&#34; /&gt;
@@ -139,10 +139,10 @@ set listchars=tab:➪ 
     
     <item>
       <title>Run &#39;go fmt&#39; in vim on save</title>
-      <link>http://danawoodman.com/blarg/run-go-fmt-vim</link>
+      <link>http://danawoodman.com/posts/run-go-fmt-vim</link>
       <pubDate>Fri, 25 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/run-go-fmt-vim</guid>
+      <guid>http://danawoodman.com/posts/run-go-fmt-vim</guid>
       <description>&lt;p&gt;One of the really awesome things about Golang is the &lt;code&gt;go fmt&lt;/code&gt; command which forces your code to conform to a common formatting convention.&lt;/p&gt;
 
 &lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run every time you save a go file.&lt;/p&gt;
@@ -157,10 +157,10 @@ autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
     
     <item>
       <title>Enable spellcheck for markdown files in vim</title>
-      <link>http://danawoodman.com/blarg/spellcheck-markdown-vim</link>
+      <link>http://danawoodman.com/posts/spellcheck-markdown-vim</link>
       <pubDate>Fri, 18 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/spellcheck-markdown-vim</guid>
+      <guid>http://danawoodman.com/posts/spellcheck-markdown-vim</guid>
       <description>&lt;p&gt;If you want to enable spellchecking for only certain file types, like markdown files, put the following line in your &lt;code&gt;.vimrc&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Turn spellcheck on for markdown files.
@@ -173,10 +173,10 @@ autocmd BufNewFile,BufRead *.md set spell
     
     <item>
       <title>Implementing splat args in JavaScript</title>
-      <link>http://danawoodman.com/blarg/splat-args-javascript</link>
+      <link>http://danawoodman.com/posts/splat-args-javascript</link>
       <pubDate>Mon, 24 Mar 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/splat-args-javascript</guid>
+      <guid>http://danawoodman.com/posts/splat-args-javascript</guid>
       <description>&lt;p&gt;Typically in JavaScript you&amp;rsquo;ll define the arguments you expect in a function like so:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;js&#34;&gt;function sayHello(message, recipient) {
@@ -218,10 +218,10 @@ sayHello(&#39;Hello there!&#39;, &#39;John Smith&#39;, some, extra, args);
     
     <item>
       <title>Create a patch from a git commit</title>
-      <link>http://danawoodman.com/blarg/git-patch</link>
+      <link>http://danawoodman.com/posts/git-patch</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/git-patch</guid>
+      <guid>http://danawoodman.com/posts/git-patch</guid>
       <description>&lt;p&gt;Sometimes you need to create a patch from a commit in your git repository. I&amp;rsquo;ve had to do this when moving some commits from an old repository over to a new one or for code review when a project isn&amp;rsquo;t using a code review tool like Pull Requests.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s how you do it:&lt;/p&gt;
@@ -243,10 +243,10 @@ git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
     
     <item>
       <title>Interactively add content in git</title>
-      <link>http://danawoodman.com/blarg/interactive-git-add</link>
+      <link>http://danawoodman.com/posts/interactive-git-add</link>
       <pubDate>Sun, 02 Mar 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/interactive-git-add</guid>
+      <guid>http://danawoodman.com/posts/interactive-git-add</guid>
       <description>&lt;p&gt;It&amp;rsquo;s often handy to add changes you&amp;rsquo;ve made to your local branch in git in a more interactive fashion. Sometimes the changes you have make more sense in multiple commits than one catch all commit.&lt;/p&gt;
 
 &lt;p&gt;It&amp;rsquo;s quite easy to do this in git and here&amp;rsquo;s how:&lt;/p&gt;
@@ -275,10 +275,10 @@ git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
     
     <item>
       <title>Go packages are your friend</title>
-      <link>http://danawoodman.com/blarg/go-packages-are-your-friend</link>
+      <link>http://danawoodman.com/posts/go-packages-are-your-friend</link>
       <pubDate>Fri, 21 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-packages-are-your-friend</guid>
+      <guid>http://danawoodman.com/posts/go-packages-are-your-friend</guid>
       <description>&lt;p&gt;The approach I&amp;rsquo;ve been taking lately is to start my projects in the &lt;code&gt;main&lt;/code&gt; package and as I go &lt;em&gt;keep an eye for any emerging patterns&lt;/em&gt; or abstractions I can make.&lt;/p&gt;
 
 &lt;p&gt;Once I see something I feel can be pulled out of my code, I put it into a sub-directory in my project, give it a descriptive package name and then &lt;em&gt;import it into my main package&lt;/em&gt;.&lt;/p&gt;
@@ -295,10 +295,10 @@ git format-patch -1 HEAD  # shortcut for the commit at the branch&#39;s HEAD
     
     <item>
       <title>Use zero values to your advantage in go</title>
-      <link>http://danawoodman.com/blarg/go-zero-values</link>
+      <link>http://danawoodman.com/posts/go-zero-values</link>
       <pubDate>Tue, 11 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-zero-values</guid>
+      <guid>http://danawoodman.com/posts/go-zero-values</guid>
       <description>&lt;p&gt;In Go, when a value is initialized &lt;em&gt;without a initializer value it returns the &amp;ldquo;zero value&amp;rdquo; of that type&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;In our contrived example below, when we initialize the &lt;code&gt;User&lt;/code&gt; struct without an initialization value, we get the zero value of the struct. So when we get the &lt;code&gt;Admin&lt;/code&gt; value, it returns the zero value for a boolean, which is &lt;code&gt;false&lt;/code&gt;:&lt;/p&gt;
@@ -338,10 +338,10 @@ func main() {
     
     <item>
       <title>Fall in love with go&#39;s for loop</title>
-      <link>http://danawoodman.com/blarg/go-forloop-love</link>
+      <link>http://danawoodman.com/posts/go-forloop-love</link>
       <pubDate>Sun, 02 Feb 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/go-forloop-love</guid>
+      <guid>http://danawoodman.com/posts/go-forloop-love</guid>
       <description>&lt;p&gt;The &lt;code&gt;for&lt;/code&gt; loop in Go is incredibly robust and fun to use. Here are a few examples of how to use &lt;code&gt;for&lt;/code&gt; loops for various use cases:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;go&#34;&gt;# Infinite loop:
@@ -376,10 +376,10 @@ for _, value := range arr {
     
     <item>
       <title>Deploying a go application on Heroku</title>
-      <link>http://danawoodman.com/blarg/deploying-go-on-heroku</link>
+      <link>http://danawoodman.com/posts/deploying-go-on-heroku</link>
       <pubDate>Mon, 09 Dec 2013 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/deploying-go-on-heroku</guid>
+      <guid>http://danawoodman.com/posts/deploying-go-on-heroku</guid>
       <description>
 
 &lt;iframe src=&#34;http://player.vimeo.com/video/93459202&#34; width=&#34;500&#34; height=&#34;281&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;

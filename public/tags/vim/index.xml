@@ -11,10 +11,10 @@
     
     <item>
       <title>Show whitespace characters in vim</title>
-      <link>http://danawoodman.com/blarg/vim-show-whitespace</link>
+      <link>http://danawoodman.com/posts/vim-show-whitespace</link>
       <pubDate>Tue, 29 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/vim-show-whitespace</guid>
+      <guid>http://danawoodman.com/posts/vim-show-whitespace</guid>
       <description>&lt;p&gt;I like to be able to see the whitespace characters in my editor, specifically I like to see when code is indented with tabs versus spaces:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://cl.ly/VGCh/Screen%20Shot%202014-04-29%20at%2012.08.19%20PM.png&#34; alt=&#34;whitespace screenshot&#34; /&gt;
@@ -35,10 +35,10 @@ set listchars=tab:➪ 
     
     <item>
       <title>Run &#39;go fmt&#39; in vim on save</title>
-      <link>http://danawoodman.com/blarg/run-go-fmt-vim</link>
+      <link>http://danawoodman.com/posts/run-go-fmt-vim</link>
       <pubDate>Fri, 25 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/run-go-fmt-vim</guid>
+      <guid>http://danawoodman.com/posts/run-go-fmt-vim</guid>
       <description>&lt;p&gt;One of the really awesome things about Golang is the &lt;code&gt;go fmt&lt;/code&gt; command which forces your code to conform to a common formatting convention.&lt;/p&gt;
 
 &lt;p&gt;However, running a file through &lt;code&gt;go fmt&lt;/code&gt; isn&amp;rsquo;t automatic out of the gate, but if you use vim the following snippet will cause &lt;code&gt;go fmt&lt;/code&gt; to be run every time you save a go file.&lt;/p&gt;
@@ -53,10 +53,10 @@ autocmd FileType go autocmd BufWritePre &amp;lt;buffer&amp;gt; Fmt
     
     <item>
       <title>Enable spellcheck for markdown files in vim</title>
-      <link>http://danawoodman.com/blarg/spellcheck-markdown-vim</link>
+      <link>http://danawoodman.com/posts/spellcheck-markdown-vim</link>
       <pubDate>Fri, 18 Apr 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/spellcheck-markdown-vim</guid>
+      <guid>http://danawoodman.com/posts/spellcheck-markdown-vim</guid>
       <description>&lt;p&gt;If you want to enable spellchecking for only certain file types, like markdown files, put the following line in your &lt;code&gt;.vimrc&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;vim&#34;&gt;&amp;quot; Turn spellcheck on for markdown files.

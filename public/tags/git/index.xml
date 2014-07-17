@@ -11,10 +11,10 @@
     
     <item>
       <title>Edit a commit message in git</title>
-      <link>http://danawoodman.com/blarg/edit-commit-message-git</link>
+      <link>http://danawoodman.com/posts/edit-commit-message-git</link>
       <pubDate>Thu, 01 May 2014 00:00:00 UTC</pubDate>
       
-      <guid>http://danawoodman.com/blarg/edit-commit-message-git</guid>
+      <guid>http://danawoodman.com/posts/edit-commit-message-git</guid>
       <description>&lt;p&gt;To amend a commit at the &lt;code&gt;HEAD&lt;/code&gt; of the current branch, run:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;git commit --amend -m &amp;quot;Amended message here...&amp;quot;
