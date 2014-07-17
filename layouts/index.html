@@ -1,6 +1,6 @@
 {{ template "chrome/header.html" . }}
 
-  <!-- 
+  <!--
   <h3 class="section-header">A Few Projects</h3>
   {{ range $key, $value := .Data.Pages }}
       {{ if eq $value.Type  "project" }}
@@ -10,12 +10,12 @@
   <p class="pull-right"><a href="/project/" class="text-muted">View my projects &#8594;</a></p>
   -->
 
-  <h3 class="section-header">Some Recent <em>Blargs</em></h3>
+  <h3 class="section-header">Some Recent Posts</h3>
   {{ range $key, $value := .Data.Pages }}
-      {{ if eq $value.Type  "blarg" }}
+      {{ if eq $value.Type  "posts" }}
         {{ .Render "li" }}
       {{ end }}
   {{ end }}
-  <p class="pull-right"><a href="/blarg/" class="text-muted">Checkout the Blarg &#8594;</a></p>
+  <p class="pull-right"><a href="/posts/" class="text-muted">Read more posts &#8594;</a></p>
 
 {{ template "chrome/footer.html" . }}
