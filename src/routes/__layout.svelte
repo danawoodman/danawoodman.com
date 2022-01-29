@@ -2,8 +2,16 @@
   import "../app.css";
 </script>
 
-<nav>
-  <a href="/">Home</a>
-</nav>
+<header class="mb-12 text-center">
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+</header>
 
-<slot />
+<main>
+  <slot />
+</main>
+
+<footer class="text-center my-12">
+  <nav><a href="/sitemap.xml">Sitemap</a></nav>
+</footer>
