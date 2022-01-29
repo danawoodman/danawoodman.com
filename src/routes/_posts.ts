@@ -8,7 +8,9 @@ export async function getPosts(): Promise<Post[]> {
 
     postPromises.push(promise);
   }
-  return Promise.all(postPromises);
+  const posts: Post[] = await Promise.all(postPromises);
+  // Remove drafts
+  return posts.filter((p) => p.published);
 }
 
 // const limit = Number(url.searchParams.get('limit') ?? Infinity);
