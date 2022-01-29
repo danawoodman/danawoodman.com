@@ -16,7 +16,7 @@
 <nav>
   {#each posts as post}
     <article>
-      <h2><a href={"/" + post.slug}>{post.title}</a></h2>
+      <h2><a href={post.slug}>{post.title}</a></h2>
     </article>
   {/each}
 </nav>
