@@ -1,7 +1,10 @@
 <script lang="ts">
   export let title;
-  export let published: string;
+  export let published;
   export let categories;
+  // export let title: string;
+  // export let published: string;
+  // export let categories: string[];
 
   $: pubDate = new Date(published);
 </script>
@@ -42,7 +45,6 @@
             <svg
               aria-hidden="true"
               focusable="false"
-              role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
               height="12"
@@ -87,7 +89,6 @@
         </svg>
         <time
           class="text-gray-500 ml-2 text-sm"
-          pubdate
           datetime={pubDate.toDateString()}
           title={pubDate.toLocaleDateString()}
           >{pubDate.toLocaleDateString()}</time
