@@ -1,0 +1,23 @@
+---
+title: How to write to a file in Node (async)?
+tags: [Node, JavaScript, TypeScript]
+published: 2022-01-25
+categories: [How Tos, JavaScript, Node]
+---
+
+https://nodejs.org/api/fs.html#filehandlewritefiledata-options
+
+```js
+import { writeFile } from "fs/promises";
+
+await writeFile("./path/to/file", "some content here...", opts);
+```
+
+- `file`: `<string> | <Buffer> | <URL> | <FileHandle>` filename or FileHandle
+- `data`: `<string> | <Buffer> | <TypedArray> | <DataView> | <Object> | <AsyncIterable> | <Iterable> | <Stream>`
+- `options`: `<Object> | <string>`
+  - `encoding`: `<string> | <null>` Default: 'utf8'
+  - `mode`: `<integer>` Default: `0o666`
+  - `flag`: `<string>` See support of file system flags. Default: `'w'`.
+  - `signal`: `<AbortSignal>` allows aborting an in-progress writeFile
+- Returns: `<Promise>` Fulfills with undefined upon success.

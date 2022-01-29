@@ -1,0 +1,8 @@
+---
+title: How to format a date in ISO datetime format with JavaScript?
+---
+
+```js
+const date = new Date();
+const datetime = date.toISOString().split("T")[0]; // 2021-01-28
+```

@@ -1,0 +1,11 @@
+---
+title: How to read the contents of a file in Node (async)?
+tags: [Node, JavaScript, TypeScript]
+published: 2022-01-07
+categories: [How Tos, JavaScript, Node]
+---
+
+```js
+const path = "./path/to/file.txt";
+await readFile(path, { encoding: "utf-8" });
+```

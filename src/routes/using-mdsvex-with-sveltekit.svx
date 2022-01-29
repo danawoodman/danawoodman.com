@@ -1,0 +1,35 @@
+---
+title: How to use MDsveX to support rendering Markdown with SvelteKit
+categories: [How Tos, JavaScript, Svelte]
+tags: [Svelte, Markdown, SvelteKit, MDsveX]
+---
+
+```shell
+npx svelte-add mdsvex
+```
+
+You can [customize the configuration](https://mdsvex.com/docs#options) by modifying `mdsvex.config.js`.
+
+## How to create a blog using SvelteKit using MDSvex?
+
+If you just have a single layout for all your MDsveX files (say just a simple blog), then you can pass a string as the path to your Svelte template file that MDsveX should use.
+
+```js
+const config = {
+  //... other config here
+  layout: "./src/layouts/post.svelte",
+};
+```
+
+If you have multiple different types of content that you want to use
+
+```js
+const config = {
+  //... other config here
+  layout: {
+    _: "./src/layouts/article.svelte",
+  },
+};
+
+export default config;
+```
