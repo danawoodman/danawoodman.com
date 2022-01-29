@@ -5,15 +5,20 @@ published: 2022-01-17
 categories: [How Tos, JavaScript, Node]
 ---
 
-https://stackoverflow.com/questions/22992462/node-js-best-practice-check-for-file-exists
-
 ```js
 async function fileExists(path: string): Promise<boolean> {
-  try {
-    await access(path);
-    return true;
-  } catch (error) {
-    return false;
-  }
+  return access(path)
+    .then(() => true)
+    .catch(() => false);
 }
 ```
+
+## Backstory
+
+You used to be able to use `fs.exists()` but (for some strange reason) it has been deprecated as well as all it's cousins.
+
+You have a few options including using `fs.stat` or using `fs.access`. Likely the cleanest is to use `fs.access` to see if the current user has access to the given path and if they do, return true.
+
+Since access throws an error if it cannot access the given path, we use `.catch` to return false since we will assume if there is a file that we cannot access, it effectively does not exist (at least from the perspective of the current user).
+
+https://stackoverflow.com/questions/22992462/node-js-best-practice-check-for-file-exists
