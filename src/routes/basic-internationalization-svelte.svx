@@ -9,7 +9,7 @@ _[Read this article en Español](https://www.ibidemgroup.com/edu/como-internacio
 
 I just recently stumbled upon a great video by Dr. Matthias Stahl ([tweet here](https://twitter.com/h_i_g_s_c_h/status/1344223132308164616), [YouTube video here](https://www.youtube.com/watch?v=PqX6j7Ma0DU&feature=youtu.be), [code here](https://github.com/higsch/quick-svelte-i18n)) on [Svelte Society's YouTube channel](https://www.youtube.com/channel/UCZSr5B0l07JXK2FIeWA0-jw) who came up with a simple approach to adding basic i18n translations to a Svelte app.
 
-{% twitter 1344223132308164616 %}
+<!--{% twitter 1344223132308164616 %}-->
 
 I thought it would be fun and informative to recreate it while also making some minor optimizations and enhancements along the way. 🤗
 
