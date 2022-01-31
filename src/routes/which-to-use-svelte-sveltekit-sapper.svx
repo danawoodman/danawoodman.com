@@ -1,0 +1,54 @@
+---
+title: When to use Svelte vs SvelteKit vs Sapper?
+# published: 2021-06-08
+---
+
+Confused as to when you should use Svelte vs SvelteKit vs Sapper? Hopefully I can help you get a little more clarity with this short guide. Let's go! 👇
+
+---
+
+# Use Svelte if...
+
+- You don't need/want SSR (Server Side Rendering)
+- You want to render a component into an existing page
+- You want to output things like a vanilla component, a WebComponent or a React component adapter
+
+# Use SvelteKit if...
+
+- You're ok with Beta software and living on the bleeding edge
+- You want SSR like Next.js/Nuxt.js
+- You want to have a backend API as part of your project
+- You want your app to work in a Serverless environment (e.g. Vercel/Netlify)
+- You want super fast hot reloading in development (via Vite)
+
+Note that SvelteKit supports static rendering with [adapter-static](https://www.npmjs.com/package/@sveltejs/adapter-static) which you can use to render a static site with built in routing in case you don't want/need any API/SSR.
+
+# Use Sapper if...
+
+**UPDATE**: at this point, Kit is almost at a v1.0, so there is a 99% chance you want to use Kit instead of Sapper
+
+- You don't want to use Beta software and don't want to deal with the potential roadblocks of Beta software
+- You want/need access directly to Express/Polka
+- You're ok using a product that will no longer be maintained (SvelteKit will replace Sapper)
+
+In reality, you should almost never choose Sapper and should instead post feedback to the Svelte team if things are missing for your needs.
+
+---
+
+# Scenarios
+
+Still not sure what to use? Maybe these scenarios will help you decide:
+
+- _"I'm building a brand new web app (with backend/API)"_: **Use SvelteKit**
+- _"I want to build an SPA (Single Page App) and I have a pre-existing backend and don't need SSR"_: **Use Svelte**
+- _"I want to use Svelte in an existing web app"_: **Use Svelte**
+- _"I'm cautious of new things but want SSR/routing"_: **Use Sapper**
+- _"I'm building a rocket ship 🚀"_: **Use something else**
+
+---
+
+Note that if you end up using Sapper, you can always [migrate to SvelteKit later](https://kit.svelte.dev/migrating).
+
+See any reasons missing from the above list? Drop them in the comments below 💬
+
+_Follow me on [Dev.to](https://dev.to/danawoodman), [Twitter](https://twitter.com/DanaWoodman) and [Github](https://github.com/danawoodman) for more web dev and startup related content_ 🤓

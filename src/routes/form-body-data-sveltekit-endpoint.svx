@@ -1,0 +1,160 @@
+---
+title: Getting form body data in your SvelteKit endpoints
+# published: 2021-04-13
+---
+
+Most of the time when working with forms, we opt to override the browser's default behavior (via `<form on:submit|preventDefault={handleSubmit}>`), but sometimes we just want a simple form submission.
+
+In those cases, you may find yourself with an empty body coming into your SvelteKit endpoints. If that is you, read on!
+
+---
+
+# The Problem
+
+Suppose we have an HTML form like this and we want to `POST` it's content to our endpoint at `/newsletter`:
+
+```html
+<form method="post" action="/newsletter">
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <button type="submit">Submit</button>
+</form>
+```
+
+If we tried to access `req.body` from our endpoint directly, we would get this:
+
+```
+ReadOnlyFormData {}
+```
+
+---
+
+# Accessing form data
+
+**What the heck is this?** With a little searching, you can see it defined in the SvelteKit types:
+
+```ts
+interface ReadOnlyFormData extends Iterator<[string, string]> {
+  get: (key: string) => string;
+  getAll: (key: string) => string[];
+  has: (key: string) => boolean;
+  entries: () => Iterator<[string, string]>;
+  keys: () => Iterator<string>;
+  values: () => Iterator<string>;
+}
+```
+
+And for the weirdos among us, you can [check out the code for the `ReadOnlyFormData` class on Github](https://github.com/sveltejs/kit/blob/master/packages/kit/src/core/http/get_body/read_only_form_data.js)).
+
+But the tl;dr is that for form data, SvelteKit gives us this little class that we can use to pull out values in our endpoints.
+
+Here is how to use the basic property accessors:
+
+```js
+request.body.get("username");
+// "sveltegroupie3000"
+
+// Get an array of values (useful for checkboxes and selects)
+request.body.getAll("favIceCreamFlavors");
+// ['vanilla', 'toffee', 'caramel']
+
+// Check if a value exists (useful for boolean checkboxes)
+request.body.has("agreeToTerms");
+// true
+```
+
+And to get all the form data, you'll need to access the `Iterators`:
+
+```js
+// Get all items in the form in an "entries" type array:
+const items = [...req.body.entries()];
+// [ [ "name": "Rich Harris" ], [ "hobbies", "svelte" ], [ "hobbies": "journalism" ] ]
+
+// Get each keys:
+const keys = [...req.body.keys()];
+// [ "name", "hobbies", "hobbies" ]
+
+// Get all values:
+const values = [...req.body.values()];
+// [ [ "Rich Harris" ], [ "svelte" ], [ "journalism" ] ]
+```
+
+Now you should be able to work with your HTML form data, high five! 🙏
+
+---
+
+# Going further
+
+If you're like me, you'd rather just have a nice little object to play with of all your form data. If you want something like this, try out the following helper function to parse your form data and modify as desired:
+
+```js
+function getFormBody(body) {
+  return [...body.entries()].reduce((data, [k, v]) => {
+    let value = v;
+    if (value === "true") value = true;
+    if (value === "false") value = false;
+    if (k in data)
+      data[k] = Array.isArray(data[k]) ? [...data[k], value] : [data[k], value];
+    else data[k] = value;
+    return data;
+  }, {});
+}
+
+// Usage:
+const body = getFormBody(req.body);
+```
+
+With this you can now access your form data as you're probably use to with thinks like Express.
+
+An additional point: this isn't the only way to submit forms in Svelte, you could also hijack the submit event and send it to an endpoint you have:
+
+```html
+<script>
+  let submit;
+
+  function handleSubmit() {
+    // Send a POST request to src/routes/contact.js endpoint
+    submit = fetch("/contact", {
+      method: "POST",
+      body: JSON.stringify({ foo: "bar" }),
+      headers: { "content-type": "application/json" },
+    })
+      .then((resp) => resp.json())
+      .finally(() => setTimeout(() => (submit = null), 5000));
+  }
+</script>
+
+{#if submit} {#await submit}
+<p>Sending...</p>
+{:then resp}
+<p>🎉 Done!</p>
+<pre>RESPONSE: {JSON.stringify(resp, null, 2)}</pre>
+{/await} {/if}
+<form on:submit|preventDefault="{handleSubmit}" method="post">
+  <input type="text" name="email" />
+  <button type="submit">Submit</button>
+</form>
+```
+
+And `src/routes/contact.js` would look like:
+
+```js
+export async function post(req) {
+  // Simulate a delay... instead you'd do something interesting here...
+  await new Promise((resolve) => setTimeout(resolve, 500));
+
+  return { body: { success: true } };
+}
+```
+
+---
+
+# Fin
+
+Thanks for reading and hope this was helpful! 🤓
+
+This post was inspired by a question @Teunminator in Svelte's #svelte-kit Discord channel, thanks for a fun challenge!
+
+PS: If you're trying to implement file uploads, you'll like see `Error: File upload is not yet implemented` which is because SvelteKit does not yet support it (as of this writing). You'll have to upload your files in other ways until then.
+
+_Follow me on [Dev.to](https://dev.to/danawoodman), [Twitter](https://twitter.com/DanaWoodman) and [Github](https://github.com/danawoodman) for more web dev and startup related content_ 🤓

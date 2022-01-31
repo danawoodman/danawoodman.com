@@ -1,0 +1,191 @@
+---
+title: Adding basic internationalization (i18n) to you app
+# published: 2021-01-12
+---
+
+## 👋 Hola, Mundo!
+
+_[Read this article en Español](https://www.ibidemgroup.com/edu/como-internacionalizar-app-i18n/) (via Chema of Ideas Worth Tranlsating, thanks!)_
+
+I just recently stumbled upon a great video by Dr. Matthias Stahl ([tweet here](https://twitter.com/h_i_g_s_c_h/status/1344223132308164616), [YouTube video here](https://www.youtube.com/watch?v=PqX6j7Ma0DU&feature=youtu.be), [code here](https://github.com/higsch/quick-svelte-i18n)) on [Svelte Society's YouTube channel](https://www.youtube.com/channel/UCZSr5B0l07JXK2FIeWA0-jw) who came up with a simple approach to adding basic i18n translations to a Svelte app.
+
+{% twitter 1344223132308164616 %}
+
+I thought it would be fun and informative to recreate it while also making some minor optimizations and enhancements along the way. 🤗
+
+We're going to be creating something like this:
+
+![translations in action](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hqcj31d2f4h126jojh5w.gif)
+
+Most of the credit in this post goes to Matthias here, so make sure to check him out and give him a follow! 🙇
+
+📒 _Note: this isn't a full featured internationalization solution like [i18next](https://www.i18next.com/), so this might not be the exact right solution for you!_
+
+_**Impatient?** Checkout the [Svelte REPL with all the code](http://bit.ly/svelte-basic-i18n-repl) ↗️_
+
+---
+
+## The translations object
+
+In Matthias's example, he uses a deeply nested object to store translations strings. This works, but it is slightly inefficient since you'll have to traverse the object, especially if you have multiple layers of nested keys (think `app => page => section => component => label`).
+
+I've instead opted for a flat object with the key being the internationalization locale subtag (eg `en` and not `en-US`) and a string representing a dot-separated namespace for a translation value. When we're dealing with many translations, this should have a slight performance benefit.
+
+In addition, we will support embedded variables and HTML in our translation strings:
+
+```js
+// translations.js
+export default {
+  en: {
+    "homepage.title": "Hello, World!",
+    "homepage.welcome": "Hi <strong>{{name}}</strong>, how are you?",
+    "homepage.time": "The current time is: {{time}}",
+  },
+  es: {
+    "homepage.title": "¡Hola Mundo!",
+    "homepage.welcome": "Hola, <strong>{{name}}</strong>, ¿cómo estás?",
+    "homepage.time": "La hora actual es: {{time}}",
+  },
+};
+```
+
+This will allow us to have namespaced keys as well as supporting rich formatting and injecting values (e.g. strings, numbers, dates, etc).
+
+---
+
+## The component
+
+We will now create our Svelte component, huzzah! 👏
+
+This component is pretty simple and will consist of a select dropdown to choose the language the user wants to use as well as displaying some translation text including one with HTML and custom variables!
+
+```html
+<!-- App.svelte -->
+<script>
+  import { t, locale, locales } from "./i18n";
+
+  // Create a locale specific timestamp
+  $: time = new Date().toLocaleDateString($locale, {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+</script>
+
+<main>
+  <p>
+    <select bind:value="{$locale}">
+      {#each locales as l}
+      <option value="{l}">{l}</option>
+      {/each}
+    </select>
+  </p>
+
+  <h1>{$t("homepage.title")}!</h1>
+  <p>{@html $t("homepage.welcome", { name: "Jane Doe" })}!</p>
+  <p>{$t("homepage.time", { time })}!</p>
+</main>
+```
+
+What we're doing here is connecting a `<select>` element to a Svelte store (which we will create in a second) and also using a magic `$t()` method which will allow us to do translation lookups.
+
+You'll also notice we're creating a locale specific timestamp to show the user using `toLocaleDateString` which we pass the `$locale` store value to.
+
+If this doesn't make sense yet, that's ok, keep reading!
+
+---
+
+## The store
+
+Now for the fun part, let's create our Svelte store! 👯‍♂️
+
+The store itself is quite simple, basically we just store the locale value (e.g. `en`, `es`, etc) in one store and then create a `derived` store from the locale and the translations object we created earlier.
+
+```js
+import { derived, writable } from "svelte/store";
+import translations from "./translations";
+
+export const locale = writable("en");
+export const locales = Object.keys(translations);
+
+function translate(locale, key, vars) {
+  // Let's throw some errors if we're trying to use keys/locales that don't exist.
+  // We could improve this by using Typescript and/or fallback values.
+  if (!key) throw new Error("no key provided to $t()");
+  if (!locale) throw new Error(`no translation for key "${key}"`);
+
+  // Grab the translation from the translations object.
+  let text = translations[locale][key];
+
+  if (!text) throw new Error(`no translation found for ${locale}.${key}`);
+
+  // Replace any passed in variables in the translation string.
+  Object.keys(vars).map((k) => {
+    const regex = new RegExp(`{{${k}}}`, "g");
+    text = text.replace(regex, vars[k]);
+  });
+
+  return text;
+}
+
+export const t = derived(
+  locale,
+  ($locale) =>
+    (key, vars = {}) =>
+      translate($locale, key, vars)
+);
+```
+
+The majority of the logic is in the `translate` method which looks up the keys and injects the variables, if present.
+
+The derived store will stay in sync with the current locale and thus our `translate` method will always received the current locale when being called. When the locale is updated, the `$t()` calls will be re-computed and thus update all our text in our Svelte component when the user changes their locale. Cool! 😎
+
+This departs a bit from Matthias's version as it doesn't require creating an extra store for the translation which isn't strictly necessary and is a bit more efficient if we omit it.
+
+---
+
+## Putting it together
+
+Now that we have our store, we have all the pieces to create a basic internationalization system in Svelte, congrats 🎉
+
+If you want to see this code in action, have a look at the [Svelte REPL](http://bit.ly/svelte-basic-i18n-repl)
+
+---
+
+## 🛰 Going further
+
+Now, this option isn't right for everyone. If you're building a large, robust, content-heavy application with many translations, then maybe you'll want to consider something like [Locize](https://locize.com) in combination with [i18next](https://www.i18next.com/). You can always integrate their JS libraries with Svelte in a similar way.
+
+We are also not sanitizing any of the HTML content, so if you're injecting user supplied data in your translation strings, you'll need to make sure to sanitize/strip the input so as not to create an [XSS vulnerability](https://owasp.org/www-community/attacks/xss/)! 🔐
+
+Another issue with this approach is there is no real fallback behavior for a missing translation (right now we're just throwing errors which is probably not what you want).
+
+That said, a solution like this can be helpful when you don't need a full-blown translation platform and just need relatively basic string translations.
+
+You could extend this example by [persisting the locale value in local storage](https://chasingcode.dev/blog/svelte-persist-state-to-localstorage/) and defaulting to the browser's preferred language by, for example, using the [`navigator.languages` property](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorLanguage/languages). This is a subject in its own right!
+
+---
+
+## 🎬 Fin
+
+Checkout the [Svelte REPL](http://bit.ly/svelte-basic-i18n-repl) for all the code in a live editing environment you can mess around with! 🤓
+
+I think this example shows us a few interesting properties of Svelte, including:
+
+1️⃣ How to implement a functional but basic i18n implementation in very little code
+2️⃣ How to use a `derived` store which returns a function
+3️⃣ How to use global stores and how to set those values in our components
+4️⃣ How to use `toLocaleDateString` to get locale-specific date formatting
+
+Hopefully this was entertaining for you and don't forget to give Matthias a shoutout for his original post!
+
+---
+
+_Thanks for reading! Consider giving this post a ❤️, 🦄 or 🔖 to bookmark it for later._ 💕
+
+_Have other tips, ideas, feedback or corrections? Let me know in the comments!_ 🙋‍♂️
+
+_Don't forget to follow me on Dev.to ([danawoodman](https://dev.to/danawoodman)), Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) and/or Github ([danawoodman](https://github.com/danawoodman))!_
+
+<small><em>Photo by <a href="https://unsplash.com/@goshua13?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Joshua Aragon</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small>

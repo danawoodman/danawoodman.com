@@ -1,0 +1,109 @@
+---
+title: Deploying a SvelteKit app to Netlify
+# published: 2021-04-11
+---
+
+Want to deploy your SvelteKit app to Netlify? Well, you're in luck because it's actually quite easy!
+
+Let's jump right in 👇
+
+---
+
+# 1. Create your SvelteKit project
+
+First, obviously you'll need a SvelteKit project. If you don't have one yet, setup is super simple:
+
+```bash
+npm init svelte@next my-app
+cd my-app
+npm i
+```
+
+Then you can run `npm run dev` to play 👯‍♀️ with your new app.
+
+---
+
+# 2. Create `netlify.toml`
+
+You'll need to let Netlify know where the SvelteKit build will be located (`/build`) and where the serverless functions will live (`/functions`).
+
+In the root of your project, create a `netlify.toml` file:
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "build/"
+  functions = "functions/"
+```
+
+---
+
+# 3. Use the Netlify adapter
+
+Now you'll want to install the [@sveltejs/adapter-netlify adapter](https://www.npmjs.com/package/@sveltejs/adapter-netlify):
+
+```shell
+npm i -D @sveltejs/adapter-netlify@next
+```
+
+In your `svelte.config.cjs` file, change `adapter-node` to `adapter-netlify`, like so (diff):
+
+```diff
+const sveltePreprocess = require('svelte-preprocess')
+-const node = require('@sveltejs/adapter-node')
++const netlify = require('@sveltejs/adapter-netlify')
+const pkg = require('./package.json')
+
+/** @type {import('@sveltejs/kit').Config} */
+module.exports = {
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: sveltePreprocess(),
+  kit: {
+    // By default, `npm run build` will create a standard Node app.
+    // You can create optimized builds for different platforms by
+    // specifying a different adapter
+-    adapter: node(),
++    adapter: netlify(),
+
+    // hydrate the <div id="svelte"> element in src/app.html
+    target: '#svelte',
+
+    vite: {
+      ssr: {
+        noExternal: Object.keys(pkg.dependencies || {}),
+      },
+    },
+  },
+}
+```
+
+Now you have everything you need to deploy your Netlify site!
+
+---
+
+# 4. Deploy on Netlify
+
+Now all you need to do is:
+
+1. Create a Github repo
+2. Push your code to it
+3. Add the new repo to Netlify (e.g. the "New site from Git" button)
+
+- Accept the default options
+
+4. Wait for it to build and after about a minute, you should have a SvelteKit app on Netlify! 🎉
+
+Now you can add routes to your SvelteKit app and they will be served by Netlify's global serverless infrastructure 🛰
+
+---
+
+# That's it!
+
+Deploying SvelteKit to Netlify (or Vercel) is quite simple and gives you a global CDN and serverless function out the gate!
+
+Hope this was helpful! 🍻
+
+If you want to check out the source code, [see the Github repo here](https://github.com/danawoodman/netlify-sveltekit).
+
+_Follow me on [Dev.to](https://dev.to/danawoodman), [Twitter](https://twitter.com/DanaWoodman) and [Github](https://github.com/danawoodman) for more web dev and startup related content_ 🤓

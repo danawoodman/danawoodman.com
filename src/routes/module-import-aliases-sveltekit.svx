@@ -1,0 +1,121 @@
+---
+title: How to add module import aliases in SvelteKit
+# published: 2021-03-18
+---
+
+_UPDATE: the [new Svelte FAQ](https://kit.svelte.dev/faq#how-do-i-setup-a-path-alias) now has this info in it (though I go into a little more detail here in case you're curious)_
+
+UPDATE 2: Updated examples to match the latest version of SvelteKit
+
+---
+
+Don't want to do relative imports (`../../stores/user`) and instead want to rock some sexy absolute imports (`$stores/user`)?
+
+Well you're in luck because, with SvelteKit, you can add as many custom module import aliases as you want.
+
+In this (very short) tutorial, I'm going to add two aliases, one for my `src/components` directory (which I'm renaming from `src/lib` because reasons) and adding `src/stores` for, well, my stores. Let's go! 🏃‍♀️
+
+---
+
+# Add aliases to `svelte.config.cjs`
+
+Add any aliases you want in your `svelte.config.cjs` file at the root of your project. We will add a `resolve` object to `kit.vite.resolve` with an object of our aliases.
+
+Here is the approximate diff you should see when you're done:
+
+```diff
+import preprocess from 'svelte-preprocess';
++ import { resolve } from "path";
+
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+	// Consult https://github.com/sveltejs/svelte-preprocess
+	// for more information about preprocessors
+	preprocess: preprocess(),
+
+	kit: {
+		// hydrate the <div id="svelte"> element in src/app.html
+- 		target: '#svelte'
++ 		target: '#svelte',
++ 		vite: {
++ 			resolve: {
++ 				alias: {
++ 					$components: resolve('./src/components'),
++ 					$stores: resolve('./src/stores'),
++ 					$actions: resolve('./src/actions')
++ 				}
++ 			}
++ 		}
+	}
+};
+
+export default config;
+```
+
+Now you should be able to import your stuff from anywhere using your new aliases, like:
+
+```js
+import Counter from "$components/Counter";
+import { user } from "$stores/auth";
+```
+
+Obviously you can add as many as you want and can also link to directories other than `src`. Have at it!
+
+---
+
+# Adding Typescript aliases
+
+If you're using Typescript, make sure to update your `tsconfig.json` with your aliases so they match that of your `svelte.config.cjs`:
+
+```diff
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"module": "es2020",
+		"lib": ["es2020"],
+		"target": "es2019",
+		/**
+			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
+			to enforce using \`import type\` instead of \`import\` for Types.
+			*/
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"resolveJsonModule": true,
+		/**
+			To have warnings/errors of the Svelte compiler at the correct position,
+			enable source maps by default.
+			*/
+		"sourceMap": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
+		"allowJs": true,
+		"checkJs": true,
+		"paths": {
+-			"$lib/*": ["src/lib/*"]
++			"$components/*": ["src/components/*"],
++			"$stores/*": ["src/stores/*"],
++			"$actions/*": ["src/actions/*"]
+		}
+	},
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+}
+
+```
+
+---
+
+# Fin
+
+That's all there is to it, hope this saves you some keystrokes! 🍻
+
+---
+
+_Thanks for reading! Consider giving this post a ❤️, 🦄 or 🔖 to bookmark it for later._ 💕
+
+_Have other tips, ideas, feedback or corrections? Let me know in the comments!_ 🙋‍♂️
+
+_Don't forget to follow me on Dev.to ([danawoodman](https://dev.to/danawoodman)), Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) and/or Github ([danawoodman](https://github.com/danawoodman))!_
+
+<small><em>Photo by <a href="https://unsplash.com/@goshua13?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Joshua Aragon</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small>

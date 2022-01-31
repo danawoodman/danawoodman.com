@@ -2,6 +2,8 @@ import type { EndpointOutput, RequestEvent } from "@sveltejs/kit";
 import convert from "xml-js";
 import { getPosts } from "./_posts";
 
+// Reference: https://sitemaps.org/protocol.html#location
+
 function isoDateTime(date?: string): string | undefined {
   if (!date) return undefined;
   return new Date(date).toISOString().split("T")[0];

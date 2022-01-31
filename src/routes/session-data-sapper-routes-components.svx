@@ -1,0 +1,107 @@
+---
+title: Getting session data in your Sapper server routes and components
+# published: 2021-03-16
+---
+
+If you're building a non-trivial Sapper app, you likely need access to your current user in your Sapper server routes as well as your components. In this short article I'll show you how to do both, let's go! 🚀
+
+---
+
+# Create a session middleware
+
+Create a normal Express middleware that assigns your session data to `req.session` so we can use it in the Sapper middleware:
+
+```js
+// src/middlewares/session.ts
+export function session() {
+  return async (req, res, next) => {
+    // Get your user somehow, maybe via cookies/JWT
+    const user = await someMethodToGetUser();
+
+    req.session = { user };
+
+    next();
+  };
+}
+```
+
+---
+
+# Add middleware to your server
+
+In your `src/server.js`, add the session middleware right before your `sapper.middleware` and pass in the session data to Sapper:
+
+```js
+app.use(session());
+app.use(sapper.middleware({ session: (req) => req.session }));
+```
+
+---
+
+# Use in your Sapper server routes
+
+Now you can use your session data in your server routes:
+
+```js
+// src/routes/api/me
+export async function get(req, res) {
+  res.json(req.session);
+}
+```
+
+Now you can ping `/api/me` to get the current user session.
+
+---
+
+# Use in your Svelte components
+
+You can also use the session store in your Svelte components:
+
+```html
+<script>
+  import { stores } from "@sapper/app";
+  const { session } = stores();
+</script>
+
+{#if $session.user} Logged in {:else} Logged out {/if}
+```
+
+---
+
+# Bonus: Typescript support
+
+To support Typescript, create a `src/types.d.ts` file and add the following:
+
+```ts
+interface User {
+  id: string;
+  email: string;
+  // anything else you need...
+}
+
+interface Session {
+  user?: User;
+}
+
+declare namespace Express {
+  export interface Request {
+    session?: Session;
+  }
+}
+```
+
+---
+
+# 🏁 Wrapping up
+
+Thanks for making this far, hope this was helpful! 👋
+
+Hat tip to @babeard on the [Svelte Discord](https://discord.gg/PNX5tQYa) for the suggestion of using a regular middleware to get the data to Sapper sessions.
+
+---
+
+_Thanks for reading! Consider giving this post a ❤️, 🦄 or 🔖 to bookmark it for later._ 💕
+
+_Have other tips, ideas, feedback or corrections? Let me know in the comments!_ 🙋‍♂️
+
+_Don't forget to follow me on Dev.to ([danawoodman](https://dev.to/danawoodman)), Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) and/or Github ([danawoodman](https://github.com/danawoodman))!_

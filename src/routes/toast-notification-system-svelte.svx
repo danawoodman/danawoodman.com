@@ -1,0 +1,209 @@
+---
+title: Creating a toast notification system
+# published: 2021-03-18
+---
+
+# Toast you say? 🍞
+
+A common UI design pattern is to use "toasts" or small UI notifications that alert the user of something happening in realtime (e.g. a form submission error, a new message or friend request, etc).
+
+In this article, we will be building a simple toast system in Svelte, kinda like this:
+
+![toasts](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/k6qzoc9mg5dkdovr9i40.gif)
+
+_**Impatient?** See the [REPL here](http://bit.ly/svelte-toast-notifications)_
+
+---
+
+# Create a Svelte store for out toast notifications
+
+Let's start out by creating a simple Svelte store for our toast system. The store will just contain an array that we will update when a new toast is created or "dismissed":
+
+```js
+import { writable } from "svelte/store";
+
+export const toasts = writable([]);
+
+export const dismissToast = (id) => {
+  toasts.update((all) => all.filter((t) => t.id !== id));
+};
+
+export const addToast = (toast) => {
+  // Create a unique ID so we can easily find/remove it
+  // if it is dismissible/has a timeout.
+  const id = Math.floor(Math.random() * 10000);
+
+  // Setup some sensible defaults for a toast.
+  const defaults = {
+    id,
+    type: "info",
+    dismissible: true,
+    timeout: 3000,
+  };
+
+  // Push the toast to the top of the list of toasts
+  const t = { ...defaults, ...toast };
+  toasts.update((all) => [t, ...all]);
+
+  // If toast is dismissible, dismiss it after "timeout" amount of time.
+  if (t.timeout) setTimeout(() => dismissToast(id), t.timeout);
+};
+```
+
+Overall this should be pretty simple, we have a two methods, one for adding a toast and the other for removing. If the toast has a `timeout` field, we set a timeout to remove the toast. We set some default values for all toasts and we give a toast an `id` to make it easier to add/remove and for Svelte's `{#each}` tag to index it better.
+
+---
+
+# Create the toasts parent component
+
+```html
+<script lang="ts">
+  import Toast from './Toast.svelte'
+
+  import { dismissToast, toasts } from './store'
+</script>
+
+{#if $toasts}
+  <section>
+    {#each $toasts as toast (toast.id)}
+      <Toast
+        type={toast.type}
+        dismissible={toast.dismissible}
+        on:dismiss={() => dismissToast(toast.id)}>{toast.message}</Toast>
+    {/each}
+  </section>
+{/if}
+
+<style lang="postcss">
+  section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+  }
+</style>
+```
+
+---
+
+# Create the toast component
+
+Next, we're going to create a `Toast.svelte` component with different states: success, error, and info, like so:
+
+![toasts](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/muydexd29qd6b5qhxptv.png)
+
+```html
+<script>
+  import { createEventDispatcher } from 'svelte'
+  import { fade } from 'svelte/transition'
+  import SuccessIcon from './SuccessIcon.svelte'
+  import ErrorIcon from './ErrorIcon.svelte'
+  import InfoIcon from './InfoIcon.svelte'
+  import CloseIcon from './CloseIcon.svelte'
+
+  const dispatch = createEventDispatcher()
+
+  export let type = 'error'
+  export let dismissible = true
+</script>
+
+<article class={type} role="alert" transition:fade>
+  {#if type === 'success'}
+    <SuccessIcon width="1.1em" />
+  {:else if type === 'error'}
+    <ErrorIcon width="1.1em" />
+  {:else}
+    <InfoIcon width="1.1em" />
+  {/if}
+
+  <div class="text">
+    <slot />
+  </div>
+
+  {#if dismissible}
+    <button class="close" on:click={() => dispatch('dismiss')}>
+      <CloseIcon width="0.8em" />
+    </button>
+  {/if}
+</article>
+
+<style lang="postcss">
+  article {
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    margin: 0 auto 0.5rem auto;
+    width: 20rem;
+  }
+  .error {
+    background: IndianRed;
+  }
+  .success {
+    background: MediumSeaGreen;
+  }
+  .info {
+    background: SkyBlue;
+  }
+  .text {
+    margin-left: 1rem;
+  }
+  button {
+    color: white;
+    background: transparent;
+    border: 0 none;
+    padding: 0;
+    margin: 0 0 0 auto;
+    line-height: 1;
+    font-size: 1rem;
+  }
+</style>
+```
+
+Hopefully this component is pretty straight forward; it's just some styling for the toast, some conditions for if it is "dismissible" and come icon components (which are just SVGs).
+
+---
+
+# Creating toast notifications
+
+You can now create toast notifications anywhere in your Svelte app (in your JS files or your `.svelte` files):
+
+```js
+import { addToast } from "./store";
+
+addToast({
+  message: "Hello, World!",
+  type: "success",
+  dismissible: true,
+  timeout: 3000,
+});
+```
+
+You can then use your `<Toasts />` component somewhere in your layout component (e.g. `App.svelte` or `_layout.svelte`, etc).
+
+---
+
+# Wrapping up 🌯
+
+That's it folks, hopefully you learning something today!
+
+See the full toast system in the [Svelte REPL here](http://bit.ly/svelte-toast-notifications).
+
+Thanks for reading!
+
+---
+
+_Thanks for reading! Consider giving this post a ❤️, 🦄 or 🔖 to bookmark it for later._ 💕
+
+_Have other tips, ideas, feedback or corrections? Let me know in the comments!_ 🙋‍♂️
+
+_Don't forget to follow me on Dev.to ([danawoodman](https://dev.to/danawoodman)), Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) and/or Github ([danawoodman](https://github.com/danawoodman))!_
+
+<small><em>Photo by <a href="https://unsplash.com/@goshua13?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Joshua Aragon</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small>

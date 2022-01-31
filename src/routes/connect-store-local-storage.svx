@@ -1,0 +1,111 @@
+---
+title: Connect a store to local storage
+# published: 2021-03-22
+---
+
+# Local storage, oh my 🤩
+
+Here's a really quick tip for you today; how to use Svelte stores to keep data in-sync with local storage.
+
+This is particularly useful if you're wanting to persist some user values, say UI configuration (e.g. their preferred theme, something that is shown/hidden, etc) and have the settings retained for future sessions.
+
+Doing this with Svelte is pretty trivial, let's check it out 👇
+
+---
+
+# Create the store
+
+All we need to do to connect to local storage is create a `writable` store and then set a default value based on local storage and on any change (via `subscribe`) we update the local storage entry.
+
+```js
+// src/stores/content.js
+import { writable } from "svelte/store";
+
+// Get the value out of storage on load.
+const stored = localStorage.content;
+// or localStorage.getItem('content')
+
+// Set the stored value or a sane default.
+export const content = writable(stored || "Hello, World!");
+
+// Anytime the store changes, update the local storage value.
+content.subscribe((value) => (localStorage.content = value));
+// or localStorage.setItem('content', value)
+```
+
+The key thing to remember here is local storage always stores strings, so if you're storing something else, say a `boolean` or some JSON, then you will want to convert to/from the data type you want and the local storage string representation.
+
+For example, if you wanted to store a boolean, it would look more like this:
+
+```js
+// src/stores/enabled.ts
+import { writable } from "svelte/store";
+
+export const enabled = writable < boolean > (localStorage.enabled === "true");
+
+enabled.subscribe((value) => (localStorage.enabled = String(value)));
+```
+
+Notice that we read the value and compare it to the string `'true'` versus treating it like a `boolean`, which won't work. Also note that we need to convert it to a string before saving it to local storage (especially if we're using Typescript).
+
+If you're working with objects or arrays, you can lean towards using `JSON.parse` instead:
+
+```js
+// src/stores/user.ts
+import { writable } from 'svelte/store'
+
+interface User {
+  email: string
+  username: string
+}
+
+export const enabled = writable<User>(JSON.parse(localStorage.getItem('user')))
+
+enabled.subscribe((value) => localStorage.user = JSON.stringify(value))
+```
+
+Not that we will want to use `getItem` instead of the property accessor because `getItem` returns `null` where as the property accessor returns `undefined` on missing keys and `null` is valid with `JSON.parse` whereas `undefined` causes it to explode violently with `Uncaught SyntaxError: Unexpected token u in JSON at position 0`.
+
+---
+
+# Use your store
+
+Now you can use the value in your component:
+
+```html
+<script>
+  import { content } from "./store";
+</script>
+
+<p>{$content}</p>
+
+<input bind:value="{$content}" />
+```
+
+Any time you update the value it will be updated in local storage and when you reload it will automatically be set to the value you had set last. Pretty neat!
+
+---
+
+# That's it!
+
+I told you it would be quick 😎
+
+Hopefully this comes in handy for you, cheers! 🍻
+
+EDIT: Thanks to [Luke Edwards (@lukeed05) on Twitter](https://twitter.com/lukeed05/status/1372375213027905536) for pointing out you can do `localStorage['content']` (or `localStorage.content`) instead of the more verbose `localStorage.getItem('content')` and `localStorage.content = '...'` instead of `localStorage.setItem('content', '...')`
+
+EDIT 2: Shoutout to [Jamie Birch (@LinguaBrowse) on Twitter](https://twitter.com/LinguaBrowse/status/1372408837660102657) who mentioned it might be safer to stick with `getItem` and `setItem` since they're specifically declared int the local storage spec. It seems safe enough to use the property accessors, but if you want to be extra safe, use `getItem` and `setItem`.
+
+EDIT 3: [Sören (@the_soerenson) on Twitter](https://twitter.com/the_soerenson/status/1372447256452993025) pointed out you could take this further by [adding event listeners](https://developer.mozilla.org/en-US/docs/Web/API/Window/storage_event) so you could detect local storage changes in other browser tabs/windows. Maybe cool if you're trying to sync offline data across browser tabs?
+
+EDIT 4: Thanks to [@JuSellier on Twitter](https://twitter.com/SellierJu) who reminded me we can use `JSON.parse` on primitive values (`boolean`, `number` etc), so I've updated the example to use that instead. Thanks JuSellier!
+
+---
+
+_Thanks for reading! Consider giving this post a ❤️, 🦄 or 🔖 to bookmark it for later._ 💕
+
+_Have other tips, ideas, feedback or corrections? Let me know in the comments!_ 🙋‍♂️
+
+_Don't forget to follow me on Dev.to ([danawoodman](https://dev.to/danawoodman)), Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) and/or Github ([danawoodman](https://github.com/danawoodman))!_
+
+<small><em>Photo by <a href="https://unsplash.com/@goshua13?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Joshua Aragon</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></em></small>

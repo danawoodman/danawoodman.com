@@ -1,0 +1,29 @@
+---
+title: How to redirect in SvelteKit endpoints
+# published: 2021-04-20
+---
+
+Wanted to do redirects in your SvelteKit endpoints and tried to `return { redirect: '/success' }` just to find out it doesn't work?
+
+Well, you're in luck because you can just use the standard `Location` header to do redirects:
+
+```js
+export async function get() {
+  // Do some magic here... ✨
+
+  return {
+    headers: { Location: "/success" },
+    status: 302,
+  };
+}
+```
+
+Remember to make sure use the [proper status code](https://httpstatusdogs.com/) for your redirect.
+
+Learn more about the [`Location` header on MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Location).
+
+Whelp, that's it for today, hope this saved you some headaches!
+
+---
+
+_Follow me on [Dev.to](https://dev.to/danawoodman), [Twitter](https://twitter.com/DanaWoodman) and [Github](https://github.com/danawoodman) for more web dev and startup related content_
