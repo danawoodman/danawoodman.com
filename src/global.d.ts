@@ -2,6 +2,7 @@
 
 interface Post {
   title: string;
+  description?: string;
   slug?: string;
   published?: string;
   tags?: string[];
