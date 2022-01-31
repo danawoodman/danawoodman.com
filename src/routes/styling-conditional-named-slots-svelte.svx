@@ -1,0 +1,153 @@
+---
+title: How to style conditional named slots in Svelte?
+description: Learn three options you can use to conditionally style named slots in Svelte.
+published: 2021-02-22
+categories: [How Tos, JavaScript, Svelte]
+tags: [Svelte, SvelteKit, JavaScript, TypeScript, CSS]
+---
+
+In my [previous post](https://dev.to/danawoodman/svelte-quick-tip-styling-slot-content-with-global-1ia4), I described how you could selectively style the children of a `<slot>`. Now, we're going to zoom out a bit and see how we can style the `<slot>` containers themselves.
+
+You'll likely find yourself doing this when you're working with multiple name slots that also happen to be optional.
+
+As far as I'm aware, there are 3 basic ways we can do this:
+
+1. Style the wrapped component
+2. Style based on the `[slot="..."]` name
+3. Use conditional slots
+
+Let's go into each now using the example of a `<Modal>` component with an optional `actions` slot for form actions:
+
+_**Impatient?** The tl;dr is to use conditional slots_ 🤓
+
+## Option 1: Style the wrapped component
+
+Likely the most basic of the bunch, we can wrap a slot with a tag and then apply styles to that parent tag:
+
+```svelte
+<section>
+  <div>
+    <slot />
+  </div>
+  <footer>
+    <slot name="actions" />
+  </footer>
+</section>
+
+<style lang="postcss">
+  section {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.15);
+  }
+  div {
+    padding: 2rem;
+  }
+  div :global(> :first-child) {
+    margin-top: 0;
+  }
+  div :global(> :last-child) {
+    margin-bottom: 0;
+  }
+  footer {
+    background: #ececec;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 1.25rem 2rem;
+  }
+</style>
+```
+
+We can then use this component like so:
+
+```svelte
+<h1>With slot content</h1>
+<Modal>
+  <p>Hello, World!</p>
+  <div slot="actions">
+    <button>Click me</button>
+  </div>
+</Modal>
+
+<h1>Without slot content</h1>
+<Modal>
+  <p>Hello, World!</p>
+</Modal>
+```
+
+The problematic part about this solution is that if the slot does not have content, it will still display which is of course not what we really want:
+
+![example 1](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/j6a2bsz6gj5ogxly6u4d.png)
+
+This happens because the `<footer>` tag exists in the DOM and thus has its styling applied so we see the gray box instead of nothing as we expect.
+
+I assume this is most peoples first approach when making named slots (as it was mine) so read on for better solutions if that is your story too!
+
+_See this in the [Svelte REPL here](https://svelte.dev/repl/e5f54bfde74a4eb4a41a4975de87dbaa)._
+
+## Option 2: Style based on the `[slot="..."]` name
+
+The only difference here is that we're goin to style the slot using just the slot name as a selector. To do this, first remove the wrapping `<footer>` tag from the slot:
+
+```diff
+<section>
+  <div>
+    <slot></slot>
+  </div>
+-  <footer>
+-    <slot name="actions"></slot>
+-  </footer>
++  <slot name="actions"></slot>
+</section>
+```
+
+Next, we will use the `[slot="..."]` syntax combined with the `:global` modifier to target the slot by its name. This way we can style the slot **without adding extra markup**:
+
+```diff
+-footer {
++section :global([slot="actions"]) {
+  /* ...styling remains the same... */
+}
+```
+
+You can now see that the footer is hidden like we expect:
+
+![example 2](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gubffdoz9olej6ukzc1o.png)
+
+In fact, since the slot gets no content passed to it, it is never even rendered to the DOM:
+
+![example 2 rendered html](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7i9czzs1w903wcpggubi.png)
+
+This particular approach is useful when you need to directly style the slot itself and can be used in combination with conditional slots below.
+
+_See this in the [Svelte REPL here](https://svelte.dev/repl/207ce84ff7c54091a72358cfde64e964)._
+
+## Option 3: Use conditional slots
+
+This is probably the "right" way to solve this problem in most cases since it doesn't require any weird CSS wizardry like the previous example.
+
+We just simply wrap the [slot in a conditional](https://svelte.dev/examples#conditional-slots) that will cause it to only render the slot and its content if the slot was given content in the consuming component:
+
+```svelte
+{#if $$slots.actions}
+  <footer>
+    <slot name="actions"></slot>
+  </footer>
+{/if}
+```
+
+The `$$slots` prop is a prop that Svelte gives all components which just represents a dictionary of named slots ([learn more about `$$slots` here](https://svelte.dev/docs#slots_object)).
+
+The reason I consider this the "right" way to solve this problem is that no markup is rendered to the browser and you don't need to do the sorta hacky `:global` modifications like example #2.
+
+In addition, you could add transitions/animations when it is mounted like you can other Svelte elements, which is pretty neat 😻
+
+_See this in the [Svelte REPL here](https://svelte.dev/repl/42dbf8d372614b0f99e0e90bdc18a847)._
+
+## Wrapping up
+
+Well, that's all folk! 🐰
+
+Hopefully this gives you a bit more clarity on dealing with styling of named slots in Svelte!
+
+In summary, you'll want to go with conditional slots for most use cases as it is the cleanest solution of the three and still allows you to apply specific styling/structure to the slot itself.

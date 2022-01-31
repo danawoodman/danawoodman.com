@@ -1,0 +1,130 @@
+---
+title: How to style slot content using :global
+description: Using the :global CSS decorator with Svelte, we can target styling for nested components within a slot.
+published: 2021-02-19
+categories: [How Tos, JavaScript, Svelte]
+tags: [Svelte, SvelteKit, JavaScript, TypeScript, CSS]
+---
+
+Ever sat around scratching your head asking "how on earth do I get rid of this damn margin on my `<slot>` content?" or some other slot styling quandary?
+
+Well, I know I have, so maybe you have too? 🧐
+
+## Step 1: Understanding the problem
+
+Let's say you have a `<Box>` component that you pass content into and sometimes that content has margins on it that you really just don't want. You'd prefer if your box component would remove the margins of the content that is passed into it, no matter what that content may be.
+
+Well, since Svelte scopes styles to a component by default, it's not as simple as you may initially think.
+
+## Step 2: Writing the component
+
+So, let's say your pretty little `<Box>` component looks about like this:
+
+`Box.svelte`:
+
+```svelte
+<section>
+  <slot></slot>
+</section>
+
+<style>
+  section {
+    background: PaleTurquoise;
+    padding: 1rem;
+  }
+</style>
+```
+
+Now let's say you use it a bit like so:
+
+`App.svelte`:
+
+```svelte
+<script>
+  import Box from "./Box.svelte";
+</script>
+
+<Box>
+  <p>This paragraph should not have a top margin!</p>
+  <p>This is a paragraph with top and bottom margins</p>
+  <p>This paragraph should not have a bottom margin!</p>
+</Box>
+
+<style>
+  p {
+    margin: 2rem 0;
+  }
+</style>
+```
+
+Now when you render this, you see something like this which isn't really what you wanted:
+
+![box with margins](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/s5z4ng0jel9bdun7drg8.png)
+
+You look at this monstrosity and scream out some expletives 🤬 and wonder how the hell you're going to do to remedy this situation.
+
+Well, fear not dear reader, for you have stumbled upon the solution to your existential pain and suffering!
+
+## Step 3: The solution
+
+The solution is simple and elegant; we will use the `:global` modifier in our `<Box>` CSS to remove top/bottom margins.
+
+Here's how we're going to do it, just add these two rules to your CSS for `Box.svelte` like so:
+
+```css
+section :global(> :first-child) {
+  margin-top: 0;
+}
+section :global(> :last-child) {
+  margin-bottom: 0;
+}
+```
+
+Now you should see your `<Box>` component in all its margin-less glory!
+
+![box without margins](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z57gep43zbb3xjt225oq.png)
+
+🎉 **Huzzah!!** We did it! A real game-changer, I know!
+
+This will generate some styles that are still scoped to the component:
+
+![rendered CSS](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/00aluonrwpmi5f0yfmv9.png)
+
+You'll see that the paragraph styling is overridden by the `:first-child` style because it is more "specific", thus allowing you to have styles applied to the slot's content as well as overriding any styles you need in the parent component.
+
+Cool right!? 🤓
+
+## Step 4: The final component
+
+Here is our component in its full glory:
+
+```html
+<section>
+  <slot></slot>
+</section>
+
+<style>
+  section {
+    background: PaleTurquoise;
+    padding: 1rem;
+  }
+  section :global(> :first-child) {
+    margin-top: 0;
+  }
+  section :global(> :last-child) {
+    margin-bottom: 0;
+  }
+</style>
+```
+
+Checkout the [Svelte REPL here](https://svelte.dev/repl/6bf144dc63ef4dc5b21ec03872ee63a0) to play around with this.
+
+## Step 5: Wrapping up
+
+You can leverage the `:global` modifier to do a lot of other cool stuff as well, this is just one specific example to get your mind active 🧠
+
+Thanks for reading thus far 🙏, hope you enjoyed!
+
+Have other tips, ideas, feedback or corrections? Let me know in the comments! 🙋‍♂️
+
+_You can find me on Twitter ([@danawoodman](https://twitter.com/DanaWoodman)) or Github ([danawoodman](https://github.com/danawoodman))_

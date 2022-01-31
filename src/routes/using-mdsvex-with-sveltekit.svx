@@ -4,6 +4,8 @@ categories: [How Tos, JavaScript, Svelte]
 tags: [Svelte, Markdown, SvelteKit, MDsveX]
 ---
 
+https://github.com/pngwn/MDsveX/issues/122
+
 - How to setup post templates
 - How to list all posts
   - How to filter by things like published status etc
