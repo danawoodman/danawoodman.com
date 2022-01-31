@@ -12,11 +12,18 @@
   export let posts = [];
 </script>
 
-<h2>Posts</h2>
-<nav>
-  {#each posts as post}
-    <article>
-      <h2><a href={post.slug}>{post.title}</a></h2>
-    </article>
-  {/each}
-</nav>
+<section class="max-w-prose mx-auto">
+  <h1 class="text-3xl mb-6 font-bold">Posts</h1>
+  <nav>
+    {#each posts as post}
+      <article class="my-4">
+        <h2 class="text-xl">
+          <a href={post.slug} class="underline">{post.title}</a>
+        </h2>
+        {#if post.description}
+          <div class="prose mt-1">{post.description}</div>
+        {/if}
+      </article>
+    {/each}
+  </nav>
+</section>
