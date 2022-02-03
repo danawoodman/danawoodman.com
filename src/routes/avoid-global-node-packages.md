@@ -1,0 +1,34 @@
+---
+title: Avoid global Node.js packages
+published: 2015-02-13
+tags: [node, javascript, tooling]
+---
+
+Often in Node.js projects, we're required to install global modules to run things like tests, migrations and other development processes.
+
+This has never sat right with me because global installs aren't explicit ([with minor exception](http://stackoverflow.com/a/10813149/529829)), which can lead to confusion and frustration when things don't work right.
+
+Instead, I opt to use local references to node packages in my applications because:
+
+1. It keeps dependencies explicitly defined in your `package.json`.
+2. It makes the application more portable because all dependencies are local.
+3. It doesn't require any documentation or setup for developers because everything they need to run the application is installed locally.
+
+For example, if we wanted to run a [Sequelize](http://sequelizejs.com/) migration, we could put the following in our `package.json`:
+
+```js
+{
+  "name": "my-project",
+  "scripts": {
+    "migrate": "sequelize db:migrate"
+  },
+  "dependencies": {
+    "sequelize": "*",
+    "sequelize-cli": "*"
+  }
+}
+```
+
+Now you can run `npm run migrate` to run migrations but without the need for global NPM packages but with the same convenience.
+
+_Extra credit: You can also pass additional parameters to npm scripts by using a double dash (`--`), eg `npm run test -- --watch`_
