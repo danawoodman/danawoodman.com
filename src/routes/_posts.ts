@@ -3,7 +3,7 @@ export async function getPosts(): Promise<Post[]> {
 
   const postPromises = [];
   for (const [path, resolver] of Object.entries(postFiles)) {
-    const slug = path.replace(".svx", "").replace("./", "/"); //slugFromPath(path);
+    const slug = path.replace(".svx", "").replace(".md", "").replace("./", "/"); //slugFromPath(path);
     const promise = resolver().then((post) => ({ slug, ...post.metadata }));
 
     postPromises.push(promise);
