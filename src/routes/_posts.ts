@@ -10,7 +10,12 @@ export async function getPosts(): Promise<Post[]> {
   }
   const posts: Post[] = await Promise.all(postPromises);
   // Remove drafts
-  return posts.filter((p) => p.published);
+  return posts
+    .filter((p) => p.published)
+    .sort(
+      (a, b) =>
+        new Date(b.published).getTime() - new Date(a.published).getTime()
+    );
 }
 
 // const limit = Number(url.searchParams.get('limit') ?? Infinity);
