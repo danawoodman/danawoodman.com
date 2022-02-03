@@ -1,0 +1,49 @@
+---
+title: How to sort an array by date value in JavaScript and TypeScript?
+categories: [Reference, JavaScript, Arrays]
+published: 2022-01-31
+---
+
+To sort an array by a `Date` value in JavaScript or TypeScript, we will use the [`Array.prototype.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method to perform the sorting and we will take the date value of each object and first convert it to a Unix Epoch timestamp (in milliseconds) so we can directly compare the two timestamp numbers.
+
+```ts
+interface User {
+  name: string
+  joined: Date
+}
+
+const users: User[] = [
+  { name: "Lucy", joined: new Date("2020-11-21") },
+  { name: "Pedro", joined: new Date("2020-09-01" },
+  { name: "Bella", joined: new Date("2020-01-27") },
+  { name: "Jake", joined: new Date("2020-07-18") },
+];
+```
+
+```ts
+function dateToUnixEpoch(date: Date): number {
+  return Math.floor(date.getTime()) / 1000;
+}
+```
+
+Get most recent user signups first (descending order):
+
+```js
+const descending = [...users].sort(
+  (a, b) => b.joined.getTime() - a.joined.getTime()
+);
+```
+
+Get oldest user signups first (ascending order):
+
+```js
+const ascending = [...users].sort(
+  (a, b) => a.joined.getTime() - b.joined.getTime()
+);
+```
+
+## Notes
+
+Note here we are using [Array Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to create a new copy of the array when we're doing the sort. The reason for this is that sort _mutates_ (or changes in-place) our original array as well as returning a new array, which might not be what we want. If you don't care if it mutates your original array, you can just pass the variable directly like `users.sort(...)`.
+
+Also note that we don't technically have to call `.getTime()` method as JavaScript will do this for us when performing a mathematical operation on the two dates, but it is considered best practice (and will prevent TypeScript from complaining) to explicitly do the conversion before doing the comparison.
