@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import CategoryBreadcrumbs from "$lib/CategoryBreadcrumbs.svelte";
+  import CategoryBreadcrumbs from "$lib/components/CategoryBreadcrumbs.svelte";
 
   export let posts = [];
 </script>
