@@ -5,6 +5,7 @@ specifiers:
   '@sveltejs/adapter-auto': 1.0.0-next.17
   '@sveltejs/adapter-cloudflare': 1.0.0-next.2
   '@sveltejs/kit': 1.0.0-next.249
+  '@tailwindcss/forms': 0.4.0
   '@tailwindcss/typography': 0.5.1
   '@types/md5': 2.3.1
   '@typescript-eslint/eslint-plugin': 5.10.1
@@ -39,6 +40,7 @@ devDependencies:
   '@sveltejs/adapter-auto': 1.0.0-next.17
   '@sveltejs/adapter-cloudflare': 1.0.0-next.2
   '@sveltejs/kit': 1.0.0-next.249_svelte@3.46.3
+  '@tailwindcss/forms': 0.4.0_tailwindcss@3.0.18
   '@tailwindcss/typography': 0.5.1_tailwindcss@3.0.18
   '@types/md5': 2.3.1
   '@typescript-eslint/eslint-plugin': 5.10.1_5bb2413551d07429e4087fb9ca3ae3ea
@@ -225,6 +227,15 @@ packages:
       vite: 2.7.13
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/forms/0.4.0_tailwindcss@3.0.18:
+    resolution: {integrity: sha512-DeaQBx6EgEeuZPQACvC+mKneJsD8am1uiJugjgQK1+/Vt+Ai0GpFBC2T2fqnUad71WgOxyrZPE6BG1VaI6YqfQ==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
+    dependencies:
+      mini-svg-data-uri: 1.4.3
+      tailwindcss: 3.0.18_ef48b3b8837f8a23677bffe8f9cd866d
     dev: true
 
   /@tailwindcss/typography/0.5.1_tailwindcss@3.0.18:
@@ -1366,6 +1377,11 @@ packages:
   /min-indent/1.0.1:
     resolution: {integrity: sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==}
     engines: {node: '>=4'}
+    dev: true
+
+  /mini-svg-data-uri/1.4.3:
+    resolution: {integrity: sha512-gSfqpMRC8IxghvMcxzzmMnWpXAChSA+vy4cia33RgerMS8Fex95akUyQZPbxJJmeBGiGmK7n/1OpUX8ksRjIdA==}
+    hasBin: true
     dev: true
 
   /minimatch/3.0.4:
