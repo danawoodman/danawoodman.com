@@ -1,6 +1,6 @@
 ---
 title: Edit a commit message in git
-date: 2014-05-01
+published: 2014-05-01
 tags: [git]
 ---
 
