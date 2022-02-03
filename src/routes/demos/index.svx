@@ -1,0 +1,5 @@
+---
+layout: plain
+---
+
+- [SvelteKit search](/demos/sveltekit-search)
