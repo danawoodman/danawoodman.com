@@ -6,7 +6,8 @@ const config = {
   remarkPlugins: [],
   rehypePlugins: [],
   layout: {
-    _: "./src/layouts/article.svelte",
+    _: "./src/routes/layouts/_article.svelte",
+    plain: "./src/routes/layouts/_plain.svelte",
   },
 };
 
