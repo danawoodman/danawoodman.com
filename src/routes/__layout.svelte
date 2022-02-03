@@ -1,20 +1,22 @@
-<script>
+<script lang="ts">
+  import Footer from "$lib/components/Footer.svelte";
+  import Nav from "$lib/components/Nav.svelte";
   import "../app.css";
 </script>
 
-<header class="mb-12 text-center">
-  <h1><a href="/">SvelteHelp</a></h1>
-  <nav>
-    <a href="/">How Tos</a>
-    <a href="/">References</a>
-    <a href="/">Resources</a>
-  </nav>
-</header>
+<Nav />
 
 <main>
+  <!-- <h1 class="text-3xl">{$page.stuff?.title}</h1> -->
   <slot />
 </main>
 
-<footer class="text-center my-12">
-  <nav><a href="/sitemap.xml">Sitemap</a></nav>
-</footer>
+<Footer />
+
+<!-- <style lang="postcss">
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: black;
+    }
+  }
+</style> -->
