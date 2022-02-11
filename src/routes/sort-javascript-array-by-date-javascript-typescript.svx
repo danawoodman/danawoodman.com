@@ -1,6 +1,8 @@
 ---
 title: How to sort an array by date value in JavaScript and TypeScript?
-categories: [Reference, JavaScript, Arrays]
+categories: [Reference, JavaScript]
+description: Learn multiple methods for sorting arrays of objects that include date values in JavaScript and Typescript.
+image: clock-calendar.jpeg
 published: 2022-01-31
 ---
 

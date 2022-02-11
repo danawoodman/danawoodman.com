@@ -1,6 +1,7 @@
 ---
 title: How to style slot content using :global
 description: Using the :global CSS decorator with Svelte, we can target styling for nested components within a slot.
+image: world-map.jpeg
 published: 2021-02-19
 categories: [How Tos, JavaScript, Svelte]
 tags: [Svelte, SvelteKit, JavaScript, TypeScript, CSS]

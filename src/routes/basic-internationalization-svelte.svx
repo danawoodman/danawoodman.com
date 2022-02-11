@@ -1,5 +1,7 @@
 ---
 title: Adding basic internationalization (i18n) to you app
+image: flags.jpeg
+categories: [How Tos, Svelte]
 published: 2021-01-12
 ---
 

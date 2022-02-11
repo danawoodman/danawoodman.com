@@ -24,6 +24,15 @@ Learn more about the [`Location` header on MDN](https://developer.mozilla.org/en
 
 Whelp, that's it for today, hope this saved you some headaches!
 
----
+### How to forward along the full pathname with a redirect?
 
-_Follow me on [Dev.to](https://dev.to/danawoodman), [Twitter](https://twitter.com/DanaWoodman) and [Github](https://github.com/danawoodman) for more web dev and startup related content_
+```js
+export function get({ url }) {
+  return {
+    status: 301,
+    headers: {
+      Location: "https://google.com" + url.pathname,
+    },
+  };
+}
+```
