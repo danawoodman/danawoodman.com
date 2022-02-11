@@ -1,5 +1,4 @@
 import type { EndpointOutput, RequestEvent } from "@sveltejs/kit";
-import convert from "xml-js";
 import { getPosts } from "./_posts";
 
 // Reference: https://sitemaps.org/protocol.html#location
@@ -16,20 +15,21 @@ export async function get({ url }: RequestEvent): Promise<EndpointOutput> {
     loc: url.origin + p.slug,
   }));
 
-  const data = {
-    _declaration: {
-      _attributes: {
-        version: "1.0",
-        encoding: "UTF-8",
-      },
-    },
-    urlset: {
-      _attributes: { xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" },
-      url: postEntries,
-    },
-  };
+  const links = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${postEntries
+      .map((p) => {
+        return `<url>
+        <loc>${p.loc}</loc>
+        <lastmod>${p.lastmod}</lastmod>
+      </url>`;
+      })
+      .join("")}
+  </urlset>`;
+
+  const header = '<?xml version="1.0" encoding="UTF-8"?>';
+  const body = header + links;
   return {
-    body: convert.js2xml(data, { spaces: 2, compact: true }),
+    body,
     headers: { "content-type": "application/xml" },
   };
 }
