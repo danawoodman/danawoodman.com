@@ -22,6 +22,13 @@
         <div class="mb-4">
           <CategoryBreadcrumbs categories={post.categories} />
         </div>
+        <!-- {#if post.image}
+          <img
+            src={`/images/${post.image}`}
+            alt={post.title}
+            class="w-full mb-8"
+          />
+        {/if} -->
         <h2
           class="font-heading text-3xl font-extrabold hover:text-brand transition-colors"
         >
