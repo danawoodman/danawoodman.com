@@ -7,13 +7,12 @@ draft: true
 
 There are [many ways to rename/move files](https://stackoverflow.com/questions/1086502/rename-multiple-files-based-on-pattern-in-unix) in Linux/Unix/macOS, some using `sed` or [rename]() or others.
 
-I chose to use the package [renamer on npm](https://www.npmjs.com/package/renamer) since it had a nice CLI interface:
+I chose to use the package [renamer on npm](https://www.npmjs.com/package/renamer) since it had a nice CLI interface.
+
+For example, if you want to reanme all `.txt` files in the `articles` directory with `.md` file extension:
 
 ```shell
-npx --yes renamer \ # run "renamer"
-  --find /.txt$/ \ # find all files where the name ends in ".txt"
-  --replace=.md \ # replace ".txt" extension with ".md"
-  articles/* # perform this rename in the "articles" folder
+npx -y renamer --find /.txt$/ --replace=.md articles/*
 ```
 
 Add the flag `--dry-run` to test out the command before executing it.
