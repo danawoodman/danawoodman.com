@@ -27,12 +27,14 @@
   </main>
 
   <Footer />
-</div>
 
-<!-- <style lang="postcss">
-  @media (prefers-color-scheme: dark) {
+<style lang="postcss">
+  :global(body) {
+    @apply bg-slate-50 px-6;
+  }
+  /* @media (prefers-color-scheme: dark) {
     body {
       background: black;
     }
-  }
-</style> -->
+  } */
+</style>
