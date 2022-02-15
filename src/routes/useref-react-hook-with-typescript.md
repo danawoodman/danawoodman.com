@@ -1,0 +1,24 @@
+---
+title: Using React's "useRef" hook with Typescript
+published: 2020-04-01
+categories: [How Tos, JavaScript, React]
+---
+
+To use the [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref) hook with Typescript, make sure to define a return type that matches your element type. In this example, the ref is to an `HTMLInputElement`.
+
+```ts
+function MyComponent() {
+  const input = React.useRef<HTMLInputElement>(null);
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        alert("Value: " + input.current.value);
+      }}
+    >
+      <input ref={input} />
+    </form>
+  );
+}
+```

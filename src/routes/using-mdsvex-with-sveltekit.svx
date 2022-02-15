@@ -2,6 +2,7 @@
 title: How to use MDsveX to support rendering Markdown with SvelteKit
 categories: [How Tos, JavaScript, Svelte]
 tags: [Svelte, Markdown, SvelteKit, MDsveX]
+draft: true
 ---
 
 https://github.com/pngwn/MDsveX/issues/122

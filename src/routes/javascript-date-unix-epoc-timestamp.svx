@@ -1,0 +1,55 @@
+---
+title: How to convert a JavaScript date to a Unix timestamp (epoch)?
+image: date-time.jpeg
+categories: [How Tos, JavaScript]
+description: Learn how to format a date in JavaScript in the classic Unix Epoch timestamp format.
+published: 2022-01-31
+---
+
+To convert a JavaScript `Date` to a Unix timestamp you can use either the [`Date.prototype.getTime()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime) or the [`Date.prototype.valueOf()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/valueOf) method on the `Date` object, both of which return the number of milliseconds (ms) since the Unix Epoch, then divide it by 1000 to get the number of seconds since the Unix Epoch.
+
+Shorthand:
+
+```js
+Math.floor(new Date().getTime()) / 1000;
+
+// Or the equivalent:
+// Math.floor(new Date().valueOf()) / 1000;
+```
+
+A reusable function:
+
+```js
+function dateToUnixEpoch(date) {
+  return Math.floor(date.getTime()) / 1000;
+}
+
+const ms = dateToUnixEpoch(new Date("Jan 1, 2000"));
+```
+
+## TypeScript
+
+Here is a TypeScript version of the same function:
+
+```ts
+function dateToUnixEpoch(date: Date): number {
+  return Math.floor(date.getTime()) / 1000;
+}
+```
+
+## Converting back to a JavaScript Date
+
+To convert a Unix Timestamp back to a JavaScript date, just multiply it by `1000` to get the number of milliseconds and then pass it to `new Date(...)`:
+
+```js
+const seconds = 1577865600;
+const date = new Date(seconds * 1000);
+```
+
+## Background of Unix Epoch timestamps
+
+A common time format in the world of computer programming is the [Unix Timestamp](https://en.wikipedia.org/wiki/Unix_time) which is represented by the number of seconds since January 1st, 1970 at 00:00:00 [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+
+Using the Unix Epoch timestamp can be useful if you, for example, want to compare two dates to each other. For example, say you want to sort some items by their creation date, you could convert the dates to
+
+Other names for this type of timestamp are "Unix Time", "Epoch Time", and "Posix Time".

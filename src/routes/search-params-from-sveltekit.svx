@@ -1,0 +1,18 @@
+---
+title: Get search (query) parameters from a URL in SvelteKit
+---
+
+```svelte
+<script context="module">
+  export async function load({ url }) {
+    const params = Object.fromEntries(url.searchParams.entries());
+    return { props: { params } };
+  }
+</script>
+
+<script>
+  export let params;
+</script>
+
+<pre>{JSON.stringify(params, null, 2)}</pre>
+```

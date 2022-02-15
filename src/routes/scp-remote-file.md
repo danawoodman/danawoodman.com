@@ -1,7 +1,7 @@
 ---
 title: Use scp to copy files to and from a remote machine
 published: 2014-05-04
-tags: [unix]
+categories: [How Tos, Shell]
 ---
 
 A quick one today, use `scp` to copy files to and from a remote machine. `scp` uses SSH to securely transfer files from one computer to another. As long as you're able to SSH into a machine, you should be able to use `scp`.

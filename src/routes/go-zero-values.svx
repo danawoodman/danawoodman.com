@@ -1,7 +1,7 @@
 ---
 title: Use zero values to your advantage in go
 published: 2014-02-11
-tags: [go]
+categories: [Reference, Golang]
 ---
 
 In Go, when a value is initialized _without a initializer value it returns the "zero value" of that type_.

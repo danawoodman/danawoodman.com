@@ -1,6 +1,5 @@
 ---
 title: How to check if a file exists in Node (async)?
-tags: [Node, JavaScript, TypeScript]
 published: 2022-01-17
 categories: [How Tos, JavaScript, Node]
 ---
@@ -21,4 +20,4 @@ You have a few options including using `fs.stat` or using `fs.access`. Likely th
 
 Since access throws an error if it cannot access the given path, we use `.catch` to return false since we will assume if there is a file that we cannot access, it effectively does not exist (at least from the perspective of the current user).
 
-https://stackoverflow.com/questions/22992462/node-js-best-practice-check-for-file-exists
+<!-- https://stackoverflow.com/questions/22992462/node-js-best-practice-check-for-file-exists -->

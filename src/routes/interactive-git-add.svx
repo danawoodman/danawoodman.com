@@ -1,0 +1,27 @@
+---
+title: Interactively add content in git
+published: 2014-03-02
+categories: [How Tos, Git]
+---
+
+It's often handy to add changes you've made to your local branch in git in a more interactive fashion. Sometimes the changes you have make more sense in multiple commits than one catch all commit.
+
+It's quite easy to do this in git and here's how:
+
+```bash
+git add -p
+```
+
+The `-p` flag say to add changes interactively, breaking cohesive changes up into chunks. Here's roughly what it will look like:
+
+![interactive git add](https://p198.p4.n0.cdn.getcloudapp.com/items/p9uXeAdZ/39f5074e-37ad-4198-9f66-90e1e6c29c2b.png?v=99b00adfb6f920fb2f75224ee8363bc8)
+
+Now that you see your changes, you have a few options:
+
+- `y` -- Add the given chunk.
+- `n` -- Skip the given chunk (eg "next").
+- `s` -- Split the given chunk up into smaller chunks.
+- `q` -- Stop adding chunks and exit out of `add`.
+- `?` -- See all the other available sub commands.
+
+Hope that's helpful.

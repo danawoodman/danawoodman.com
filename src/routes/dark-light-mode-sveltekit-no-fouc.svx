@@ -1,0 +1,6 @@
+https://github.com/metonym/svelte-dark-mode
+https://css-tricks.com/dark-modes-with-css/
+https://tailwindcss.com/docs/dark-mode
+https://dev.to/lenaschnedlitz/create-a-simple-dark-mode-toggle-with-svelte-4b3g
+https://fershad.com/writing/svelte-dark-mode-toggle/
+https://nicobachner.com/en/articles/sveltekit-theme-switch

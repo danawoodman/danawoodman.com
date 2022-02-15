@@ -1,7 +1,7 @@
 ---
 title: Using named parameters in ES6
 published: 2015-09-23
-tags: [javascript]
+categories: [How Tos, JavaScript]
 ---
 
 Now with ES6 you can simulate named parameters in JavaScript using the new object destructuring features.

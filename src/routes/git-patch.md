@@ -1,7 +1,7 @@
 ---
 title: Create a patch from a git commit
 published: 2014-03-10
-tags: [git]
+categories: [How Tos, Git]
 ---
 
 Sometimes you need to create a patch from a commit in your git repository. I've had to do this when moving some commits from an old repository over to a new one or for code review when a project isn't using a code review tool like Pull Requests.

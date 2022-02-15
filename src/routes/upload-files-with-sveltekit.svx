@@ -1,0 +1,6 @@
+---
+title: How to upload files with SvelteKit?
+---
+
+https://github.com/sveltejs/kit/pull/3384
+https://github.com/sveltejs/kit/issues/70#issuecomment-1016899937

@@ -1,5 +1,6 @@
 ---
 title: How do I remove backticks (`) from inline code blocks with TailwindCSS?
+published: 2022-02-14
 categories: [How Tos, CSS]
 tags: [CSS, TailwindCSS]
 ---
