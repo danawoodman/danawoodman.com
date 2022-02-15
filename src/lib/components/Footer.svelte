@@ -62,6 +62,10 @@
     </a>
   </nav>
   <nav>
-    <a href="/sitemap.xml" class="text-gray-400 hover:text-gray-900">Sitemap</a>
+    <a
+      href="/sitemap.xml"
+      class="text-gray-400 hover:text-gray-900"
+      target="_blank">Sitemap</a
+    >
   </nav>
 </footer>
