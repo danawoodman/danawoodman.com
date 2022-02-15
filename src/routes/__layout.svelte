@@ -6,9 +6,9 @@
   import "../app.css";
 </script>
 
-<div>
-  <div class="bg-white mb-12">
-    <header class="max-w-prose mx-auto py-6">
+<div class="mb-12">
+  <div class="flex items-center max-w-prose mx-auto py-6">
+    <header>
       <div class="flex-shrink-0 flex items-center">
         <a href="/">
           <Avatar size={40} />
@@ -18,15 +18,23 @@
         </a>
       </div>
     </header>
+    <!-- <div class="ml-auto">
+      <nav>
+        <a href="/about">About</a>
+        <a href="/projects">Projects</a>
+        <a href="/tools">Tools</a>
+      </nav>
+    </div> -->
   </div>
-  <!-- <Nav /> -->
+</div>
+<!-- <Nav /> -->
 
-  <main>
-    <!-- <h1 class="text-3xl">{$page.stuff?.title}</h1> -->
-    <slot />
-  </main>
+<main>
+  <!-- <h1 class="text-3xl">{$page.stuff?.title}</h1> -->
+  <slot />
+</main>
 
-  <Footer />
+<Footer />
 
 <style lang="postcss">
   :global(body) {
