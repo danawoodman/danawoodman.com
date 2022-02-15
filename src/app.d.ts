@@ -3,6 +3,7 @@
 interface Post {
   title: string;
   description?: string;
+  draft?: boolean;
   image?: string;
   slug?: string;
   published?: string;
