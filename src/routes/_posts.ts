@@ -12,6 +12,7 @@ export async function getPosts(): Promise<Post[]> {
   // Remove drafts
   return posts
     .filter((p) => p.published)
+    .filter((p) => !p.draft)
     .sort(
       (a, b) =>
         new Date(b.published).getTime() - new Date(a.published).getTime()

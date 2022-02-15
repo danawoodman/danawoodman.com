@@ -6,7 +6,7 @@
   import "../app.css";
 </script>
 
-<div class="px-6">
+<div>
   <div class="bg-white mb-12">
     <header class="max-w-prose mx-auto py-6">
       <div class="flex-shrink-0 flex items-center">
