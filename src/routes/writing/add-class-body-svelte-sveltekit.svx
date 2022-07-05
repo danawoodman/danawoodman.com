@@ -1,0 +1,33 @@
+---
+title: How to add a CSS class to the <body> tag via Svelte/SvelteKit?
+published: 2022-02-13
+---
+
+## Option 1: Add styling to body
+
+If you're just looking to style the body of the page, then you can simply use the [`:global` modifier](https://svelte.dev/docs#component-format-style):
+
+In your `__layout.svelte` file, add styling for the body tag:
+
+```html
+<style>
+  :global(body) {
+    background: AliceBlue;
+  }
+</style>
+```
+
+## Option 2:
+
+```html
+<svelte:head>
+  <style>
+    body {
+      background: AliceBlue;
+    }
+  </style>
+</svelte:head>
+```
+
+https://github.com/sveltejs/svelte/issues/3105
+https://github.com/ghostdevv/svelte-body
