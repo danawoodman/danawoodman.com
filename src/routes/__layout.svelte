@@ -3,9 +3,3 @@
 </script>
 
 <slot />
-
-<style lang="postcss">
-	:global(body) {
-		@apply px-6;
-	}
-</style>
