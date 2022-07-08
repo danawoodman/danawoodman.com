@@ -1,20 +1,25 @@
 <script context="module" lang="ts">
-	import type { LoadOutput } from '@sveltejs/kit'
-	import { getPosts } from './_posts'
+	import type { LoadOutput } from "@sveltejs/kit";
+	import { getPosts } from "./_posts";
 
-	export const prerender = true
+	export const prerender = true;
 
 	export async function load(): Promise<LoadOutput> {
-		const posts = await getPosts()
-		return { props: { posts } }
+		const posts = await getPosts();
+		return { props: { posts } };
 	}
 </script>
 
 <script lang="ts">
-	export let posts = []
+	import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/components/Header.svelte";
+
+	export let posts = [];
 </script>
 
-<section>
+<Header />
+
+<section class="max-w-prose mx-auto">
 	<h1 class="text-xl mb-6 font-bold">Writing</h1>
 	{#each posts as post}
 		{@const pubDate = new Date(post.published)}
@@ -47,7 +52,7 @@
 					</h3>
 				{/if}
 				<h2 class="text-xl font-bold hover:text-brand transition-colors">
-					<a href={post.slug} class="">{post.title}</a>
+					<a href={"/writing" + post.slug} class="">{post.title}</a>
 				</h2>
 				{#if post.description}
 					<div class="prose mt-1 text-gray-600">{post.description}</div>
@@ -66,3 +71,5 @@
 		</article>
 	{/each}
 </section>
+
+<Footer />
