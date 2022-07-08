@@ -6,13 +6,9 @@ const config = {
 	theme: {
 		fontFamily: {
 			heading: "Montserrat, sans-serif",
-			body: "'Open Sans', sans-serif",
-			// mono: 'monospace',
+			mono: "'Fira Code', monospace",
 		},
 		extend: {
-			colors: {
-				brand: "#ff3e00",
-			},
 			typography: ({ theme }) => ({
 				DEFAULT: {
 					css: {
