@@ -1,7 +1,7 @@
 ---
 title: Speeding up Jest Typescript tests
 published: 2020-04-03
-categories: [How Tos, JavaScript, Jest]
+tags: [Jest, TypeScript, JavaScript]
 ---
 
 In you `tsconfig.json`, make sure you ignore test files, like:

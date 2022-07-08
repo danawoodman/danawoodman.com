@@ -1,7 +1,6 @@
 ---
 title: Using environment variables in SvelteKit (and Vite)
 published: 2021-04-21
-categories: [How Tos, JavaScript, Svelte]
 tags: [Svelte, SvelteKit, JavaScript, TypeScript]
 ---
 
@@ -30,7 +29,7 @@ If you want to type your env vars in TypeScript, you can extend `ImportMetaEnv` 
 
 ```ts
 interface ImportMetaEnv {
-  VITE_MESSAGE: string;
+	VITE_MESSAGE: string;
 }
 ```
 
@@ -38,11 +37,11 @@ If you want to use env vars in your endpoints or non-Svelte code and not get TS 
 
 ```json
 {
-  "compilerOptions": {
-    "module": "es2020"
-    // ...
-  }
-  // ...
+	"compilerOptions": {
+		"module": "es2020"
+		// ...
+	}
+	// ...
 }
 ```
 

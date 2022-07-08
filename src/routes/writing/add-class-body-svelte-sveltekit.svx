@@ -1,5 +1,6 @@
 ---
 title: How to add a CSS class to the <body> tag via Svelte/SvelteKit?
+tags: [CSS, Svelte, SvelteKit]
 published: 2022-02-13
 ---
 

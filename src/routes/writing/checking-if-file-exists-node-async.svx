@@ -1,14 +1,14 @@
 ---
 title: How to check if a file exists in Node (async)?
 published: 2022-01-17
-categories: [How Tos, JavaScript, Node]
+tags: [JavaScript, Node.js]
 ---
 
 ```js
 async function fileExists(path: string): Promise<boolean> {
-  return access(path)
-    .then(() => true)
-    .catch(() => false);
+	return access(path)
+		.then(() => true)
+		.catch(() => false);
 }
 ```
 

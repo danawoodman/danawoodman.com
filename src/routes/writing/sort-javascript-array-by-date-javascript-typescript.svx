@@ -1,8 +1,8 @@
 ---
 title: How to sort an array by date value in JavaScript and TypeScript?
-categories: [Reference, JavaScript]
+tags: [JavaScript, TypeScript]
 description: Learn multiple methods for sorting arrays of objects that include date values in JavaScript and Typescript.
-image: clock-calendar.jpeg
+# image: clock-calendar.jpeg
 published: 2022-01-31
 ---
 
@@ -24,7 +24,7 @@ const users: User[] = [
 
 ```ts
 function dateToUnixEpoch(date: Date): number {
-  return Math.floor(date.getTime()) / 1000;
+	return Math.floor(date.getTime()) / 1000;
 }
 ```
 
@@ -32,7 +32,7 @@ Get most recent user signups first (descending order):
 
 ```js
 const descending = [...users].sort(
-  (a, b) => b.joined.getTime() - a.joined.getTime()
+	(a, b) => b.joined.getTime() - a.joined.getTime()
 );
 ```
 
@@ -40,7 +40,7 @@ Get oldest user signups first (ascending order):
 
 ```js
 const ascending = [...users].sort(
-  (a, b) => a.joined.getTime() - b.joined.getTime()
+	(a, b) => a.joined.getTime() - b.joined.getTime()
 );
 ```
 

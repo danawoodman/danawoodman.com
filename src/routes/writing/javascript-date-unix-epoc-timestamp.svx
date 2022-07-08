@@ -1,8 +1,8 @@
 ---
 title: How to convert a JavaScript date to a Unix timestamp (epoch)?
 image: date-time.jpeg
-categories: [How Tos, JavaScript]
 description: Learn how to format a date in JavaScript in the classic Unix Epoch timestamp format.
+tags: [JavaScript, TypeScript]
 published: 2022-01-31
 ---
 
@@ -21,7 +21,7 @@ A reusable function:
 
 ```js
 function dateToUnixEpoch(date) {
-  return Math.floor(date.getTime()) / 1000;
+	return Math.floor(date.getTime()) / 1000;
 }
 
 const ms = dateToUnixEpoch(new Date("Jan 1, 2000"));
@@ -33,7 +33,7 @@ Here is a TypeScript version of the same function:
 
 ```ts
 function dateToUnixEpoch(date: Date): number {
-  return Math.floor(date.getTime()) / 1000;
+	return Math.floor(date.getTime()) / 1000;
 }
 ```
 

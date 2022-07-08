@@ -3,6 +3,7 @@ title: How do I remove backticks (`) from inline code blocks with TailwindCSS?
 published: 2022-02-14
 categories: [How Tos, CSS]
 tags: [CSS, TailwindCSS]
+description: Outlines the config change you'll need to make in your tailwind.config.js file to remove code block backticks.
 ---
 
 TailwindCSS inexplicably adds back ticks (\`) to inline `<code>` blocks. For some people, this stylistic decision isn't ideal. So how do you fix it?
@@ -11,20 +12,20 @@ To remove backticks from your code blocks, you'll need to override the default s
 
 ```js
 const config = {
-  // ...other config stuff here
-  theme: {
-    extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            "code::before": { content: '""' },
-            "code::after": { content: '""' },
-          },
-        },
-      },
-    },
-  },
-  plugins: [require("@tailwindcss/typography")],
+	// ...other config stuff here
+	theme: {
+		extend: {
+			typography: {
+				DEFAULT: {
+					css: {
+						"code::before": { content: '""' },
+						"code::after": { content: '""' },
+					},
+				},
+			},
+		},
+	},
+	plugins: [require("@tailwindcss/typography")],
 };
 ```
 

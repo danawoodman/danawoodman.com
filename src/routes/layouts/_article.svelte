@@ -47,7 +47,7 @@
 
 <Header />
 
-<main>
+<main class="px-6">
 	<article class="max-w-prose my-8 mx-auto" id="article-content">
 		<!-- <CategoryBreadcrumbs {categories} /> -->
 		{#if draft}
@@ -95,8 +95,5 @@
 	:global(html),
 	:global(body) {
 		@apply bg-gray-50;
-	}
-	:global(body) {
-		@apply px-6;
 	}
 </style>

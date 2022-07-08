@@ -2,7 +2,7 @@
 title: How to write to a file in Node (async)?
 tags: [Node, JavaScript, TypeScript]
 published: 2022-01-25
-image: file-organizer.jpeg
+# image: file-organizer.jpeg
 categories: [How Tos, JavaScript, Node]
 draft: true
 ---

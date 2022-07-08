@@ -1,7 +1,7 @@
 ---
 title: Edit a commit message in git
 published: 2014-05-01
-categories: [How Tos, Git]
+tags: [Git]
 ---
 
 To amend a commit at the `HEAD` of the current branch, run:

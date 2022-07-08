@@ -1,7 +1,7 @@
 ---
 title: Mocking with Jest and Typescript
 published: 2020-04-04
-categories: [How Tos, JavaScript, Jest]
+tags: [Jest, TypeScript, JavaScript]
 ---
 
 Use the `ts-jest/utils` `mocked` function to assist in testing:
@@ -17,21 +17,21 @@ jest.mock("some-library");
 const mockedLib = mocked(someLib, true);
 
 describe("CognitoService", () => {
-  beforeEach(() => {
-    // Reset mocks for each test
-    mockedLib.someMethod.mockReset();
-  });
+	beforeEach(() => {
+		// Reset mocks for each test
+		mockedLib.someMethod.mockReset();
+	});
 
-  test(".someMethod", async () => {
-    // Setup
-    const expected = { foo: "bar" };
-    mockedSetup.someMethod.mockReturnValueOnce(expected as SomeReturnType);
+	test(".someMethod", async () => {
+		// Setup
+		const expected = { foo: "bar" };
+		mockedSetup.someMethod.mockReturnValueOnce(expected as SomeReturnType);
 
-    // Run
-    someLib.someMethod();
+		// Run
+		someLib.someMethod();
 
-    // Assert
-    expect(mockedLib.someMethod).toBeCalledWith(expected);
-  });
+		// Assert
+		expect(mockedLib.someMethod).toBeCalledWith(expected);
+	});
 });
 ```
