@@ -96,4 +96,7 @@
 	:global(body) {
 		@apply bg-gray-50;
 	}
+	:global(body) {
+		@apply px-6;
+	}
 </style>
