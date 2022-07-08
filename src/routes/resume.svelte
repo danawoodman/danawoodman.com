@@ -1,4 +1,7 @@
 <script lang="ts">
+	import Footer from '$lib/components/Footer.svelte'
+	import Header from '$lib/components/Header.svelte'
+
 	export const prerender = true
 
 	const skills = {
@@ -210,169 +213,169 @@
 	}
 </script>
 
-<header class="flex items-center mb-4">
-	<div>
-		<h1 class="text-2xl font-bold">
-			<span class="enlarge">D</span>ANA <span class="enlarge">W</span>OODMAN
-		</h1>
-		<h2 class="text-lg text-gray-600">Senior full-stack software engineer</h2>
-	</div>
-	<nav class="ml-auto prose flex flex-col">
-		<span>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 512 512"
-				width="16"
-				class="mr-2 inline-block text-gray-400"
-			>
-				<path
-					d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"
-					fill="currentColor"
-				/>
-			</svg>
+<Header />
 
-			<a href="mailto:dana@danawoodman.com" target="_blank">
-				dana@danawoodman.com
-			</a>
-		</span>
-		<span>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 448 512"
-				width="16"
-				class="mr-2 inline-block text-gray-400"
-			>
-				<path
-					d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
-					fill="currentColor"
-				/>
-			</svg>
-			<a href="https://linkedin.com/in/danawoodman" target="_blank"
-				>linkedin.com/in/danawoodman</a
-			>
-		</span>
-		<span>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				viewBox="0 0 496 512"
-				width="16"
-				class="mr-2 inline-block text-gray-400"
-			>
-				<path
-					d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
-					fill="currentColor"
-				/>
-			</svg>
-			<a href="https://github.com/danawoodman" target="_blank"
-				>github.com/danawoodman</a
-			>
-		</span>
-	</nav>
-</header>
+<main>
+	<header class="flex items-center mb-4">
+		<div>
+			<h1 class="text-2xl font-bold">
+				<span class="enlarge">D</span>ANA <span class="enlarge">W</span>OODMAN
+			</h1>
+			<h2 class="text-lg text-gray-600">Senior full-stack software engineer</h2>
+		</div>
+		<nav class="ml-auto prose flex flex-col">
+			<span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 512 512"
+					width="16"
+					class="mr-2 inline-block text-gray-400"
+				>
+					<path
+						d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"
+						fill="currentColor"
+					/>
+				</svg>
 
-<section
-	class="print:float-right lg:float-right print:pl-10 lg:pl-10 print:bg-white lg:bg-white mb-6"
->
-	<div
-		class="print:max-w-sm lg:max-w-sm bg-gray-50 p-6 border-l-4 border-gray-200 text-sm"
+				<a href="mailto:dana@danawoodman.com" target="_blank">
+					dana@danawoodman.com
+				</a>
+			</span>
+			<span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 448 512"
+					width="16"
+					class="mr-2 inline-block text-gray-400"
+				>
+					<path
+						d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+						fill="currentColor"
+					/>
+				</svg>
+				<a href="https://linkedin.com/in/danawoodman" target="_blank"
+					>linkedin.com/in/danawoodman</a
+				>
+			</span>
+			<span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 496 512"
+					width="16"
+					class="mr-2 inline-block text-gray-400"
+				>
+					<path
+						d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+						fill="currentColor"
+					/>
+				</svg>
+				<a href="https://github.com/danawoodman" target="_blank"
+					>github.com/danawoodman</a
+				>
+			</span>
+		</nav>
+	</header>
+
+	<section
+		class="print:float-right lg:float-right print:pl-10 lg:pl-10 print:bg-white lg:bg-white mb-6"
 	>
-		<h1 class="text-lg font-bold uppercase">
-			<span class="enlarge">S</span>kills
-		</h1>
-		{#each Object.keys(skills) as type}
-			<h2 class="uppercase font-bold mt-4 mb-1">{type.toUpperCase()}</h2>
-			<ul>
-				{#each skills[type] as skill, i}
-					{@const last = skills[type].length - 1}
-					<li class="inline-block mr-2">
-						{skill}{#if last !== i}, {/if}
+		<div
+			class="print:max-w-sm lg:max-w-sm bg-gray-50 p-6 border-l-4 border-gray-200 text-sm"
+		>
+			<h1 class="text-lg font-bold uppercase">
+				<span class="enlarge">S</span>kills
+			</h1>
+			{#each Object.keys(skills) as type}
+				<h2 class="uppercase font-bold mt-4 mb-1">{type.toUpperCase()}</h2>
+				<ul>
+					{#each skills[type] as skill, i}
+						{@const last = skills[type].length - 1}
+						<li class="inline-block mr-2">
+							{skill}{#if last !== i}, {/if}
+						</li>
+					{/each}
+				</ul>
+			{/each}
+		</div>
+	</section>
+
+	<h2 class="section-title">
+		<span class="enlarge">W</span>ork <span class="enlarge">E</span>xperience
+	</h2>
+	{#each featured as project}
+		<article class="my-6">
+			<header>
+				{#if project.dates?.length}
+					<small class="text-sm float-right font-normal text-gray-400">
+						<timestamp>{project.dates[0]}</timestamp>
+						{#if project.dates[1] && project.dates[0] !== project.dates[1]}
+							<span class="mx-1">&#8594;</span>
+							<timestamp>{project.dates[1]}</timestamp>
+						{/if}
+					</small>
+				{/if}
+				<h1 class="mb-1 text-lg font-bold prose">
+					{project.role} @
+					{#if project.url}
+						<a href={project.url} target="_blank">{project.name}</a>
+					{:else}
+						{project.name}
+					{/if}
+				</h1>
+				<p class="text-gray-700"><em>{project.description}</em></p>
+			</header>
+			<ul class="list">
+				{#each project.highlights as highlight}
+					<li>{highlight}</li>
+				{/each}
+			</ul>
+		</article>
+		{#if project.technologies?.length}
+			<ul class="flex items-center">
+				{#each project.technologies as technology}
+					<li
+						class="px-2 py-0.5 bg-gray-100 text-gray-700 rounded-full uppercase mr-2 text-xs whitespace-nowrap"
+					>
+						{technology}
 					</li>
 				{/each}
 			</ul>
-		{/each}
-	</div>
-</section>
+		{/if}
+	{/each}
+	<p class="mt-3 text-gray-500">
+		<small
+			><em
+				>* Work gap for Feb-June 2022 explanation: Took a 4 month sabbatical to
+				sail across the Pacific ocean from Panama to French Polynesia.</em
+			></small
+		>
+	</p>
 
-<h2 class="section-title">
-	<span class="enlarge">W</span>ork <span class="enlarge">E</span>xperience
-</h2>
-{#each featured as project}
-	<article class="my-6">
-		<header>
-			{#if project.dates?.length}
-				<small class="text-sm float-right font-normal text-gray-400">
-					<timestamp>{project.dates[0]}</timestamp>
-					{#if project.dates[1] && project.dates[0] !== project.dates[1]}
-						<span class="mx-1">&#8594;</span>
-						<timestamp>{project.dates[1]}</timestamp>
-					{/if}
-				</small>
-			{/if}
-			<h1 class="mb-1 text-lg font-bold prose">
-				{project.role} @
-				{#if project.url}
-					<a href={project.url} target="_blank">{project.name}</a>
-				{:else}
-					{project.name}
-				{/if}
-			</h1>
-			<p class="text-gray-700"><em>{project.description}</em></p>
-		</header>
-		<ul class="list">
-			{#each project.highlights as highlight}
-				<li>{highlight}</li>
-			{/each}
-		</ul>
-	</article>
-	{#if project.technologies?.length}
-		<ul class="flex items-center">
-			{#each project.technologies as technology}
-				<li
-					class="px-2 py-0.5 bg-gray-100 text-gray-700 rounded-full uppercase mr-2 text-xs whitespace-nowrap"
-				>
-					{technology}
-				</li>
-			{/each}
-		</ul>
-	{/if}
-{/each}
-<p class="mt-3 text-gray-500">
-	<small
-		><em
-			>* Work gap for Feb-June 2022 explanation: Took a 4 month sabbatical to
-			sail across the Pacific ocean from Panama to French Polynesia.</em
-		></small
-	>
-</p>
-
-{#each Object.entries(sections) as [key, section], i}
-	<section>
-		<h2 class="section-title">
-			{section.label}
-		</h2>
-		<ul class="list" class:!mb-0={Object.keys(sections).length - 1 === i}>
-			{#each section.items as project}
-				<li>
-					<strong class="prose">
-						{#if project.url}
-							<a href={project.url} target="_blank">{project.name}</a>:
-						{:else if project.name}
-							{project.name}:
-						{/if}
-					</strong>
-					<span class="prose">{@html project.description}</span>
-				</li>
-			{/each}
-		</ul>
-	</section>
-{/each}
+	{#each Object.entries(sections) as [key, section], i}
+		<section>
+			<h2 class="section-title">
+				{section.label}
+			</h2>
+			<ul class="list" class:!mb-0={Object.keys(sections).length - 1 === i}>
+				{#each section.items as project}
+					<li>
+						<strong class="prose">
+							{#if project.url}
+								<a href={project.url} target="_blank">{project.name}</a>:
+							{:else if project.name}
+								{project.name}:
+							{/if}
+						</strong>
+						<span class="prose">{@html project.description}</span>
+					</li>
+				{/each}
+			</ul>
+		</section>
+	{/each}
+</main>
+<Footer />
 
 <style lang="postcss">
-	:global(html),
-	:global(body) {
-		@apply bg-white;
-	}
-
 	.enlarge {
 		font-size: 1.2em;
 	}
@@ -389,6 +392,15 @@
 	}
 	.list::marker {
 		@apply text-gray-300;
+	}
+
+	@media screen {
+		:global(body) {
+			@apply max-w-4xl mx-auto px-8;
+		}
+		main {
+			@apply mt-12;
+		}
 	}
 
 	@media print {
