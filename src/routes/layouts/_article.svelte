@@ -1,16 +1,16 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte'
-	import Header from '$lib/components/Header.svelte'
+	import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/components/Header.svelte";
 
-	export const prerender = true
+	export const prerender = true;
 
-	export let title
-	export let image
-	export let draft
-	export let published
-	export let categories
+	export let title;
+	export let image;
+	export let draft;
+	export let published;
+	export let categories;
 
-	$: pubDate = new Date(published)
+	$: pubDate = new Date(published);
 </script>
 
 <svelte:head>

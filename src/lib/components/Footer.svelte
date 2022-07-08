@@ -1,5 +1,5 @@
 <script>
-	import SocialLinks from './SocialLinks.svelte'
+	import SocialLinks from "./SocialLinks.svelte";
 </script>
 
 <footer class="py-20 clear-both" id="page-footer">

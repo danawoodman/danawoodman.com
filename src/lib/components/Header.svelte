@@ -1,7 +1,7 @@
 <script>
-	import Avatar from './Avatar.svelte'
-	import Nav from './Nav.svelte'
-	import SocialLinks from './SocialLinks.svelte'
+	import Avatar from "./Avatar.svelte";
+	import Nav from "./Nav.svelte";
+	import SocialLinks from "./SocialLinks.svelte";
 </script>
 
 <div id="page-header" class="md:flex md:items-center max-w-4xl mx-auto py-4">

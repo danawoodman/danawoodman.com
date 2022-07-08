@@ -1,3 +1,3 @@
 export function range(len: number): number[] {
-	return [...Array(len).keys()]
+	return [...Array(len).keys()];
 }

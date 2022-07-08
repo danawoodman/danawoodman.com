@@ -1,216 +1,216 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte'
-	import Header from '$lib/components/Header.svelte'
+	import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/components/Header.svelte";
 
-	export const prerender = true
+	export const prerender = true;
 
 	const skills = {
 		languages: [
-			'JavaScript (12yr)',
-			'Typescript (3yr)',
-			'Golang (3yr)',
-			'HTML5 (15yr)',
-			'CSS3/LESS/SASS (15yr)',
+			"JavaScript (12yr)",
+			"Typescript (3yr)",
+			"Golang (3yr)",
+			"HTML5 (15yr)",
+			"CSS3/LESS/SASS (15yr)",
 		],
 		tools: [
-			'React (7yr)',
-			'React Native (2yr)',
-			'Node.js (8yr)',
-			'Svelte (2yr)',
-			'Express.js',
-			'Redux',
-			'TailwindCSS',
+			"React (7yr)",
+			"React Native (2yr)",
+			"Node.js (8yr)",
+			"Svelte (2yr)",
+			"Express.js",
+			"Redux",
+			"TailwindCSS",
 		],
 		other: [
-			'Testing (Jest/Vitest/Cypress/Playwright)',
-			'TDD/BDD',
-			'CI/CD pipelines',
-			'Databases (PostgresSQL/SQLite/MongoDB)',
-			'Serverless/Edge/traditional computing (Cloudflare/AWS/Vercel/Heroku)',
-			'git (12yr)',
-			'Figma',
-			'i18n',
-			'a11y',
+			"Testing (Jest/Vitest/Cypress/Playwright)",
+			"TDD/BDD",
+			"CI/CD pipelines",
+			"Databases (PostgresSQL/SQLite/MongoDB)",
+			"Serverless/Edge/traditional computing (Cloudflare/AWS/Vercel/Heroku)",
+			"git (12yr)",
+			"Figma",
+			"i18n",
+			"a11y",
 		],
-	}
+	};
 	const featured = [
 		{
-			role: 'Consultant',
-			name: 'Zenni Optical',
-			dates: ['June 2021', 'Feb* 2022'],
-			url: 'https://www.zennioptical.com',
+			role: "Consultant",
+			name: "Zenni Optical",
+			dates: ["June 2021", "Feb* 2022"],
+			url: "https://www.zennioptical.com",
 			description:
 				"World's leading online prescription glass e-commerce store.",
 			highlights: [
-				'Led a homepage rewrite which improved key conversion metrics by 25% for their ~7mm monthly visitors.',
-				'Increased their page speed by 17% on mobile, 32% on desktop. Scored 92% on accessibility.',
-				'Identified key areas of performance impact across other pages, resulting in 50%+ page speed increases on some pages.',
-				'Developed architecture within a legacy system enhancing developer speed, productivity and easing maintenance burdens.',
+				"Led a homepage rewrite which improved key conversion metrics by 25% for their ~7mm monthly visitors.",
+				"Increased their page speed by 17% on mobile, 32% on desktop. Scored 92% on accessibility.",
+				"Identified key areas of performance impact across other pages, resulting in 50%+ page speed increases on some pages.",
+				"Developed architecture within a legacy system enhancing developer speed, productivity and easing maintenance burdens.",
 			],
-			technologies: ['Svelte', 'JavaScript', 'a11y', 'Optimizely'],
+			technologies: ["Svelte", "JavaScript", "a11y", "Optimizely"],
 		},
 		{
-			role: 'CTO',
-			name: 'ChainList (formerly Bonsai)',
-			dates: ['March 2020', 'March 2021'],
-			url: 'https://www.chainlist.com',
+			role: "CTO",
+			name: "ChainList (formerly Bonsai)",
+			dates: ["March 2020", "March 2021"],
+			url: "https://www.chainlist.com",
 			description:
 				'A "smart checklist" SaaS product with checklist "templates", scheduling, version control, auto-assignment, and more.',
 			highlights: [
-				'Worked with CEO to define a product vision, roadmap and visual brand including a React and Figma UI library.',
-				'Architected an elegant approach to complex event scheduling backed by robust unit testing (Jest).',
-				'Created a lightweight embeddable widget (think Twitter Card) for sharing checklists including OEmbed API and Open Graph tags for link sharing.',
+				"Worked with CEO to define a product vision, roadmap and visual brand including a React and Figma UI library.",
+				"Architected an elegant approach to complex event scheduling backed by robust unit testing (Jest).",
+				"Created a lightweight embeddable widget (think Twitter Card) for sharing checklists including OEmbed API and Open Graph tags for link sharing.",
 			],
 			technologies: [
-				'React',
-				'Next.js',
-				'Svelte',
-				'MongoDB',
-				'GraphQL',
-				'TypeScript',
+				"React",
+				"Next.js",
+				"Svelte",
+				"MongoDB",
+				"GraphQL",
+				"TypeScript",
 			],
 		},
 		{
-			role: 'VP of Web and Mobile',
-			name: 'remote.it',
-			dates: ['June 2018', 'Feb 2020'],
-			url: 'https://remote.it',
+			role: "VP of Web and Mobile",
+			name: "remote.it",
+			dates: ["June 2018", "Feb 2020"],
+			url: "https://remote.it",
 			description:
-				'A SaaS product to enable secure remote connections to devices anywhere in the world without port-forwarding.',
+				"A SaaS product to enable secure remote connections to devices anywhere in the world without port-forwarding.",
 			highlights: [
-				'Increased the addressable market of customers and reduced user pain-points by creating a suite of cross-platform applications (React Native mobile app, React + Electron desktop app, Golang CLI)',
-				'Defined product direction for a team of 4 senior developers, established best practices (CI/testing/code review), and built a UI toolkit (React + Storybook) to standardize our design across products.',
-				'Built a CLI that managed device registations, service processes, and system services that worked consistently across operating systems.',
-				'Managed 12 interns (yes, you read that right) and got them pushing meaningful code to production within their first week.',
+				"Increased the addressable market of customers and reduced user pain-points by creating a suite of cross-platform applications (React Native mobile app, React + Electron desktop app, Golang CLI)",
+				"Defined product direction for a team of 4 senior developers, established best practices (CI/testing/code review), and built a UI toolkit (React + Storybook) to standardize our design across products.",
+				"Built a CLI that managed device registations, service processes, and system services that worked consistently across operating systems.",
+				"Managed 12 interns (yes, you read that right) and got them pushing meaningful code to production within their first week.",
 			],
 			technologies: [
-				'React',
-				'React Native',
-				'Electron',
-				'Golang',
-				'TypeScript',
-				'Node.js',
+				"React",
+				"React Native",
+				"Electron",
+				"Golang",
+				"TypeScript",
+				"Node.js",
 			],
 		},
-	]
+	];
 	const sections = {
 		additional: {
-			label: 'Additional Experience',
+			label: "Additional Experience",
 			items: [
 				{
-					name: 'Consulting',
+					name: "Consulting",
 					description:
-						'Managed my own consulting company for over 10 years including client development, administration, and managing remote contractors working with a variety of industries, product types and team dynamics.',
+						"Managed my own consulting company for over 10 years including client development, administration, and managing remote contractors working with a variety of industries, product types and team dynamics.",
 				},
 				{
-					name: 'MEX Assistant',
+					name: "MEX Assistant",
 					description:
 						"Built a Chrome browser extension (Svelte) and a web app (Sapper, Gumroad, Auth0) and backend that managed signups and subscriptions that gave crypto traders advanced tools. Developed a real-time sync between the exchange's UI (updates multiple times a second) and the extension, while making this process robust yet simple.",
-					url: 'https://mex-assistant.com',
+					url: "https://mex-assistant.com",
 				},
 				{
-					name: 'Google',
+					name: "Google",
 					description:
-						'Built a Ruby on Rails API service for a mobile app for the Think with Google event series including chat and calendar features.',
-					url: 'https://www.thinkwithgoogle.com',
+						"Built a Ruby on Rails API service for a mobile app for the Think with Google event series including chat and calendar features.",
+					url: "https://www.thinkwithgoogle.com",
 				},
 				{
-					name: 'Contactly',
+					name: "Contactly",
 					description:
-						'Co-founder of a SaaS product (React Chrome Extension, Node + Express + MongoDB web app) that allowed customers to find leads via LinkedIn as well as an advanced system for generating and testing possible email addresses using telnet and other techniques.',
+						"Co-founder of a SaaS product (React Chrome Extension, Node + Express + MongoDB web app) that allowed customers to find leads via LinkedIn as well as an advanced system for generating and testing possible email addresses using telnet and other techniques.",
 				},
 				{
-					name: 'Bonafide',
+					name: "Bonafide",
 					description:
-						'Developed a UI toolkit (React + utility CSS) to help their dev team migrate their 4mm+ LOC codebase and a plan for progressively migrating the UI without interfering with their existing business initiatives.',
-					url: 'https://www.bonafide.com',
+						"Developed a UI toolkit (React + utility CSS) to help their dev team migrate their 4mm+ LOC codebase and a plan for progressively migrating the UI without interfering with their existing business initiatives.",
+					url: "https://www.bonafide.com",
 				},
 				{
-					name: 'SunEdison',
+					name: "SunEdison",
 					description:
-						'Lead a migration of a legacy codebase to React for their core product, a global solar dashboard system.',
+						"Lead a migration of a legacy codebase to React for their core product, a global solar dashboard system.",
 				},
 				{
-					name: 'ExtendSketchUp',
+					name: "ExtendSketchUp",
 					description:
-						'Founded the first ever SketchUp plugin marketplace (Django) and companion Ruby plugin that made installing a one-click process compared to an incredibly clunky process. The plugin and web app allowed users to search and browse based on search query, category, rating and other factors.',
+						"Founded the first ever SketchUp plugin marketplace (Django) and companion Ruby plugin that made installing a one-click process compared to an incredibly clunky process. The plugin and web app allowed users to search and browse based on search query, category, rating and other factors.",
 				},
 				{
-					name: 'Other notable work',
+					name: "Other notable work",
 					description:
-						'Realtime event management system and label printing system. Printshop managemnt system (React, Node, Postgres). Learning managment platform (React, Node, Neo4j). Shopify app for customizable products (React, Node).',
+						"Realtime event management system and label printing system. Printshop managemnt system (React, Node, Postgres). Learning managment platform (React, Node, Neo4j). Shopify app for customizable products (React, Node).",
 				},
 			],
 		},
 		personal: {
-			label: 'Personal Experience',
+			label: "Personal Experience",
 			items: [
 				{
-					name: 'CNC machining control system',
+					name: "CNC machining control system",
 					description:
-						'A tool for hobbyist makers (React + WebSockets + Arduino) including real-time syncing of machine location and state and a tool to send GCODE (manual or files) to the machine to run jobs.',
+						"A tool for hobbyist makers (React + WebSockets + Arduino) including real-time syncing of machine location and state and a tool to send GCODE (manual or files) to the machine to run jobs.",
 				},
 				{
-					name: 'RFID security access control system',
+					name: "RFID security access control system",
 					description:
-						'Synced with a membership database to allow entry using RFID cards (Golang + RaspberryPi + Arduino) to our makerspace, including a visual feedback UI (React).',
+						"Synced with a membership database to allow entry using RFID cards (Golang + RaspberryPi + Arduino) to our makerspace, including a visual feedback UI (React).",
 				},
 			],
 		},
 		oss: {
-			label: 'Open Source Experience',
+			label: "Open Source Experience",
 			items: [
 				{
-					name: 'react-fontawesome',
+					name: "react-fontawesome",
 					description:
-						'Managed the most used FontAwesome library for React (~670 Github stars, 12mm total npm downloads), prior to FontAwesome releasing their own official React components.',
-					url: 'https://github.com/danawoodman/react-fontawesome',
+						"Managed the most used FontAwesome library for React (~670 Github stars, 12mm total npm downloads), prior to FontAwesome releasing their own official React components.",
+					url: "https://github.com/danawoodman/react-fontawesome",
 				},
 				{
 					description:
-						'10+ yr involvement in Open Source with ~70 repos on my Github and a collection of packages published on npm.',
+						"10+ yr involvement in Open Source with ~70 repos on my Github and a collection of packages published on npm.",
 				},
 			],
 		},
 		community: {
-			label: 'Speaking, Writing & Community',
+			label: "Speaking, Writing & Community",
 			items: [
 				{
-					name: 'Meetups',
+					name: "Meetups",
 					description:
 						'Co-founded <a href="https://www.meetup.com/Hack-Sonoma-County" target="_blank">Hack Sonoma County</a> and <a href="https://www.meetup.com/Norcal-Javascript-Hackers" target="_blank">NorCal.js</a> meetup groups. Organized and presented at dozens of meetups as well as writing content on <a href="https://dev.to/danawoodman" target="_blank">Dev.to</a> and <a href="https://danawoodman.com" target="_blank">my blog</a>.',
 				},
 				{
-					name: 'Chimera Makerspace',
+					name: "Chimera Makerspace",
 					description:
-						'Founded the first community makerspace north of San Francisco. Grew it to 250+ paying members and a team of volunteer staff in a 3k+ sq.ft. facility.',
-					url: 'https://chimeraarts.org',
+						"Founded the first community makerspace north of San Francisco. Grew it to 250+ paying members and a team of volunteer staff in a 3k+ sq.ft. facility.",
+					url: "https://chimeraarts.org",
 				},
 				{
-					name: 'Nation of Makers',
+					name: "Nation of Makers",
 					description:
 						"Invited to a national makerspace convention at President Obama's White House. Selected for a 7-person steering committee to form the organization and secure funding and board members of a new national organization serving makerspaces.",
-					url: 'https://www.nationofmakers.us',
+					url: "https://www.nationofmakers.us",
 				},
 			],
 		},
 		other: {
-			label: 'Other Experience',
+			label: "Other Experience",
 			items: [
 				{
-					name: 'SonomaFireInfo.org',
+					name: "SonomaFireInfo.org",
 					description:
-						'Co-founded a disaster response site that served the most up-to-date information during the 2017 Northern California wildfires to over 170k people with a team of 60+ volunteers.',
-					url: 'https://sonomafireinfo.org',
+						"Co-founded a disaster response site that served the most up-to-date information during the 2017 Northern California wildfires to over 170k people with a team of 60+ volunteers.",
+					url: "https://sonomafireinfo.org",
 				},
 				{
-					name: 'Meter Made Sculpture',
+					name: "Meter Made Sculpture",
 					description:
-						'Created the first interactive light sculpture to be installed in downtown Santa Rosa, California. The solar powered sculpture featured hundreds of LEDs controlled by a cellular connected Arduino microcontroller.',
+						"Created the first interactive light sculpture to be installed in downtown Santa Rosa, California. The solar powered sculpture featured hundreds of LEDs controlled by a cellular connected Arduino microcontroller.",
 				},
 			],
 		},
-	}
+	};
 </script>
 
 <Header />

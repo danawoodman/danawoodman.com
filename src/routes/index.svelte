@@ -1,46 +1,46 @@
 <script lang="ts">
-	import Footer from '$lib/components/Footer.svelte'
-	import Header from '$lib/components/Header.svelte'
+	import Footer from "$lib/components/Footer.svelte";
+	import Header from "$lib/components/Header.svelte";
 
 	const technologies = [
 		{
-			image: 'react',
-			title: 'React and React Native',
-			href: 'https://reactjs.org',
+			image: "react",
+			title: "React and React Native",
+			href: "https://reactjs.org",
 		},
-		{ image: 'svelte', title: 'Svelte', href: 'https://svelte.dev' },
-		{ image: 'node', title: 'Node.js', href: 'https://nodejs.org' },
+		{ image: "svelte", title: "Svelte", href: "https://svelte.dev" },
+		{ image: "node", title: "Node.js", href: "https://nodejs.org" },
 		{
-			image: 'typescript',
-			title: 'TypeScript',
-			href: 'https://www.typescriptlang.org',
-		},
-		{
-			image: 'tailwind',
-			title: 'TailwindCSS',
-			href: 'https://tailwindcss.com',
-		},
-		{ image: 'golang', title: 'Golang', href: 'https://go.dev' },
-		{
-			image: 'html5',
-			title: 'HTML5',
-			href: 'https://developer.mozilla.org/en-US/docs/Glossary/HTML5',
+			image: "typescript",
+			title: "TypeScript",
+			href: "https://www.typescriptlang.org",
 		},
 		{
-			image: 'css3',
-			title: 'CSS3',
-			href: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+			image: "tailwind",
+			title: "TailwindCSS",
+			href: "https://tailwindcss.com",
+		},
+		{ image: "golang", title: "Golang", href: "https://go.dev" },
+		{
+			image: "html5",
+			title: "HTML5",
+			href: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5",
 		},
 		{
-			image: 'postgres',
-			title: 'PostgreSQL',
-			href: 'https://www.postgresql.org',
+			image: "css3",
+			title: "CSS3",
+			href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
 		},
-		{ image: 'mongo', title: 'MongoDB', href: 'https://www.mongodb.com' },
-		{ image: 'jest', title: 'Jest', href: 'https://jestjs.io' },
-		{ image: 'figma', title: 'Figma', href: 'https://www.figma.com' },
-		{ image: 'git', title: 'git', href: 'https://git-scm.com' },
-	]
+		{
+			image: "postgres",
+			title: "PostgreSQL",
+			href: "https://www.postgresql.org",
+		},
+		{ image: "mongo", title: "MongoDB", href: "https://www.mongodb.com" },
+		{ image: "jest", title: "Jest", href: "https://jestjs.io" },
+		{ image: "figma", title: "Figma", href: "https://www.figma.com" },
+		{ image: "git", title: "git", href: "https://git-scm.com" },
+	];
 </script>
 
 <main>
@@ -60,6 +60,15 @@
 			</header>
 
 			<div class="max-w-prose text-slate-700">
+				<!-- I think I can best be described as a builder. Over the past 15 years, I've worked on a huge array of projects, from dozens of web applications (SaaS, B2B/B2C, internal tools), mobile apps (React Native), desktop apps (Electron), CLI tools (Golang, Node.js), APIs (REST, GraphQL, WebSockets in a variety of languages) with various persistence layers (MongoDB, SQL, graph DBs) and even interactive art sculptures and a hardware RFID security system.  
+
+I've built startups from scratch (as a founder and as a CTO-for-hire consultant) and I've worked with large enterprises and teams, working on products that see millions of unique users a month. I understand the variety of pieces that must come together to build a great software business. 
+
+I care particularly about software craftsmanship including code quality, legibility, testability, building future-proof systems and processes, and clear communication and documentation. I know how to tread the fine line between business and development priorities and have lots of experience collaborating with teammates in all departments (UI, UX, devops, sales, biz dev, you name it). I feel psychological safety, using the best tools available, removing obstacles/bureaucracy and setting clear leadership direction are critical for success.
+
+The current set of tools and technologies that excite me are Svelte/SvelteKit, React/Next.js, TypeScript, Node.js, TailwindCSS, and serverless/edge computing (in particular with CloudFlare, Vercel, and Netlify).
+
+You can find me at @danawoodman on Twitter and Github or my website https://danawoodman.com. -->
 				<p class="leading-relaxed mb-4 text-lg md:text-xl lg:text-2xl">
 					I'm a senior full-stack software developer working with React, Svelte,
 					TypeScript, Node and the web platform.

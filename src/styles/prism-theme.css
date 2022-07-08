@@ -28,78 +28,78 @@
  * --syntax-cursor-line: hsla(220, 100%, 80%, 0.04);
  */
 
-code[class*='language-'],
-pre[class*='language-'] {
-  background: hsl(220, 13%, 18%);
-  color: hsl(220, 14%, 71%);
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
-    monospace;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.5;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+code[class*="language-"],
+pre[class*="language-"] {
+	background: hsl(220, 13%, 18%);
+	color: hsl(220, 14%, 71%);
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
+		monospace;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	line-height: 1.5;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
 
 /* Selection */
-code[class*='language-']::-moz-selection,
-code[class*='language-'] *::-moz-selection,
-pre[class*='language-'] *::-moz-selection {
-  background: hsl(220, 13%, 28%);
-  color: inherit;
-  text-shadow: none;
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] *::-moz-selection,
+pre[class*="language-"] *::-moz-selection {
+	background: hsl(220, 13%, 28%);
+	color: inherit;
+	text-shadow: none;
 }
 
-code[class*='language-']::selection,
-code[class*='language-'] *::selection,
-pre[class*='language-'] *::selection {
-  background: hsl(220, 13%, 28%);
-  color: inherit;
-  text-shadow: none;
+code[class*="language-"]::selection,
+code[class*="language-"] *::selection,
+pre[class*="language-"] *::selection {
+	background: hsl(220, 13%, 28%);
+	color: inherit;
+	text-shadow: none;
 }
 
 /* Code blocks */
-pre[class*='language-'] {
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-  border-radius: 0.3em;
+pre[class*="language-"] {
+	padding: 1em;
+	margin: 0.5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
 }
 
 /* Inline code */
-:not(pre) > code[class*='language-'] {
-  padding: 0.2em 0.3em;
-  border-radius: 0.3em;
-  white-space: normal;
+:not(pre) > code[class*="language-"] {
+	padding: 0.2em 0.3em;
+	border-radius: 0.3em;
+	white-space: normal;
 }
 
 /* Print */
 @media print {
-  code[class*='language-'],
-  pre[class*='language-'] {
-    text-shadow: none;
-  }
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
 }
 
 .token.comment,
 .token.prolog,
 .token.cdata {
-  color: hsl(220, 10%, 40%);
+	color: hsl(220, 10%, 40%);
 }
 
 .token.doctype,
 .token.punctuation,
 .token.entity {
-  color: hsl(220, 14%, 71%);
+	color: hsl(220, 14%, 71%);
 }
 
 .token.attr-name,
@@ -108,11 +108,11 @@ pre[class*='language-'] {
 .token.constant,
 .token.number,
 .token.atrule {
-  color: hsl(29, 54%, 61%);
+	color: hsl(29, 54%, 61%);
 }
 
 .token.keyword {
-  color: hsl(286, 60%, 67%);
+	color: hsl(286, 60%, 67%);
 }
 
 .token.property,
@@ -120,7 +120,7 @@ pre[class*='language-'] {
 .token.symbol,
 .token.deleted,
 .token.important {
-  color: hsl(355, 65%, 65%);
+	color: hsl(355, 65%, 65%);
 }
 
 .token.selector,
@@ -131,126 +131,126 @@ pre[class*='language-'] {
 .token.regex,
 .token.attr-value,
 .token.attr-value > .token.punctuation {
-  color: hsl(95, 38%, 62%);
+	color: hsl(95, 38%, 62%);
 }
 
 .token.variable,
 .token.operator,
 .token.function {
-  color: hsl(207, 82%, 66%);
+	color: hsl(207, 82%, 66%);
 }
 
 .token.url {
-  color: hsl(187, 47%, 55%);
+	color: hsl(187, 47%, 55%);
 }
 
 /* HTML overrides */
 .token.attr-value > .token.punctuation.attr-equals,
 .token.special-attr > .token.attr-value > .token.value.css {
-  color: hsl(220, 14%, 71%);
+	color: hsl(220, 14%, 71%);
 }
 
 /* CSS overrides */
 .language-css .token.selector {
-  color: hsl(355, 65%, 65%);
+	color: hsl(355, 65%, 65%);
 }
 
 .language-css .token.property {
-  color: hsl(220, 14%, 71%);
+	color: hsl(220, 14%, 71%);
 }
 
 .language-css .token.function,
 .language-css .token.url > .token.function {
-  color: hsl(187, 47%, 55%);
+	color: hsl(187, 47%, 55%);
 }
 
 .language-css .token.url > .token.string.url {
-  color: hsl(95, 38%, 62%);
+	color: hsl(95, 38%, 62%);
 }
 
 .language-css .token.important,
 .language-css .token.atrule .token.rule {
-  color: hsl(286, 60%, 67%);
+	color: hsl(286, 60%, 67%);
 }
 
 /* JS overrides */
 .language-javascript .token.operator {
-  color: hsl(286, 60%, 67%);
+	color: hsl(286, 60%, 67%);
 }
 
 .language-javascript
-  .token.template-string
-  > .token.interpolation
-  > .token.interpolation-punctuation.punctuation {
-  color: hsl(5, 48%, 51%);
+	.token.template-string
+	> .token.interpolation
+	> .token.interpolation-punctuation.punctuation {
+	color: hsl(5, 48%, 51%);
 }
 
 /* JSON overrides */
 .language-json .token.operator {
-  color: hsl(220, 14%, 71%);
+	color: hsl(220, 14%, 71%);
 }
 
 .language-json .token.null.keyword {
-  color: hsl(29, 54%, 61%);
+	color: hsl(29, 54%, 61%);
 }
 
 /* MD overrides */
 .language-markdown .token.url,
 .language-markdown .token.url > .token.operator,
 .language-markdown .token.url-reference.url > .token.string {
-  color: hsl(220, 14%, 71%);
+	color: hsl(220, 14%, 71%);
 }
 
 .language-markdown .token.url > .token.content {
-  color: hsl(207, 82%, 66%);
+	color: hsl(207, 82%, 66%);
 }
 
 .language-markdown .token.url > .token.url,
 .language-markdown .token.url-reference.url {
-  color: hsl(187, 47%, 55%);
+	color: hsl(187, 47%, 55%);
 }
 
 .language-markdown .token.blockquote.punctuation,
 .language-markdown .token.hr.punctuation {
-  color: hsl(220, 10%, 40%);
-  font-style: italic;
+	color: hsl(220, 10%, 40%);
+	font-style: italic;
 }
 
 .language-markdown .token.code-snippet {
-  color: hsl(95, 38%, 62%);
+	color: hsl(95, 38%, 62%);
 }
 
 .language-markdown .token.bold .token.content {
-  color: hsl(29, 54%, 61%);
+	color: hsl(29, 54%, 61%);
 }
 
 .language-markdown .token.italic .token.content {
-  color: hsl(286, 60%, 67%);
+	color: hsl(286, 60%, 67%);
 }
 
 .language-markdown .token.strike .token.content,
 .language-markdown .token.strike .token.punctuation,
 .language-markdown .token.list.punctuation,
 .language-markdown .token.title.important > .token.punctuation {
-  color: hsl(355, 65%, 65%);
+	color: hsl(355, 65%, 65%);
 }
 
 /* General */
 .token.bold {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .token.comment,
 .token.italic {
-  font-style: italic;
+	font-style: italic;
 }
 
 .token.entity {
-  cursor: help;
+	cursor: help;
 }
 
 .token.namespace {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 /* Plugin overrides */
@@ -261,46 +261,46 @@ pre[class*='language-'] {
 .token.token.cr:before,
 .token.token.lf:before,
 .token.token.space:before {
-  color: hsla(220, 14%, 71%, 0.15);
-  text-shadow: none;
+	color: hsla(220, 14%, 71%, 0.15);
+	text-shadow: none;
 }
 
 /* Diff Highlight plugin overrides */
 /* Taken from https://github.com/atom/github/blob/master/styles/variables.less */
 pre.diff-highlight > code .token.token.deleted:not(.prefix),
 pre > code.diff-highlight .token.token.deleted:not(.prefix) {
-  background-color: hsla(353, 100%, 66%, 0.15);
+	background-color: hsla(353, 100%, 66%, 0.15);
 }
 
 pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection,
 pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection,
 pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection,
 pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection {
-  background-color: hsla(353, 95%, 66%, 0.25);
+	background-color: hsla(353, 95%, 66%, 0.25);
 }
 
 pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection,
 pre.diff-highlight > code .token.token.deleted:not(.prefix) *::selection,
 pre > code.diff-highlight .token.token.deleted:not(.prefix)::selection,
 pre > code.diff-highlight .token.token.deleted:not(.prefix) *::selection {
-  background-color: hsla(353, 95%, 66%, 0.25);
+	background-color: hsla(353, 95%, 66%, 0.25);
 }
 
 pre.diff-highlight > code .token.token.inserted:not(.prefix),
 pre > code.diff-highlight .token.token.inserted:not(.prefix) {
-  background-color: hsla(137, 100%, 55%, 0.15);
+	background-color: hsla(137, 100%, 55%, 0.15);
 }
 
 pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection,
 pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection,
 pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection,
 pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection {
-  background-color: hsla(135, 73%, 55%, 0.25);
+	background-color: hsla(135, 73%, 55%, 0.25);
 }
 
 pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection,
 pre.diff-highlight > code .token.token.inserted:not(.prefix) *::selection,
 pre > code.diff-highlight .token.token.inserted:not(.prefix)::selection,
 pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
-  background-color: hsla(135, 73%, 55%, 0.25);
+	background-color: hsla(135, 73%, 55%, 0.25);
 }
