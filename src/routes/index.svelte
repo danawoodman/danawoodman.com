@@ -57,7 +57,6 @@
 	<section class="bg-slate-100 py-20 md:py-32 px-8">
 		<div class="max-w-4xl mx-auto">
 			<header class="mb-8">
-				<!-- <h1 class="font-mono mb-2">Hi, I'm Dana and...</h1> -->
 				<h1
 					class="text-5xl sm:text-6xl lg:text-8xl font-extrabold text-teal-500 hero-heading"
 				>
@@ -135,9 +134,7 @@ You can find me at @danawoodman on Twitter and Github or my website https://dana
 
 	<section class="py-16">
 		<header class="text-center mb-6">
-			<h1
-				class="text-2xl uppercase font-heading tracking-widest text-slate-600 mb-4"
-			>
+			<h1 class="text-2xl uppercase tracking-widest text-slate-600 mb-4">
 				Technologies
 			</h1>
 			<p class="leading-relaxed text-slate-500">

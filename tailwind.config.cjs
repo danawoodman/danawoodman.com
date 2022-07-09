@@ -5,7 +5,6 @@ const config = {
 
 	theme: {
 		fontFamily: {
-			heading: "Montserrat, sans-serif",
 			mono: "'Fira Code', monospace",
 		},
 		extend: {
