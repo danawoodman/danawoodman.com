@@ -101,6 +101,7 @@
 					name: "Consulting",
 					description:
 						"Managed my own consulting company for over 10 years including client development, administration, and managing remote contractors working with a variety of industries, product types and team dynamics.",
+					url: "",
 				},
 				{
 					name: "MEX Assistant",
@@ -118,6 +119,7 @@
 					name: "Contactly",
 					description:
 						"Co-founder of a SaaS product (React Chrome Extension, Node + Express + MongoDB web app) that allowed customers to find leads via LinkedIn as well as an advanced system for generating and testing possible email addresses using telnet and other techniques.",
+					url: "",
 				},
 				{
 					name: "Bonafide",
@@ -129,16 +131,19 @@
 					name: "SunEdison",
 					description:
 						"Lead a migration of a legacy codebase to React for their core product, a global solar dashboard system.",
+					url: "",
 				},
 				{
 					name: "ExtendSketchUp",
 					description:
 						"Founded the first ever SketchUp plugin marketplace (Django) and companion Ruby plugin that made installing a one-click process compared to an incredibly clunky process. The plugin and web app allowed users to search and browse based on search query, category, rating and other factors.",
+					url: "",
 				},
 				{
 					name: "Other notable work",
 					description:
 						"Realtime event management system and label printing system. Printshop managemnt system (React, Node, Postgres). Learning managment platform (React, Node, Neo4j). Shopify app for customizable products (React, Node).",
+					url: "",
 				},
 			],
 		},
@@ -149,11 +154,13 @@
 					name: "CNC machining control system",
 					description:
 						"A tool for hobbyist makers (React + WebSockets + Arduino) including real-time syncing of machine location and state and a tool to send GCODE (manual or files) to the machine to run jobs.",
+					url: "",
 				},
 				{
 					name: "RFID security access control system",
 					description:
 						"Synced with a membership database to allow entry using RFID cards (Golang + RaspberryPi + Arduino) to our makerspace, including a visual feedback UI (React).",
+					url: "",
 				},
 			],
 		},
@@ -169,6 +176,7 @@
 				{
 					description:
 						"10+ yr involvement in Open Source with ~70 repos on my Github and a collection of packages published on npm.",
+					url: "",
 				},
 			],
 		},
@@ -179,6 +187,7 @@
 					name: "Meetups",
 					description:
 						'Co-founded <a href="https://www.meetup.com/Hack-Sonoma-County" target="_blank">Hack Sonoma County</a> and <a href="https://www.meetup.com/Norcal-Javascript-Hackers" target="_blank">NorCal.js</a> meetup groups. Organized and presented at dozens of meetups as well as writing content on <a href="https://dev.to/danawoodman" target="_blank">Dev.to</a> and <a href="https://danawoodman.com" target="_blank">my blog</a>.',
+					url: "",
 				},
 				{
 					name: "Chimera Makerspace",
@@ -207,6 +216,7 @@
 					name: "Meter Made Sculpture",
 					description:
 						"Created the first interactive light sculpture to be installed in downtown Santa Rosa, California. The solar powered sculpture featured hundreds of LEDs controlled by a cellular connected Arduino microcontroller.",
+					url: "",
 				},
 			],
 		},
@@ -285,11 +295,11 @@
 			<h1 class="text-lg font-bold uppercase">
 				<span class="enlarge">S</span>kills
 			</h1>
-			{#each Object.keys(skills) as type}
+			{#each Object.entries(skills) as [type, all]}
 				<h2 class="uppercase font-bold mt-4 mb-1">{type.toUpperCase()}</h2>
 				<ul>
-					{#each skills[type] as skill, i}
-						{@const last = skills[type].length - 1}
+					{#each all as skill, i}
+						{@const last = all.length - 1}
 						<li class="inline-block mr-2">
 							{skill}{#if last !== i}, {/if}
 						</li>

@@ -2,6 +2,8 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import Header from "$lib/components/Header.svelte";
 
+	export const prerender = true;
+
 	const technologies = [
 		{
 			image: "react",

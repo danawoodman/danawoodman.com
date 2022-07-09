@@ -1,4 +1,4 @@
-import type { EndpointOutput, RequestEvent } from "@sveltejs/kit";
+import type { RequestEvent, RequestHandlerOutput } from "@sveltejs/kit";
 import { getPosts } from "./writing/_posts";
 
 // Reference: https://sitemaps.org/protocol.html#location
@@ -8,7 +8,9 @@ function isoDateTime(date?: string): string | undefined {
 	return new Date(date).toISOString().split("T")[0];
 }
 
-export async function get({ url }: RequestEvent): Promise<EndpointOutput> {
+export async function get({
+	url,
+}: RequestEvent): Promise<RequestHandlerOutput> {
 	const posts = await getPosts();
 	const postEntries = posts.map((p) => ({
 		lastmod: isoDateTime(p?.published),

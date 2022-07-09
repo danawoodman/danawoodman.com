@@ -9,6 +9,7 @@
 	export let draft;
 	export let published;
 	export let categories;
+	export let tags;
 
 	$: pubDate = new Date(published);
 </script>

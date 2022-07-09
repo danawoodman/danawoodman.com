@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let categories = [];
+	export let categories: string[] = [];
 </script>
 
 {#if categories?.length}
