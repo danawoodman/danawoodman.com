@@ -14,7 +14,7 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import Header from "$lib/components/Header.svelte";
 
-	export let posts = [];
+	export let posts: Post[] = [];
 	// const tags = [
 	// 	...posts.reduce((tags, post) => {
 	// 		post?.tags?.forEach((t) => tags.add(t));
@@ -36,7 +36,7 @@
 	{/if}-->
 
 	{#each posts as post}
-		{@const pubDate = new Date(post.published)}
+		{@const pubDate = post.published ? new Date(post.published) : null}
 		<article
 			class="bg-white my-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all scale-100 hover:scale-105"
 		>
@@ -66,7 +66,7 @@
 								</span>
 							{/each}
 						</p>
-						{#if post.published}
+						{#if pubDate}
 							<p class="ml-auto">
 								<time
 									class="text-gray-500 text-sm"
