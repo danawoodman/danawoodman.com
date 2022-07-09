@@ -47,6 +47,15 @@
 
 <svelte:head>
 	<title>Dana Woodman | Full-stack software developer</title>
+	<meta
+		name="description"
+		content="
+			I'm a senior full-stack software developer working with React, Svelte, 
+			TypeScript, Node and the web platform. I've built a little bit of everything, 
+			from numerous web apps/APIs, mobile applications, embedded devices, 
+			and even interactive art sculptures.
+		"
+	/>
 </svelte:head>
 
 <main>
