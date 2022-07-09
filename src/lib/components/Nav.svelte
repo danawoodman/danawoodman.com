@@ -13,7 +13,7 @@
 			href={link.href}
 			class="flex items-center mr-8 py-2 hover:text-emerald-600 scale-100 hover:scale-125 transition-all"
 			class:mr-0={i === links.length - 1}
-			download={link.download ? "Dana Woodman Resume - 2022" : false}
+			download={link.download ? "Dana Woodman Resume - 2022" : undefined}
 		>
 			{#if link.download}
 				<svg
