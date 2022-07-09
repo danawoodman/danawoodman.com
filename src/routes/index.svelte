@@ -45,6 +45,10 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Dana Woodman | Full-stack software developer</title>
+</svelte:head>
+
 <main>
 	<div class="px-8">
 		<Header />
@@ -94,30 +98,36 @@ You can find me at @danawoodman on Twitter and Github or my website https://dana
 						class="link">NorCal.js</a
 					>
 				</p>
-				<p class="mt-8">
-					<a
-						href="/resume.pdf"
-						target="_blank"
-						class="btn"
-						title="Download my resume in PDF format"
-						download="Dana Woodman Resume - July 2022"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 384 512"
-							width="14"
-							class="mr-3 inline-block"
+				<p
+					class="mt-8 flex flex-col justify-center sm:justify-start sm:flex-row sm:items-center"
+				>
+					<span class="text-center sm:text-left">
+						<a
+							href="/resume.pdf"
+							target="_blank"
+							class="btn whitespace-nowrap inline-block"
+							title="Download my resume in PDF format"
+							download="Dana Woodman Resume - July 2022"
 						>
-							<path
-								fill="currentColor"
-								d="M365.3 125.3l-106.5-106.5C246.7 6.742 230.5 0 213.5 0H64C28.65 0 0 28.65 0 64l.0065 384c0 35.35 28.65 64 64 64H320c35.35 0 64-28.65 64-64V170.5C384 153.5 377.3 137.3 365.3 125.3zM224 34.08c4.477 1.566 8.666 3.846 12.12 7.299l106.5 106.5C346.1 151.3 348.4 155.5 349.9 160H240C231.2 160 224 152.8 224 144V34.08zM352 448c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V64c0-17.64 14.36-32 32-32h128v112C192 170.5 213.5 192 240 192H352V448zM208 240C208 231.2 200.8 224 192 224S176 231.2 176 240v121.4L123.3 308.7C120.2 305.6 116.1 304 112 304S103.8 305.6 100.7 308.7c-6.25 6.25-6.25 16.38 0 22.62l80 80c6.25 6.25 16.38 6.25 22.62 0l80-80c6.25-6.25 6.25-16.38 0-22.62s-16.38-6.25-22.62 0L208 361.4V240z"
-							/>
-						</svg>
-						Download my resume
-					</a>
-					<a href="mailto:dana@danawoodman.com" class="link ml-8"
-						>Send me an email</a
-					>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 384 512"
+								width="13"
+								class="mr-3 inline-block leading-none"
+							>
+								<path
+									fill="currentColor"
+									d="M365.3 125.3l-106.5-106.5C246.7 6.742 230.5 0 213.5 0H64C28.65 0 0 28.65 0 64l.0065 384c0 35.35 28.65 64 64 64H320c35.35 0 64-28.65 64-64V170.5C384 153.5 377.3 137.3 365.3 125.3zM224 34.08c4.477 1.566 8.666 3.846 12.12 7.299l106.5 106.5C346.1 151.3 348.4 155.5 349.9 160H240C231.2 160 224 152.8 224 144V34.08zM352 448c0 17.64-14.36 32-32 32H64c-17.64 0-32-14.36-32-32V64c0-17.64 14.36-32 32-32h128v112C192 170.5 213.5 192 240 192H352V448zM208 240C208 231.2 200.8 224 192 224S176 231.2 176 240v121.4L123.3 308.7C120.2 305.6 116.1 304 112 304S103.8 305.6 100.7 308.7c-6.25 6.25-6.25 16.38 0 22.62l80 80c6.25 6.25 16.38 6.25 22.62 0l80-80c6.25-6.25 6.25-16.38 0-22.62s-16.38-6.25-22.62 0L208 361.4V240z"
+								/>
+							</svg>
+							Download my resume
+						</a>
+					</span>
+					<span class="text-center sm:text-left mt-8 sm:mt-0 sm:ml-8">
+						<a href="mailto:dana@danawoodman.com" class="link">
+							Send me an email
+						</a>
+					</span>
 				</p>
 			</div>
 		</div>
@@ -141,11 +151,12 @@ You can find me at @danawoodman on Twitter and Github or my website https://dana
 					<a href={tech.href} target="_blank">
 						<img
 							src={`/icons/${tech.image}.svg`}
-							class="h-12 transition-transform scale-100 hover:scale-125"
+							class="transition-transform scale-100 hover:scale-125"
 							alt={tech.title}
 							title={tech.title}
-						/></a
-					>
+							height="48px"
+						/>
+					</a>
 				</li>
 			{/each}
 		</ul>
