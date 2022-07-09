@@ -151,10 +151,11 @@ You can find me at @danawoodman on Twitter and Github or my website https://dana
 					<a href={tech.href} target="_blank">
 						<img
 							src={`/icons/${tech.image}.svg`}
-							class="transition-transform scale-100 hover:scale-125"
+							class="transition-transform scale-100 hover:scale-125 h-12"
 							alt={tech.title}
 							title={tech.title}
 							height="48px"
+							width="48px"
 						/>
 					</a>
 				</li>
