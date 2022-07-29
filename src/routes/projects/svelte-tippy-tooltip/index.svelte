@@ -22,11 +22,20 @@
 				full configuration object Tippy.js supports for more advanced usage.
 			</p>
 			<p>
+				View the source:
 				<a
-					href="https://github.com/danawoodman/danawoodman.com/tree/main/src/routes/projects/svelte-tippy-tooltip"
+					href="https://github.com/danawoodman/danawoodman.com/blob/main/src/routes/projects/svelte-tippy-tooltip/tooltip.ts"
 					target="_blank"
+					class="ml-2"
 				>
-					View the source
+					Action
+				</a>
+				<a
+					href="https://github.com/danawoodman/danawoodman.com/blob/main/src/routes/projects/svelte-tippy-tooltip/index.svelte"
+					target="_blank"
+					class="ml-2"
+				>
+					Usage
 				</a>
 			</p>
 		</div>
