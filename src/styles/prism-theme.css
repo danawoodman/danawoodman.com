@@ -23,14 +23,14 @@
  * --syntax-guide: hsla(220, 14%, 71%, 0.15);
  * --syntax-accent: hsl(220, 100%, 66%);
  * From syntax-variables.less
- * --syntax-selection-color: hsl(220, 13%, 28%);
+ * --syntax-selection-color: rgb(30, 41, 59);
  * --syntax-gutter-background-color-selected: hsl(220, 13%, 26%);
  * --syntax-cursor-line: hsla(220, 100%, 80%, 0.04);
  */
 
 code[class*="language-"],
 pre[class*="language-"] {
-	background: hsl(220, 13%, 18%);
+	background: rgb(30, 41, 59);
 	color: hsl(220, 14%, 71%);
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono",
@@ -54,7 +54,7 @@ pre[class*="language-"] {
 code[class*="language-"]::-moz-selection,
 code[class*="language-"] *::-moz-selection,
 pre[class*="language-"] *::-moz-selection {
-	background: hsl(220, 13%, 28%);
+	background: rgb(30, 41, 59);
 	color: inherit;
 	text-shadow: none;
 }
@@ -62,7 +62,7 @@ pre[class*="language-"] *::-moz-selection {
 code[class*="language-"]::selection,
 code[class*="language-"] *::selection,
 pre[class*="language-"] *::selection {
-	background: hsl(220, 13%, 28%);
+	background: rgb(30, 41, 59);
 	color: inherit;
 	text-shadow: none;
 }
