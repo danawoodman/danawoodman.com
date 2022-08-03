@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { highlight, languages } from "prismjs";
+	const { highlight, languages } = require("prismjs");
 
 	let code = 'console.log("Hello World");';
 	let language = "js";
