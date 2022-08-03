@@ -12,10 +12,10 @@
 		<div
 			class="bg-slate-800 rounded-lg shadow-lg shadow-slate-400 max-w-prose mx-auto"
 		>
-			<div class="px-3 py-2">
-				<span class="inline-block w-3 h-3 bg-green-500 rounded-full" />
+			<div class="px-6 py-2">
+				<span class="inline-block w-3 h-3 bg-red-500 rounded-full" />
 				<span class="inline-block w-3 h-3 bg-yellow-500 rounded-full ml-2" />
-				<span class="inline-block w-3 h-3 bg-red-500 rounded-full ml-2" />
+				<span class="inline-block w-3 h-3 bg-green-500 rounded-full ml-2" />
 			</div>
 			<pre class={`${"language-" + language}`}><code
 					class={`${"langauge-" + language} block px-6 pb-4`}
