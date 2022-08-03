@@ -9,7 +9,6 @@ specifiers:
   '@tailwindcss/typography': 0.5.2
   '@types/md5': 2.3.2
   '@types/node': 18.0.2
-  '@types/prismjs': 1.26.0
   '@typescript-eslint/eslint-plugin': 5.30.5
   '@typescript-eslint/parser': 5.30.5
   autoprefixer: 10.4.7
@@ -17,6 +16,7 @@ specifiers:
   eslint: 8.19.0
   eslint-config-prettier: 8.5.0
   eslint-plugin-svelte3: 4.0.0
+  highlight.js: 11.6.0
   marked: 4.0.17
   md5: 2.3.0
   mdsvex: 0.10.6
@@ -25,7 +25,6 @@ specifiers:
   postcss-load-config: 4.0.1
   prettier: 2.7.1
   prettier-plugin-svelte: 2.7.0
-  prismjs: 1.28.0
   svelte: 3.49.0
   svelte-check: 2.8.0
   svelte-preprocess: 4.10.7
@@ -49,13 +48,13 @@ devDependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.1.4
   '@types/md5': 2.3.2
   '@types/node': 18.0.2
-  '@types/prismjs': 1.26.0
   '@typescript-eslint/eslint-plugin': 5.30.5_6zdoc3rn4mpiddqwhppni2mnnm
   '@typescript-eslint/parser': 5.30.5_4x5o4skxv6sl53vpwefgt23khm
   autoprefixer: 10.4.7_postcss@8.4.14
   eslint: 8.19.0
   eslint-config-prettier: 8.5.0_eslint@8.19.0
   eslint-plugin-svelte3: 4.0.0_jxmmfmurkts274jdspwh3cyqve
+  highlight.js: 11.6.0
   marked: 4.0.17
   mdsvex: 0.10.6_svelte@3.49.0
   postcss: 8.4.14
@@ -63,7 +62,6 @@ devDependencies:
   postcss-load-config: 4.0.1_postcss@8.4.14
   prettier: 2.7.1
   prettier-plugin-svelte: 2.7.0_o3ioganyptcsrh6x4hnxvjkpqi
-  prismjs: 1.28.0
   svelte: 3.49.0
   svelte-check: 2.8.0_blrkfmplrezk6jx3arz7bdc3pa
   svelte-preprocess: 4.10.7_6avtyouqcdws46kxwsvk4vhxre
@@ -290,10 +288,6 @@ packages:
 
   /@types/node/18.0.2:
     resolution: {integrity: sha512-b947SdS4GH+g2W33wf5FzUu1KLj5FcSIiNWbU1ZyMvt/X7w48ZsVcsQoirIgE/Oq03WT5Qbn/dkY0hePi4ZXcQ==}
-    dev: true
-
-  /@types/prismjs/1.26.0:
-    resolution: {integrity: sha512-ZTaqn/qSqUuAq1YwvOFQfVW1AR/oQJlLSZVustdjwI+GZ8kr0MSHBj0tsXPW1EqHubx50gtBEjbPGsdZwQwCjQ==}
     dev: true
 
   /@types/pug/2.0.6:
@@ -1343,6 +1337,11 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: 1.1.1
+    dev: true
+
+  /highlight.js/11.6.0:
+    resolution: {integrity: sha512-ig1eqDzJaB0pqEvlPVIpSSyMaO92bH1N2rJpLMN/nX396wTpDA4Eq0uK+7I/2XG17pFaaKE0kjV/XPeGt7Evjw==}
+    engines: {node: '>=12.0.0'}
     dev: true
 
   /https-proxy-agent/5.0.1:

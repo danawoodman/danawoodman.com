@@ -1,10 +1,9 @@
 <script lang="ts">
-	const { highlight, languages } = require("prismjs");
+	import hljs from "highlight.js";
+	import "highlight.js/styles/atom-one-dark.css";
 
 	let code = 'console.log("Hello World");';
-	let language = "js";
-
-	const default_language = "js";
+	let language = "javascript";
 </script>
 
 <main class="">
@@ -19,7 +18,7 @@
 			</div>
 			<pre class={`${"language-" + language}`}><code
 					class={`${"langauge-" + language} block px-6 pb-4`}
-					>{@html highlight(code, languages[language], default_language)}</code
+					>{@html hljs.highlight(code, { language }).value}</code
 				></pre>
 		</div>
 	</section>
@@ -37,7 +36,7 @@
 				bind:value={language}
 				class="rounded-md border border-slate-200 active:border-indigo-500 focus:border-indigo-500"
 			>
-				{#each Object.keys(languages) as lang}
+				{#each hljs.listLanguages() as lang}
 					<option value={lang}>{lang}</option>
 				{/each}
 			</select>
