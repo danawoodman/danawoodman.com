@@ -1,0 +1,28 @@
+---
+title: Efficiently read files in a directory with Node.js opendirp
+published: 2022-09-10
+tags: [Node.js, JavaScript, TypeScript]
+---
+
+Recently I had to scan the contents of a very large directory in order to do some operations on each file.
+
+I wanted this operation to be as fast as possible, so I knew that if I used the standard [`fsPromises.readdir`](https://nodejs.org/api/fs.html#fspromisesreaddirpath-options) or [`fs.readdirSync`](https://nodejs.org/api/fs.html#fsreaddirsyncpath-options) which read every file in the directory in one pass, I would have to wait till the entire directoy was read before operating on each file.
+
+Instead, I wanted to instead operate on the file the moment it was found.
+
+To solve this, I reached for `opendir` (added `v12.12.0`) which will iterate over each found file, as it is found:
+
+```typescript
+import { opendirSync } from "fs";
+
+const dir = opendirSync("./files");
+for await (const entry of dir) {
+	console.log("Found file:", entry.name);
+}
+```
+
+[`fsPromises.opendir`](https://nodejs.org/api/fs.html#fspromisesopendirpath-options)/[`openddirSync`](https://nodejs.org/api/fs.html#fsopendirsyncpath-options) return an instance of [`Dir`](https://nodejs.org/api/fs.html#class-fsdir) which is an iterable which returns a [`Dirent`](https://nodejs.org/api/fs.html#class-fsdirent) (directory entry) for every file in the directory.
+
+This is more efficient because it returns each file as it is found, rather than having to wait till all files are collected.
+
+_(also answered over on [StackOverflow](https://stackoverflow.com/a/73312243/529829))_
