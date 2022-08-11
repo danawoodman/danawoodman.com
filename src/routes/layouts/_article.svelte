@@ -86,6 +86,17 @@
 		</header>
 		<div class="prose">
 			<slot />
+			<hr />
+			<p class="mt-6">
+				<strong>Like this post?</strong>
+				<br />
+				Why don't you let me know on Twitter:
+				<a
+					href="https://twitter.com/danawoodman"
+					target="_blank"
+					rel="noopener noreferrer">@danawoodman</a
+				>
+			</p>
 		</div>
 	</article>
 </main>
