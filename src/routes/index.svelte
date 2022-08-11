@@ -59,9 +59,7 @@
 </svelte:head>
 
 <main>
-	<div class="px-8">
-		<Header />
-	</div>
+	<Header />
 
 	<section class="bg-slate-100 py-20 md:py-32 px-8">
 		<div class="max-w-4xl mx-auto">
