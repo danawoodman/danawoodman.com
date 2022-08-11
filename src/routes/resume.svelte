@@ -35,6 +35,16 @@
 	};
 	const featured = [
 		{
+			role: "Senior Software Developer",
+			name: "CommunityBoss",
+			dates: ["August 2022", "Present"],
+			url: "https://communityboss.com",
+			description:
+				"Community Boss helps make your community a better place to live, easier to manage, and more valuable to own.",
+			highlights: [],
+			technologies: ["Svelte", "JavaScript", "TypeScript", "mapbox"],
+		},
+		{
 			role: "Consultant",
 			name: "Zenni Optical",
 			dates: ["June 2021", "Feb* 2022"],
