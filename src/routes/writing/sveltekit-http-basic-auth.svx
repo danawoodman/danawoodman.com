@@ -1,0 +1,51 @@
+---
+title: How to secure pages with HTTP Basic Auth using SvelteKit
+tags: [Svelte, SvelteKit, JavaScript, TypeScript]
+published: 2022-09-11
+---
+
+Want to add simple authentication to a page, say an admin section, in SvelteKit? Well, [HTTP Basic Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) might be what you're looking for.
+
+In order to accomplish this, we will need to intercept all server-side requests using the [`handle` hook](https://kit.svelte.dev/docs/hooks#handle) which gets called on every request.
+
+We will then check the URL pathname to see if it starts with `/admin` so that any page under and including `/admin` will get secured behind HTTP Basic Auth (e.g. `/admin`, `/admin/reports`).
+
+Then we check for an `Authorization` header to see if the user has attempted logged in (or if they cancel the login dialog) and we check it against a username:password combo (base64 encoded). If it doesn't match, then they are not logged in so we indicate they're not authorized with a `401` error.
+
+If they succeed with login by typing in the correct username:password combo, then they will be directed to the admin page they wanted.
+
+```ts
+import type { Handle } from "@sveltejs/kit";
+import { ADMIN_LOGIN } from "$env/static/private";
+
+export async function handle({
+	event,
+	resolve,
+}: Parameters<Handle>[0]): Promise<ReturnType<Handle>> {
+	const url = new URL(event.request.url);
+
+	if (url.pathname.startsWith("/admin")) {
+		const auth = event.request.headers.get("Authorization");
+
+		if (auth !== `Basic ${btoa(ADMIN_LOGIN)}`) {
+			return new Response("Not authorized", {
+				status: 401,
+				headers: {
+					"WWW-Authenticate":
+						'Basic realm="User Visible Realm", charset="UTF-8"',
+				},
+			});
+		}
+	}
+
+	return resolve(event);
+}
+```
+
+Then, in your `.env` file (as well as set in your hosting provider's environment variable management system), set your username/password combo:
+
+```shell
+ADMIN_LOGIN="admin:sekret"
+```
+
+And now make sure to create a page at `/admin` or somewhere else and attempt to load it. You should see the login prompt and on inputting `admin` for the username and `sekret` for the password, you should see the admin Svelte page.
