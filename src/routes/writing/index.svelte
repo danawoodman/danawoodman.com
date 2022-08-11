@@ -36,20 +36,11 @@
 	{/if}-->
 
 	{#each posts as post}
+		<!-- <svelte:component this={post.component} /> -->
 		{@const pubDate = post.published ? new Date(post.published) : null}
 		<article
 			class="bg-white my-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all scale-100 hover:scale-105"
 		>
-			<!-- <div class="mb-4">
-          <CategoryBreadcrumbs categories={post.categories} />
-        </div> -->
-			<!-- {#if post.image}
-          <img
-            src={`/images/${post.image}`}
-            alt={post.title}
-            class="w-full rounded-t-lg"
-          />
-        {/if} -->
 			<header class="px-8 py-6">
 				<h2 class="text-xl font-bold hover:text-emerald-600 transition-colors">
 					<a href={"/writing" + post.slug} class="">{post.title}</a>
