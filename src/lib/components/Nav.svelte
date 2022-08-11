@@ -2,7 +2,7 @@
 	const links = [
 		{ href: "/", text: "Home" },
 		{ href: "/writing", text: "Writing" },
-		// { href: "/projects", text: "Projects" },
+		{ href: "/projects", text: "Projects" },
 		{ href: "/resume.pdf", text: "Resume", download: true },
 	];
 </script>
