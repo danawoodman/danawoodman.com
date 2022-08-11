@@ -7,3 +7,4 @@ Below is a small collection of personal projects I've made:
 - [Code Highlighter](/projects/code-highlights)
 - [Svelte Tooltip action](/projects/svelte-tippy-tooltip)
 - [MD5 Encoder](/projects/md5)
+- [base64 Encoder](/projects/base64)
