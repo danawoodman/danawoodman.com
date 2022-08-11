@@ -1,0 +1,30 @@
+---
+title: A pattern for unit testing in Node.js (table-drive tests)
+published: 2022-09-10
+tags: [Node.js, JavaScript, TypeScript, testing]
+---
+
+A pattern of unit testing I like to do is "table-driven tests" (popularized by Go).
+
+I like this style for doing tests where you want to assert a wide variety of inputs/output pairs with minimal boilerplate.
+
+```ts
+describe("is_a_cat", () => {
+	const tests = [
+		{ input: "", expected: false },
+		{ input: "snoop dogg", expected: false },
+		{ input: "kitty party", expected: true },
+		{ input: "tons of cats!", expected: true },
+	];
+
+	for (const t of tests) {
+		test(`${t.input} contains cats? ${t.expected}`, () => {
+			expect(is_a_cat(t.input)).toEqual(t.expected);
+		});
+	}
+});
+```
+
+In this test suite we construct an array of input/output pairs which we then iterate over and create a test case for each combination.
+
+I like to create a dynamic test title to help debugging since table-driven tests can be hard to troubleshoot without a description.
