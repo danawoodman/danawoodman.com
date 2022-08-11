@@ -1,20 +1,22 @@
 <script lang="ts">
-	import md5 from "md5";
 	import copy from "copy-to-clipboard";
 
 	let input = "hello world";
-	$: output = md5(input);
+	$: output = btoa(input);
 </script>
 
 <svelte:head>
-	<title>MD5 Encoder</title>
-	<meta name="description" content="Convert to and from MD5." />
+	<title>Base64 Encoder</title>
+	<meta
+		name="description"
+		content="Convert a string to a base64 encoded string."
+	/>
 </svelte:head>
 
 <main class="max-w-prose mx-auto my-10 px-6">
 	<header class="mb-10">
-		<h1 class="text-4xl mb-3 font-extrabold">MD5 Hash Encoder</h1>
-		<p>Create an MD5 hash of a string.</p>
+		<h1 class="text-4xl mb-3 font-extrabold">Base64 Encoder</h1>
+		<p>Convert a string to a base64 encoded string.</p>
 	</header>
 
 	<textarea

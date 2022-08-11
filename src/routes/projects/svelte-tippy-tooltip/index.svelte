@@ -4,6 +4,14 @@
 	import "tippy.js/themes/light-border.css";
 </script>
 
+<svelte:head>
+	<title>Svelte + Tippy.js tooltip action</title>
+	<meta
+		name="description"
+		content="Create a Svelte action that adds easy tooltips to any HTML element."
+	/>
+</svelte:head>
+
 <main class="mx-auto my-12 max-w-prose px-8">
 	<header class="prose mb-20">
 		<h1 class="text-6xl font-extrabold">Svelte + Tippy.js tooltip action</h1>
@@ -20,6 +28,12 @@
 				Supports both <code>title="..."</code> and
 				<code>aria-label="..."</code> for setting the tooltip content. Accepts the
 				full configuration object Tippy.js supports for more advanced usage.
+			</p>
+			<p>
+				I wrote more details in <a
+					href="https://dev.to/danawoodman/svelte-quick-tip-using-actions-to-integrate-with-javascript-libraries-tippy-tooltips-2m94"
+					target="_blank">this blog post</a
+				>.
 			</p>
 			<p>
 				View the source:
@@ -48,14 +62,14 @@
 			<button use:tooltip aria-label="Aria label!">With "aria-label"</button>
 		</li>
 		<li>
-			<button use:tooltip={{ content: "Custom content!" }}
-				>Custom content</button
-			>
+			<button use:tooltip={{ content: "Custom content!" }}>
+				Custom content
+			</button>
 		</li>
 		<li>
-			<button use:tooltip={{ theme: "light" }} title="This is a light tooltip!"
-				>Light theme</button
-			>
+			<button use:tooltip={{ theme: "light" }} title="This is a light tooltip!">
+				Light theme
+			</button>
 		</li>
 		<li>
 			<button
