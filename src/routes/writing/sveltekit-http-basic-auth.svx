@@ -4,7 +4,11 @@ tags: [Svelte, SvelteKit, JavaScript, TypeScript]
 published: 2022-09-11
 ---
 
-Want to add simple authentication to a page, say an admin section, in SvelteKit? Well, [HTTP Basic Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) might be what you're looking for.
+Want to add simple authentication to a page, say an admin section or a demo app, in SvelteKit? Well, [HTTP Basic Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) might be what you're looking for.
+
+But before we start, you should be aware that HTTP Basic Auth is not considered very secure since you're sending the username/password as base64 encoded, [amongst other concerns](https://security.stackexchange.com/a/990). If you use HTTPS (which you should be doing!), then this particular attack vector is less of a concern, but you should still consider these factors and you should **absolutely not use it with customer/user facing logins**. I see HTTP Basic as a useful and quick way to (somewhat) secure a page or section on your site. If you choose HTTP Basic, just be aware that the pages you're securing may not be as secure as you might think.
+
+Ok, moving on!
 
 In order to accomplish this, we will need to intercept all server-side requests using the [`handle` hook](https://kit.svelte.dev/docs/hooks#handle) which gets called on every request.
 
