@@ -1,7 +1,8 @@
 ---
-title: How to type a function in TypeScript
+title: How to apply a pre-defined type to a function in TypeScript
 published: 2022-09-12
 tags: [TypeScript]
+description: Learn about the two primary ways you can type apply a function type signature to an implementation of that function.
 ---
 
 Given the following type signature for a TypeScript function:

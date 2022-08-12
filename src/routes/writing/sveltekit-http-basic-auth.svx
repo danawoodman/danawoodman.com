@@ -2,6 +2,7 @@
 title: How to secure pages with HTTP Basic Auth using SvelteKit
 tags: [Svelte, SvelteKit, JavaScript, TypeScript]
 published: 2022-09-11
+description: Though not something you want to use for user-facing situations, using HTTP Basic Auth can be convenient (say locking down a demo). Learn how to pull this off with SvelteKit.
 ---
 
 Want to add simple authentication to a page, say an admin section or a demo app, in SvelteKit? Well, [HTTP Basic Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication) might be what you're looking for.
@@ -22,10 +23,7 @@ If they succeed with login by typing in the correct username:password combo, the
 import type { Handle } from "@sveltejs/kit";
 import { ADMIN_LOGIN } from "$env/static/private";
 
-export async function handle({
-	event,
-	resolve,
-}: Parameters<Handle>[0]): Promise<ReturnType<Handle>> {
+export const handle: Handle = async ({ event }) => {
 	const url = new URL(event.request.url);
 
 	if (url.pathname.startsWith("/admin")) {
@@ -43,7 +41,7 @@ export async function handle({
 	}
 
 	return resolve(event);
-}
+};
 ```
 
 Then, in your `.env` file (as well as set in your hosting provider's environment variable management system), set your username/password combo:
