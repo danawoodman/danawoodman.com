@@ -1,5 +1,5 @@
 ---
-title: Efficiently read files in a directory with Node.js opendirp
+title: Efficiently read files in a directory with Node.js opendir
 published: 2022-09-10
 tags: [Node.js, JavaScript, TypeScript]
 ---
