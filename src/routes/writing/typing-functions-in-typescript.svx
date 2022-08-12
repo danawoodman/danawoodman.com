@@ -1,0 +1,42 @@
+---
+title: How to type a function in TypeScript
+published: 2022-09-12
+tags: [TypeScript]
+---
+
+Given the following type signature for a TypeScript function:
+
+```typescript
+type BirthdayGreeter = (name: string, age: number) => string;
+```
+
+We have two primary options to apply this type signature to our function.
+
+One is to use the type on a variable which is then assigned to an arrow function:
+
+```typescript
+const greeter: BirthdayGreeter = (name, age) =>
+	`Congrats ${name}, you're ${age} years young!`;
+```
+
+The second is to use the type utilities `Parameters` and `ReturnType` to apply the types to the arguments (`Parameters`) of the function and the return value.
+
+```typescript
+function greeter(
+	...[name, age]: Parameters<BirthdayGreeter>
+): ReturnType<BirthdayGreeter> {
+	return `Congrats ${name}, you're ${age} years young!`;
+}
+```
+
+`Parameters` grabs the arguments of the function type signature and returns an array of the types of each parameter, thus our need to use the spread (`...`) operator to apply the parameters and then and then use the destructuring (`[name, age]`) syntax to grab those arguments so we can then use them in the function body.
+
+We also see `ReturnType` which, as its name implies, grabs the type of a function type declaration (in this case `string`) so we can then apply it to our function implementation return type.
+
+Now, obviously the second example of trying to type a `function` is much more verbose and has some confusing syntax.
+
+If you're trying to conform your function to an external contract (say a functional component in React or a Handle method in Svelte), using the arrow function syntax is much cleaner and likely preferable.
+
+Heres to hoping that TypeScript develops a new way to apply types
+
+For more details, checkout [this great post by Dr. Axel Rauschmayer](https://2ality.com/2020/04/typing-functions-typescript.html) which goes much deeper into typing functions in TypeScript.
